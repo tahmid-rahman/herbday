@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -8,8 +9,11 @@
     <!-- Tailwind + Fonts -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Literata:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&family=Homemade+Apple&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Literata:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&family=Homemade+Apple&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
 
     <script>
         tailwind.config = {
@@ -104,160 +108,199 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             min-height: 100dvh;
             background: #fbfbe2;
             font-family: 'Literata', serif;
             overflow-x: hidden;
         }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
         .fill-icon {
             font-variation-settings: 'FILL' 1;
         }
 
         /* ── Animations ── */
         @keyframes float {
+
             0%,
             100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(1deg);
             }
         }
+
         @keyframes sparkle {
+
             0%,
             100% {
                 opacity: 0.3;
                 transform: scale(1);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1.2);
             }
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         @keyframes float-up {
             0% {
                 transform: translateY(0) scale(0);
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100px) scale(1);
                 opacity: 0;
             }
         }
+
         @keyframes twinkle {
+
             0%,
             100% {
                 opacity: 0.1;
                 transform: scale(0.8);
             }
+
             50% {
                 opacity: 0.8;
                 transform: scale(1.2);
             }
         }
+
         @keyframes moonPulse {
+
             0%,
             100% {
                 transform: scale(1);
                 filter: drop-shadow(0 0 40px rgba(254, 214, 91, 0.3));
             }
+
             50% {
                 transform: scale(1.02);
                 filter: drop-shadow(0 0 60px rgba(254, 214, 91, 0.5));
             }
         }
+
         @keyframes shine {
             to {
                 background-position: 200% center;
             }
         }
+
         @keyframes pulse-glow {
+
             0%,
             100% {
                 box-shadow: 0 0 20px rgba(254, 214, 91, 0.2);
             }
+
             50% {
                 box-shadow: 0 0 60px rgba(254, 214, 91, 0.6);
             }
         }
+
         @keyframes envelope-open {
             0% {
                 transform: scale(0.8) rotateY(90deg);
                 opacity: 0;
             }
+
             100% {
                 transform: scale(1) rotateY(0deg);
                 opacity: 1;
             }
         }
+
         @keyframes shake {
+
             0%,
             100% {
                 transform: translateX(0);
             }
+
             25% {
                 transform: translateX(-10px);
             }
+
             75% {
                 transform: translateX(10px);
             }
         }
+
         @keyframes star-pop {
             0% {
                 transform: scale(0.5);
                 opacity: 0;
             }
+
             60% {
                 transform: scale(1.2);
                 opacity: 1;
             }
+
             100% {
                 transform: scale(1);
                 opacity: 1;
             }
         }
+
         @keyframes card-flip {
             0% {
                 transform: rotateY(0deg);
             }
+
             100% {
                 transform: rotateY(180deg);
             }
         }
+
         @keyframes match-pop {
             0% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.15);
             }
+
             100% {
                 transform: scale(1);
             }
         }
+
         @keyframes word-drop {
             0% {
                 transform: translateY(-30px) scale(0.8);
                 opacity: 0;
             }
+
             60% {
                 transform: translateY(5px) scale(1.05);
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(0) scale(1);
                 opacity: 1;
@@ -267,9 +310,11 @@
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
+
         .animate-sparkle {
             animation: sparkle 3s ease-in-out infinite;
         }
+
         .sparkle-text {
             background: linear-gradient(to right, #fed65b 20%, #e9c349 40%, #D4AF37 60%, #fed65b 80%);
             background-size: 200% auto;
@@ -279,27 +324,34 @@
             -webkit-text-fill-color: transparent;
             animation: shine 3s linear infinite;
         }
+
         .gold-glow {
             text-shadow: 0 0 10px rgba(254, 214, 91, 0.5), 0 0 20px rgba(233, 195, 73, 0.3);
         }
+
         .moon-glow {
             filter: drop-shadow(0 0 40px rgba(254, 214, 91, 0.4));
         }
+
         .moon-pulse {
             animation: moonPulse 3s infinite ease-in-out;
         }
+
         .parchment-texture {
             background-image: url("https://www.transparenttextures.com/patterns/p6.png");
             background-color: #fbfbe2;
         }
+
         .page-reveal {
             animation: fadeAndBloom 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
+
         @keyframes fadeAndBloom {
             0% {
                 opacity: 0;
                 transform: scale(0.96);
             }
+
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -311,14 +363,17 @@
             display: none;
             animation: pageReveal 0.6s ease-out forwards;
         }
+
         .chapter.active {
             display: block;
         }
+
         @keyframes pageReveal {
             0% {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -331,6 +386,7 @@
             pointer-events: none;
             animation: float-up 2s ease-out forwards;
         }
+
         .sparkle-particle.fast {
             animation-duration: 1.2s;
         }
@@ -344,11 +400,13 @@
             position: absolute;
             z-index: 20;
         }
+
         .puzzle-piece:active {
             cursor: grabbing;
             scale: 1.05;
             z-index: 50;
         }
+
         .puzzle-piece.locked {
             cursor: default;
             scale: 1;
@@ -362,11 +420,13 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
         }
+
         .polaroid:hover {
             transform: scale(1.05) rotate(0deg) !important;
             z-index: 20;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
+
         .washi-tape {
             background-color: rgba(212, 175, 55, 0.4);
             backdrop-filter: blur(2px);
@@ -380,46 +440,57 @@
             border-left: 2px dashed rgba(255, 255, 255, 0.3);
             border-right: 2px dashed rgba(255, 255, 255, 0.3);
         }
+
         .handwriting {
             font-family: 'Homemade Apple', cursive;
             color: #5a403c;
         }
+
         .ink-input:focus {
             outline: none;
             border-bottom: 2px solid #610000;
         }
+
         .journal-entry {
             background-image: linear-gradient(#e3beb8 1px, transparent 1px);
             background-size: 100% 2rem;
             line-height: 2rem;
         }
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
         .custom-scrollbar::-webkit-scrollbar {
             width: 4px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.05);
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #fed65b;
             border-radius: 10px;
         }
+
         .star-field {
             background: linear-gradient(to bottom, #0a0a2a 0%, #1b1d0e 100%);
         }
+
         .reveal-fragment {
             transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0;
             transform: translateY(10px) scale(0.9);
         }
+
         .reveal-fragment.active {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
+
         .filigree-corner {
             pointer-events: none;
             width: 120px;
@@ -431,6 +502,7 @@
         #nav-drawer {
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         #drawer-overlay {
             transition: opacity 0.4s ease;
         }
@@ -443,6 +515,7 @@
             max-width: 300px;
             margin: 0 auto;
         }
+
         .star-cell {
             aspect-ratio: 1 / 1;
             background: rgba(255, 255, 255, 0.05);
@@ -458,42 +531,52 @@
             user-select: none;
             position: relative;
         }
+
         .star-cell:hover:not(.disabled) {
             transform: scale(1.05);
             border-color: rgba(254, 214, 91, 0.5);
         }
+
         .star-cell .star-icon {
             font-size: 2.2rem;
             color: rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
+
         .star-cell.active .star-icon {
             color: #fed65b;
             filter: drop-shadow(0 0 20px #fed65b);
             animation: star-pop 0.4s ease forwards;
         }
+
         .star-cell.active {
             border-color: #fed65b;
             box-shadow: 0 0 40px rgba(254, 214, 91, 0.6);
         }
+
         .star-cell.correct {
             border-color: #4caf50;
             box-shadow: 0 0 30px rgba(76, 175, 80, 0.4);
         }
+
         .star-cell.correct .star-icon {
             color: #4caf50;
         }
+
         .star-cell.wrong {
             animation: shake 0.4s ease;
             border-color: #f44336;
         }
+
         .star-cell.wrong .star-icon {
             color: #f44336;
         }
+
         .star-cell.disabled {
             cursor: not-allowed;
             opacity: 0.6;
         }
+
         .star-cell .cell-index {
             position: absolute;
             bottom: 2px;
@@ -524,13 +607,16 @@
             font-size: 0.9rem;
             letter-spacing: 0.05em;
         }
+
         .btn-game:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
         }
+
         .btn-game:active {
             transform: scale(0.95);
         }
+
         .btn-game:disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -554,14 +640,17 @@
             pointer-events: none;
             transition: opacity 0.5s ease;
         }
+
         .chapter-lock-overlay.show {
             opacity: 1;
             pointer-events: auto;
         }
+
         .chapter-lock-overlay .lock-icon {
             font-size: 48px;
             margin-bottom: 12px;
         }
+
         .chapter-lock-overlay p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -588,14 +677,17 @@
             transition: all 0.2s ease;
             color: #610000;
         }
+
         .code-digit.filled {
             border-color: #610000;
             background: #f5f0e8;
         }
+
         .code-digit.correct {
             border-color: #4caf50;
             background: #e8f5e9;
         }
+
         .code-digit.wrong {
             border-color: #f44336;
             background: #ffebee;
@@ -607,10 +699,12 @@
             transition: all 0.2s ease;
             user-select: none;
         }
+
         .code-key-btn:hover {
             transform: scale(1.05);
             background: #fed65b !important;
         }
+
         .code-key-btn:active {
             transform: scale(0.95);
         }
@@ -631,19 +725,23 @@
             transition: all 0.2s ease;
             color: #610000;
         }
+
         .crypto-letter:hover {
             border-color: #610000;
             transform: scale(1.05);
         }
+
         .crypto-letter.filled {
             border-color: #610000;
             background: rgba(254, 214, 91, 0.1);
         }
+
         .crypto-letter.hint-highlight {
             border-color: #fed65b;
             background: rgba(254, 214, 91, 0.2);
             animation: pulse-glow 1s infinite;
         }
+
         .crypto-key {
             display: inline-block;
             width: 28px;
@@ -660,10 +758,12 @@
             color: #5a403c;
             border: 1px solid transparent;
         }
+
         .crypto-key:hover {
             border-color: #8e706b;
             transform: scale(1.1);
         }
+
         .crypto-key.active {
             border-color: #610000;
             background: #fed65b;
@@ -678,6 +778,7 @@
             cursor: pointer;
             user-select: none;
         }
+
         .memory-card-inner {
             position: relative;
             width: 100%;
@@ -687,16 +788,20 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
         .memory-card.flipped .memory-card-inner {
             transform: rotateY(180deg);
         }
+
         .memory-card.matched .memory-card-inner {
             animation: match-pop 0.4s ease;
         }
+
         .memory-card.matched .memory-card-front {
             border-color: #4caf50;
             box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
         }
+
         .memory-card-front,
         .memory-card-back {
             position: absolute;
@@ -712,6 +817,7 @@
             background: #fdfdf0;
             transition: border-color 0.3s ease;
         }
+
         .memory-card-front {
             transform: rotateY(180deg);
             background: #f5f0e8;
@@ -720,6 +826,7 @@
             color: #610000;
             font-size: 2rem;
         }
+
         .memory-card-back {
             background: linear-gradient(145deg, #610000, #8b0000);
             color: #fed65b;
@@ -727,14 +834,17 @@
             border-color: #fed65b;
             box-shadow: inset 0 0 30px rgba(254, 214, 91, 0.1);
         }
+
         .memory-card-back .card-icon {
             font-size: 3rem;
             animation: sparkle 3s ease-in-out infinite;
         }
+
         .memory-card:hover:not(.flipped):not(.matched) .memory-card-back {
             border-color: #fed65b;
             box-shadow: 0 0 30px rgba(254, 214, 91, 0.2);
         }
+
         .memory-card.disabled {
             cursor: not-allowed;
             opacity: 0.7;
@@ -759,15 +869,18 @@
             position: relative;
             z-index: 1;
         }
+
         .scramble-word:hover {
             transform: scale(1.05);
             border-color: #610000;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
+
         .scramble-word:active {
             cursor: grabbing;
             transform: scale(0.95);
         }
+
         .scramble-word.placed {
             background: #e8f5e9;
             border-color: #4caf50;
@@ -776,10 +889,12 @@
             animation: word-drop 0.5s ease forwards;
             pointer-events: none;
         }
+
         .scramble-word.wrong {
             animation: shake 0.4s ease;
             border-color: #f44336;
         }
+
         .scramble-slot {
             display: inline-flex;
             align-items: center;
@@ -797,11 +912,13 @@
             background: rgba(255, 255, 255, 0.3);
             position: relative;
         }
+
         .scramble-slot.highlight {
             border-color: #fed65b;
             background: rgba(254, 214, 91, 0.1);
             box-shadow: 0 0 20px rgba(254, 214, 91, 0.1);
         }
+
         .scramble-slot.filled {
             border-style: solid;
             border-color: #4caf50;
@@ -809,6 +926,7 @@
             color: #610000;
             font-weight: 700;
         }
+
         .scramble-slot .slot-word {
             display: inline-block;
             animation: word-drop 0.4s ease forwards;
@@ -818,10 +936,12 @@
         .envelope-modal {
             animation: envelope-open 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
+
         .envelope-modal .envelope-icon {
             font-size: 72px;
             animation: float 3s ease-in-out infinite;
         }
+
         .code-digit-reveal {
             display: inline-block;
             width: 48px;
@@ -846,6 +966,7 @@
             cursor: pointer;
             border: 2px solid transparent;
         }
+
         .gallery-img:hover {
             transform: scale(1.05);
             border-color: #fed65b;
@@ -857,9 +978,11 @@
         ::-webkit-scrollbar {
             width: 4px;
         }
+
         ::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.05);
         }
+
         ::-webkit-scrollbar-thumb {
             background: #fed65b;
             border-radius: 10px;
@@ -883,10 +1006,12 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .btn-next-chapter:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
         }
+
         .btn-next-chapter:active {
             transform: scale(0.95);
         }
@@ -898,6 +1023,7 @@
             position: relative;
             margin: 0 auto;
         }
+
         .cipher-wheel .char {
             position: absolute;
             width: 32px;
@@ -915,10 +1041,12 @@
             border: 1px solid #e3beb8;
             font-size: 0.9rem;
         }
+
         .cipher-wheel .char:hover {
             background: #fed65b;
             border-color: #610000;
         }
+
         .cipher-wheel .char.active-char {
             background: #fed65b;
             border-color: #610000;
@@ -940,24 +1068,28 @@
             font-weight: 700;
             font-size: 22px;
             color: #610000;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             cursor: pointer;
             transition: all 0.2s ease;
             margin: 0 4px;
             user-select: none;
         }
+
         .morse-letter-slot:hover:not(.filled) {
             border-color: #fed65b;
-            background: rgba(254,214,91,0.15);
+            background: rgba(254, 214, 91, 0.15);
         }
+
         .morse-letter-slot.active {
             border-color: #fed65b;
             box-shadow: 0 0 15px #fed65b;
         }
+
         .morse-letter-slot.filled {
-            background: rgba(254,214,91,0.2);
+            background: rgba(254, 214, 91, 0.2);
             border-color: #610000;
         }
+
         .morse-key-btn {
             width: 40px;
             height: 40px;
@@ -972,19 +1104,24 @@
             color: #610000;
             transition: all 0.2s ease;
         }
+
         .morse-key-btn:hover {
             background: #fed65b;
             transform: scale(1.05);
         }
+
         .morse-key-btn:active {
             transform: scale(0.95);
         }
     </style>
 </head>
+
 <body>
 
     <!-- TOP NAVIGATION BAR -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md flex justify-between items-center px-page-margin py-3 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]" id="top-nav">
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md flex justify-between items-center px-page-margin py-3 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]"
+        id="top-nav">
         <div class="flex items-center gap-3">
             <button class="text-primary scale-95 active:scale-90 transition-transform duration-300" id="menu-btn">
                 <span class="material-symbols-outlined">menu</span>
@@ -992,8 +1129,10 @@
             <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary italic">The Book of Us</h1>
         </div>
         <div class="flex items-center gap-4">
-            <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="chapter-indicator">Home</span>
-            <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="code-display-small">🔑 _ _ _ _ _ _ _</span>
+            <span class="text-on-surface-variant text-sm font-note-body hidden md:block"
+                id="chapter-indicator">Home</span>
+            <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="code-display-small">🔑 _ _
+                _ _ _ _ _</span>
             <button class="text-primary scale-95 active:scale-90 transition-transform duration-300">
                 <span class="material-symbols-outlined" style="font-variation-settings:'FILL'1;">lock</span>
             </button>
@@ -1001,14 +1140,16 @@
     </header>
 
     <!-- SIDE DRAWER -->
-    <div class="fixed inset-y-0 left-0 z-[60] flex flex-col py-section-padding bg-surface/95 backdrop-blur-md shadow-2xl h-full w-80 rounded-r-full -translate-x-full transition-transform duration-500 border-r border-outline-variant/30" id="nav-drawer">
+    <div class="fixed inset-y-0 left-0 z-[60] flex flex-col py-section-padding bg-surface/95 backdrop-blur-md shadow-2xl h-full w-80 rounded-r-full -translate-x-full transition-transform duration-500 border-r border-outline-variant/30"
+        id="nav-drawer">
         <div class="px-8 mb-8 flex items-center gap-4">
             <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary">
                 <span class="material-symbols-outlined text-2xl fill-icon">extension</span>
             </div>
             <div>
                 <h3 class="font-headline-lg-mobile text-primary text-xl">A Story of Us</h3>
-                <p class="text-on-surface-variant text-sm font-note-body"><span id="puzzle-count">0</span> of 12 puzzles found</p>
+                <p class="text-on-surface-variant text-sm font-note-body"><span id="puzzle-count">0</span> of 12 puzzles
+                    found</p>
             </div>
         </div>
         <nav class="flex flex-col gap-2" id="drawer-nav">
@@ -1017,7 +1158,8 @@
         <div class="mt-auto px-8 pt-4 border-t border-outline-variant/30">
             <div class="flex items-center gap-2 text-sm text-on-surface-variant">
                 <span class="material-symbols-outlined text-sm">key</span>
-                <span>Code: <span id="drawer-code-display" class="font-bold text-primary tracking-widest">_ _ _ _ _ _ _</span></span>
+                <span>Code: <span id="drawer-code-display" class="font-bold text-primary tracking-widest">_ _ _ _ _ _
+                        _</span></span>
             </div>
             <p class="font-note-body italic text-primary text-sm mt-2">A digital heirloom</p>
         </div>
@@ -1030,66 +1172,102 @@
         <!-- CHAPTER 0: HOME -->
         <section class="chapter active" data-chapter="0" data-title="Home" data-completed="true">
             <div class="max-w-4xl mx-auto px-page-margin py-8">
-                <div class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-16 relative border border-outline-variant/30">
+                <div
+                    class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-16 relative border border-outline-variant/30">
                     <div class="absolute top-0 left-0 w-24 h-24 opacity-40">
-                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                        <span
+                            class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
                     </div>
                     <div class="absolute top-0 right-0 w-24 h-24 opacity-40 rotate-90">
-                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                        <span
+                            class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
                     </div>
                     <div class="absolute bottom-0 left-0 w-24 h-24 opacity-40 -rotate-90">
-                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                        <span
+                            class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
                     </div>
                     <div class="absolute bottom-0 right-0 w-24 h-24 opacity-40 rotate-180">
-                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                        <span
+                            class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
                     </div>
                     <div class="flex flex-col items-center text-center space-y-8">
                         <div class="space-y-2">
-                            <h1 class="font-headline-lg text-headline-lg md:text-6xl text-primary drop-shadow-sm">The Book of Us</h1>
-                            <p class="font-note-body text-note-body italic text-on-surface-variant">A story written by two hearts.</p>
+                            <h1 class="font-headline-lg text-headline-lg md:text-6xl text-primary drop-shadow-sm">The
+                                Book of Us</h1>
+                            <p class="font-note-body text-note-body italic text-on-surface-variant">A story written by
+                                two hearts.</p>
                         </div>
-                        <div class="relative w-64 h-80 md:w-80 md:h-96 my-12 animate-float gold-glow group cursor-pointer" id="home-book">
-                            <div class="absolute inset-0 bg-primary rounded-r-lg shadow-2xl border-l-8 border-primary-container transform group-hover:rotate-y-6 transition-transform"></div>
-                            <div class="absolute top-4 left-4 right-4 bottom-4 border-2 border-secondary-container/50 rounded-md flex flex-col items-center justify-center space-y-4 p-6">
-                                <span class="material-symbols-outlined text-secondary text-7xl md:text-8xl fill-icon">auto_stories</span>
-                                <div class="w-12 h-0.5 bg-secondary-container"></div>
-                                <div class="font-headline-lg text-secondary-container text-xl uppercase tracking-widest">Chapters of Life</div>
+                        <div class="relative w-64 h-80 md:w-80 md:h-96 my-12 animate-float gold-glow group cursor-pointer"
+                            id="home-book">
+                            <div
+                                class="absolute inset-0 bg-primary rounded-r-lg shadow-2xl border-l-8 border-primary-container transform group-hover:rotate-y-6 transition-transform">
                             </div>
-                            <span class="absolute -top-4 -right-4 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-3xl fill-icon">spark</span>
-                            <span class="absolute bottom-1/4 -left-6 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-2xl fill-icon" style="animation-delay:1s">star</span>
-                            <span class="absolute top-1/2 -right-8 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-2xl fill-icon" style="animation-delay:2s">favorite</span>
+                            <div
+                                class="absolute top-4 left-4 right-4 bottom-4 border-2 border-secondary-container/50 rounded-md flex flex-col items-center justify-center space-y-4 p-6">
+                                <span
+                                    class="material-symbols-outlined text-secondary text-7xl md:text-8xl fill-icon">auto_stories</span>
+                                <div class="w-12 h-0.5 bg-secondary-container"></div>
+                                <div
+                                    class="font-headline-lg text-secondary-container text-xl uppercase tracking-widest">
+                                    Chapters of Life</div>
+                            </div>
+                            <span
+                                class="absolute -top-4 -right-4 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-3xl fill-icon">spark</span>
+                            <span
+                                class="absolute bottom-1/4 -left-6 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-2xl fill-icon"
+                                style="animation-delay:1s">star</span>
+                            <span
+                                class="absolute top-1/2 -right-8 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-2xl fill-icon"
+                                style="animation-delay:2s">favorite</span>
                         </div>
                         <div class="w-full max-w-md space-y-6">
                             <div class="flex items-center justify-center gap-4 text-primary">
                                 <span class="material-symbols-outlined">celebration</span>
-                                <h2 class="font-button-label text-button-label tracking-widest uppercase">Affin's Birthday Surprise</h2>
+                                <h2 class="font-button-label text-button-label tracking-widest uppercase">Affin's
+                                    Birthday Surprise</h2>
                                 <span class="material-symbols-outlined">celebration</span>
                             </div>
                             <div class="grid grid-cols-4 gap-4">
-                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                <div
+                                    class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
                                     <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="days">00</span>
-                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Days</span>
+                                    <span
+                                        class="font-button-label text-[10px] text-on-surface-variant uppercase">Days</span>
                                 </div>
-                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
-                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="hours">00</span>
-                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Hours</span>
+                                <div
+                                    class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl"
+                                        id="hours">00</span>
+                                    <span
+                                        class="font-button-label text-[10px] text-on-surface-variant uppercase">Hours</span>
                                 </div>
-                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
-                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="minutes">00</span>
-                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Mins</span>
+                                <div
+                                    class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl"
+                                        id="minutes">00</span>
+                                    <span
+                                        class="font-button-label text-[10px] text-on-surface-variant uppercase">Mins</span>
                                 </div>
-                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
-                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="seconds">00</span>
-                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Secs</span>
+                                <div
+                                    class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl"
+                                        id="seconds">00</span>
+                                    <span
+                                        class="font-button-label text-[10px] text-on-surface-variant uppercase">Secs</span>
                                 </div>
                             </div>
-                            <p class="font-note-body text-lg text-on-surface-variant italic py-4">"The secret unfolds when the clock strikes twelve."</p>
-                            <button class="relative group bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-container px-10 py-4 rounded-full font-button-label shadow-lg hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95 overflow-hidden" onclick="goToChapter(1)">
+                            <p class="font-note-body text-lg text-on-surface-variant italic py-4">"The secret unfolds
+                                when the clock strikes twelve."</p>
+                            <button
+                                class="relative group bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-container px-10 py-4 rounded-full font-button-label shadow-lg hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95 overflow-hidden"
+                                onclick="goToChapter(1)">
                                 <span class="relative z-10 flex items-center gap-2">
                                     Begin the Journey
                                     <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
                                 </span>
-                                <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div
+                                    class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                                </div>
                             </button>
                         </div>
                     </div>
@@ -1100,45 +1278,69 @@
         <!-- CHAPTER 1: The Invitation -->
         <section class="chapter" data-chapter="1" data-title="The Invitation" data-digit="1" data-completed="false">
             <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
-                <div class="relative bg-surface parchment-texture rounded-sm shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-700 hover:shadow-2xl">
+                <div
+                    class="relative bg-surface parchment-texture rounded-sm shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-700 hover:shadow-2xl">
                     <div class="absolute inset-0 border-[1px] border-primary/10 m-4 pointer-events-none"></div>
                     <div class="absolute top-0 left-0 p-6 text-primary/30">
-                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'opsz'48;">flare</span>
+                        <span class="material-symbols-outlined text-4xl"
+                            style="font-variation-settings:'opsz'48;">flare</span>
                     </div>
                     <div class="absolute top-0 right-0 p-6 text-primary/30 rotate-90">
-                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'opsz'48;">flare</span>
+                        <span class="material-symbols-outlined text-4xl"
+                            style="font-variation-settings:'opsz'48;">flare</span>
                     </div>
                     <div class="absolute bottom-0 right-0 p-6 text-primary/30 -rotate-180">
-                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'opsz'48;">flare</span>
+                        <span class="material-symbols-outlined text-4xl"
+                            style="font-variation-settings:'opsz'48;">flare</span>
                     </div>
-                    <div class="relative z-10 px-8 py-20 md:px-16 md:py-28 flex flex-col items-center text-center space-y-12 page-fold-shadow min-h-[600px]">
+                    <div
+                        class="relative z-10 px-8 py-20 md:px-16 md:py-28 flex flex-col items-center text-center space-y-12 page-fold-shadow min-h-[600px]">
                         <div class="space-y-2">
-                            <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter I</span>
-                            <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary italic">The Invitation</h2>
+                            <span
+                                class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter
+                                I</span>
+                            <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary italic">The
+                                Invitation</h2>
                             <div class="w-16 h-[1px] bg-secondary-container mx-auto mt-4"></div>
                         </div>
                         <div class="space-y-8 max-w-md">
-                            <p class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_forwards]">"Hello Affin."</p>
-                            <p class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_0.8s_forwards]">"This book contains a secret."</p>
-                            <p class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_1.6s_forwards]">"To discover it, you must finish every chapter."</p>
+                            <p
+                                class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_forwards]">
+                                "Hello Affin."</p>
+                            <p
+                                class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_0.8s_forwards]">
+                                "This book contains a secret."</p>
+                            <p
+                                class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_1.6s_forwards]">
+                                "To discover it, you must finish every chapter."</p>
                         </div>
-                        <div class="relative mt-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500 group">
-                            <div class="bg-[#fdfdfd] p-3 pb-12 shadow-md border border-surface-variant w-64 h-64 flex items-center justify-center overflow-hidden relative">
-                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv-5Je-EpAJ0ZBfpTdQm4OskrXk8tE35IL6vsZYngmPG9bcXaqorK-ESaq805WBjMFWlgizFe37Wkucjnzy85z_VFpSg6k_SmYf-b86Fzgl0bAzSpxHPngrKhb8ARgMWSEWJjuTbvQQzuofx4uHHvMVMY2Ku9oK5G0l87v11wyn5qV5A7Z4k5hFuSB6QYLWhwm2gJ_ihkt_twrdWpdvDAKBlpDKME5dZleiPlKSMdzz8Tm75RMuJZZK45RD_12Tgmw8YgfDOONz1c" alt="Wax seal" />
-                                <div class="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer" onclick="completeChapter(1)">
-                                    <p class="text-on-primary font-note-body text-lg italic px-4 text-center">"The first step is always the hardest.<br/>Click to begin your journey."</p>
+                        <div
+                            class="relative mt-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500 group">
+                            <div
+                                class="bg-[#fdfdfd] p-3 pb-12 shadow-md border border-surface-variant w-64 h-64 flex items-center justify-center overflow-hidden relative">
+                                <img class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv-5Je-EpAJ0ZBfpTdQm4OskrXk8tE35IL6vsZYngmPG9bcXaqorK-ESaq805WBjMFWlgizFe37Wkucjnzy85z_VFpSg6k_SmYf-b86Fzgl0bAzSpxHPngrKhb8ARgMWSEWJjuTbvQQzuofx4uHHvMVMY2Ku9oK5G0l87v11wyn5qV5A7Z4k5hFuSB6QYLWhwm2gJ_ihkt_twrdWpdvDAKBlpDKME5dZleiPlKSMdzz8Tm75RMuJZZK45RD_12Tgmw8YgfDOONz1c"
+                                    alt="Wax seal" />
+                                <div class="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer"
+                                    onclick="completeChapter(1)">
+                                    <p class="text-on-primary font-note-body text-lg italic px-4 text-center">"The first
+                                        step is always the hardest.<br />Click to begin your journey."</p>
                                 </div>
                             </div>
                             <div class="absolute bottom-2 left-0 right-0 text-center">
-                                <span class="handwritten text-on-surface-variant text-sm opacity-60 italic">The First Step — click the seal</span>
+                                <span class="handwritten text-on-surface-variant text-sm opacity-60 italic">The First
+                                    Step — click the seal</span>
                             </div>
                         </div>
                         <div class="pt-4">
-                            <button class="group relative inline-flex items-center gap-2 px-8 py-3 bg-secondary-container/20 rounded-full border border-secondary-container/50 hover:bg-secondary-container/40 transition-all duration-300 transform active:scale-95" onclick="goToChapter(2)">
+                            <button
+                                class="group relative inline-flex items-center gap-2 px-8 py-3 bg-secondary-container/20 rounded-full border border-secondary-container/50 hover:bg-secondary-container/40 transition-all duration-300 transform active:scale-95"
+                                onclick="goToChapter(2)">
                                 <span class="handwritten text-note-body text-primary gold-glow">Turn Page →</span>
                             </button>
                         </div>
-                        <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Click the wax seal to begin.</div>
+                        <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Click the wax seal to
+                            begin.</div>
                     </div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-1">
@@ -1151,32 +1353,39 @@
         <!-- CHAPTER 2: The Lost Star -->
         <section class="chapter" data-chapter="2" data-title="The Lost Star" data-digit="2" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
-                <div class="bg-surface border-4 border-double border-outline-variant shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] rounded-lg p-8 md:p-12 text-center min-h-[600px] flex flex-col justify-between relative">
+                <div
+                    class="bg-surface border-4 border-double border-outline-variant shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] rounded-lg p-8 md:p-12 text-center min-h-[600px] flex flex-col justify-between relative">
                     <header class="mb-6">
                         <span class="font-note-body text-secondary italic">Chapter 2</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Lost Star</h2>
                         <div class="w-24 h-px bg-primary mx-auto mt-4 opacity-30"></div>
-                        <p class="font-body-main text-on-surface-variant mt-3 italic text-sm">"Follow the star's trail — repeat the sequence to find your way."</p>
+                        <p class="font-body-main text-on-surface-variant mt-3 italic text-sm">"Follow the star's trail —
+                            repeat the sequence to find your way."</p>
                     </header>
 
                     <div class="star-field rounded-xl p-6 relative" style="min-height: 420px;">
                         <div class="absolute inset-0 pointer-events-none overflow-hidden">
                             <div class="absolute top-10 left-10 animate-sparkle" style="animation-delay:0.2s;">
-                                <span class="material-symbols-outlined text-secondary-fixed-dim text-xs opacity-20">star</span>
+                                <span
+                                    class="material-symbols-outlined text-secondary-fixed-dim text-xs opacity-20">star</span>
                             </div>
                             <div class="absolute bottom-20 right-16 animate-sparkle" style="animation-delay:1.5s;">
-                                <span class="material-symbols-outlined text-secondary-fixed-dim text-sm opacity-20">star</span>
+                                <span
+                                    class="material-symbols-outlined text-secondary-fixed-dim text-sm opacity-20">star</span>
                             </div>
                             <div class="absolute top-32 right-8 animate-sparkle" style="animation-delay:0.8s;">
-                                <span class="material-symbols-outlined text-secondary-fixed-dim text-xs opacity-20">star</span>
+                                <span
+                                    class="material-symbols-outlined text-secondary-fixed-dim text-xs opacity-20">star</span>
                             </div>
                             <div class="absolute bottom-12 left-24 animate-sparkle" style="animation-delay:2.2s;">
-                                <span class="material-symbols-outlined text-secondary-fixed-dim text-sm opacity-20">star</span>
+                                <span
+                                    class="material-symbols-outlined text-secondary-fixed-dim text-sm opacity-20">star</span>
                             </div>
                         </div>
 
                         <div class="relative z-10 flex flex-col items-center">
-                            <div class="flex justify-between w-full max-w-xs mb-4 text-sm text-surface-container-low/70">
+                            <div
+                                class="flex justify-between w-full max-w-xs mb-4 text-sm text-surface-container-low/70">
                                 <span id="star-round-display" class="game-status">Round 1</span>
                                 <span id="star-length-display" class="game-status">Length: 3</span>
                             </div>
@@ -1187,14 +1396,19 @@
 
                             <div class="mt-6 flex flex-col items-center gap-3">
                                 <button class="btn-game" id="star-start-btn">Start Game</button>
-                                <p class="text-xs text-surface-container-low/50 italic" id="star-hint">Click "Start Game" to begin. Watch the stars light up, then repeat the sequence.</p>
+                                <p class="text-xs text-surface-container-low/50 italic" id="star-hint">Click "Start
+                                    Game" to begin. Watch the stars light up, then repeat the sequence.</p>
                             </div>
 
                             <div class="mt-6 space-y-4 opacity-0 transition-all duration-1000 hidden" id="star-success">
-                                <p class="font-note-body text-tertiary text-2xl italic">"🌟 You've mastered the star trail!"</p>
-                                <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
-                                    <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                                    <span class="font-button-label text-secondary uppercase tracking-widest">Star sequence complete!</span>
+                                <p class="font-note-body text-tertiary text-2xl italic">"🌟 You've mastered the star
+                                    trail!"</p>
+                                <div
+                                    class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
+                                    <span
+                                        class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                                    <span class="font-button-label text-secondary uppercase tracking-widest">Star
+                                        sequence complete!</span>
                                 </div>
                                 <button class="btn-next-chapter mx-auto" onclick="completeChapter(2)">
                                     Next Chapter →
@@ -1203,7 +1417,8 @@
                         </div>
                     </div>
 
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Watch the stars carefully. Click them in the exact order they lit up.</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Watch the stars carefully.
+                        Click them in the exact order they lit up.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-2">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1215,27 +1430,40 @@
         <!-- CHAPTER 3: Memory Match -->
         <section class="chapter" data-chapter="3" data-title="Memories" data-digit="3" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
-                <div class="paper-canvas bg-[#fdfdf0] rounded-xl p-8 md:p-12 relative overflow-hidden shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.1)]">
-                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl"></div>
-                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl"></div>
-                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl"></div>
-                    <div class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl"></div>
+                <div
+                    class="paper-canvas bg-[#fdfdf0] rounded-xl p-8 md:p-12 relative overflow-hidden shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.1)]">
+                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl">
+                    </div>
+                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl">
+                    </div>
+                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl">
+                    </div>
+                    <div
+                        class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl">
+                    </div>
 
                     <div class="text-center mb-6">
-                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter 3</span>
+                        <span
+                            class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter
+                            3</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Memory Match</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Flip the cards and find the matching pairs. Each match reveals a letter."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Flip the cards and find
+                            the matching pairs. Each match reveals a letter."</p>
                     </div>
 
                     <div class="flex justify-between items-center max-w-md mx-auto mb-6 text-sm">
-                        <span class="font-note-body text-on-surface-variant">Matches: <span id="match-count" class="font-bold text-primary">0</span>/8</span>
-                        <span class="font-note-body text-on-surface-variant">Flips: <span id="flip-count" class="font-bold text-primary">0</span></span>
-                        <span class="font-note-body text-on-surface-variant">Time: <span id="timer-display" class="font-bold text-primary">0s</span></span>
+                        <span class="font-note-body text-on-surface-variant">Matches: <span id="match-count"
+                                class="font-bold text-primary">0</span>/8</span>
+                        <span class="font-note-body text-on-surface-variant">Flips: <span id="flip-count"
+                                class="font-bold text-primary">0</span></span>
+                        <span class="font-note-body text-on-surface-variant">Time: <span id="timer-display"
+                                class="font-bold text-primary">0s</span></span>
                     </div>
 
                     <div class="text-center mb-6 min-h-[3rem]">
                         <span class="text-sm text-on-surface-variant/60">Revealed letters: </span>
-                        <span id="revealed-letters-display" class="font-headline-lg text-primary tracking-[0.3em]"></span>
+                        <span id="revealed-letters-display"
+                            class="font-headline-lg text-primary tracking-[0.3em]"></span>
                     </div>
 
                     <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto" id="memory-grid">
@@ -1243,12 +1471,18 @@
                     </div>
 
                     <div class="mt-6 text-center">
-                        <button class="px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full hover:scale-105 transition-all active:scale-95 shadow-md" onclick="resetMemoryGame()">🔄 New Game</button>
+                        <button
+                            class="px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full hover:scale-105 transition-all active:scale-95 shadow-md"
+                            onclick="resetMemoryGame()">🔄 New Game</button>
                         <div class="mt-4 opacity-0 transition-all duration-1000 hidden" id="memory-success">
-                            <p class="font-note-body text-tertiary text-xl italic">"🧠 You've unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"</p>
-                            <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
-                                <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                                <span class="font-button-label text-secondary uppercase tracking-widest">All memories found!</span>
+                            <p class="font-note-body text-tertiary text-xl italic">"🧠 You've unlocked the memory! The
+                                word is: <span class="text-primary font-bold">MEMORIES</span>"</p>
+                            <div
+                                class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                                <span
+                                    class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                                <span class="font-button-label text-secondary uppercase tracking-widest">All memories
+                                    found!</span>
                             </div>
                             <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(3)">
                                 Next Chapter →
@@ -1256,7 +1490,8 @@
                         </div>
                     </div>
 
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: Find all 8 pairs to reveal the hidden word. Each pair gives you a letter.</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: Find all 8 pairs to
+                        reveal the hidden word. Each pair gives you a letter.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-3">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1266,24 +1501,35 @@
         </section>
 
         <!-- CHAPTER 4: The Heart's Question -->
-        <section class="chapter" data-chapter="4" data-title="The Heart's Question" data-digit="4" data-completed="false">
+        <section class="chapter" data-chapter="4" data-title="The Heart's Question" data-digit="4"
+            data-completed="false">
             <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
-                <div class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
-                    <div class="filigree-corner top-0 left-0 border-t-4 border-l-4 border-secondary-container/40 rounded-tl-full m-4"></div>
-                    <div class="filigree-corner top-0 right-0 border-t-4 border-r-4 border-secondary-container/40 rounded-tr-full m-4"></div>
-                    <div class="filigree-corner bottom-0 left-0 border-b-4 border-l-4 border-secondary-container/40 rounded-bl-full m-4"></div>
-                    <div class="filigree-corner bottom-0 right-0 border-b-4 border-r-4 border-secondary-container/40 rounded-br-full m-4"></div>
+                <div
+                    class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
+                    <div
+                        class="filigree-corner top-0 left-0 border-t-4 border-l-4 border-secondary-container/40 rounded-tl-full m-4">
+                    </div>
+                    <div
+                        class="filigree-corner top-0 right-0 border-t-4 border-r-4 border-secondary-container/40 rounded-tr-full m-4">
+                    </div>
+                    <div
+                        class="filigree-corner bottom-0 left-0 border-b-4 border-l-4 border-secondary-container/40 rounded-bl-full m-4">
+                    </div>
+                    <div
+                        class="filigree-corner bottom-0 right-0 border-b-4 border-r-4 border-secondary-container/40 rounded-br-full m-4">
+                    </div>
                     <div class="text-center mb-8">
                         <span class="font-button-label text-secondary tracking-[0.2em] uppercase">Chapter IV</span>
                         <h2 class="font-headline-lg text-primary mt-2">The Heart's Question</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Solve the riddle, then use the cipher to reveal the answer."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Solve the riddle, then
+                            use the cipher to reveal the answer."</p>
                     </div>
 
                     <div class="glass-panel rounded-xl p-6 mb-8 border-2 border-dashed border-outline-variant">
                         <p class="font-note-body text-tertiary text-xl italic text-center leading-relaxed">
-                            "I have no voice, but I speak to you.<br/>
-                            I have no wings, but I fly to you.<br/>
-                            I have no hands, but I hold you close.<br/>
+                            "I have no voice, but I speak to you.<br />
+                            I have no wings, but I fly to you.<br />
+                            I have no hands, but I hold you close.<br />
                             What am I?"
                         </p>
                     </div>
@@ -1292,7 +1538,8 @@
                         <div class="cipher-wheel" id="cipher-wheel">
                             <!-- Letters placed by JS -->
                         </div>
-                        <p class="text-xs text-on-surface-variant mt-3">Click a letter on the wheel, then click the answer slot to fill it.</p>
+                        <p class="text-xs text-on-surface-variant mt-3">Click a letter on the wheel, then click the
+                            answer slot to fill it.</p>
                     </div>
 
                     <div class="flex flex-col items-center gap-4">
@@ -1303,23 +1550,32 @@
                             <div class="crypto-letter" data-index="3"></div>
                         </div>
                         <div class="flex gap-2">
-                            <button class="px-4 py-2 bg-outline-variant/30 rounded-lg text-sm font-button-label hover:bg-outline-variant/50 transition" onclick="clearCipherAnswer()">Clear</button>
-                            <button class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition" onclick="checkCipherAnswer()">Check Answer</button>
+                            <button
+                                class="px-4 py-2 bg-outline-variant/30 rounded-lg text-sm font-button-label hover:bg-outline-variant/50 transition"
+                                onclick="clearCipherAnswer()">Clear</button>
+                            <button
+                                class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition"
+                                onclick="checkCipherAnswer()">Check Answer</button>
                         </div>
-                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: The answer is 4 letters long. Click a letter then a slot.</p>
+                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: The answer is 4
+                            letters long. Click a letter then a slot.</p>
                     </div>
 
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="cipher-success">
-                        <p class="font-note-body text-tertiary text-xl italic">"<span class="text-primary font-bold">LOVE</span> — the heart's true answer."</p>
-                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                        <p class="font-note-body text-tertiary text-xl italic">"<span
+                                class="text-primary font-bold">LOVE</span> — the heart's true answer."</p>
+                        <div
+                            class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                            <span class="font-button-label text-secondary uppercase tracking-widest">Riddle solved!</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Riddle
+                                solved!</span>
                         </div>
                         <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(4)">
                             Next Chapter →
                         </button>
                     </div>
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is what you feel for someone special. Use the wheel to spell it out.</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is what you feel for
+                        someone special. Use the wheel to spell it out.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-4">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1331,23 +1587,32 @@
         <!-- CHAPTER 5: The Love Letter -->
         <section class="chapter" data-chapter="5" data-title="The Love Letter" data-digit="5" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
-                <div class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
+                <div
+                    class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
                     <div class="absolute top-0 left-0 filigree-corner">
-                        <img class="w-full h-full object-contain opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHaZodkaQj5BQKD4RMzQVTYb4uH-YhXpH-srIah23yhNQKGZY5MjIymetynazQpQzVkOpMFkFC0FGqgwVLUtalkbPWoBsEu7jFg_ed1-Oy4ZpPTiuj5hXNQeUXma4Y_o4x4ZhhUXD2s7ZEGgO6CTJPH1H2VkQeDqyj6CLUR2OH_y1X1JRYmZowu59sL997f3Y-W0343b0GuSdMIX-iRP4In73A_8Cf5FBDGObsVmG5MYwk8G4OgTrEjqHRtoc-_FcvSrsOm_LY9rc" alt="Filigree" />
+                        <img class="w-full h-full object-contain opacity-40"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHaZodkaQj5BQKD4RMzQVTYb4uH-YhXpH-srIah23yhNQKGZY5MjIymetynazQpQzVkOpMFkFC0FGqgwVLUtalkbPWoBsEu7jFg_ed1-Oy4ZpPTiuj5hXNQeUXma4Y_o4x4ZhhUXD2s7ZEGgO6CTJPH1H2VkQeDqyj6CLUR2OH_y1X1JRYmZowu59sL997f3Y-W0343b0GuSdMIX-iRP4In73A_8Cf5FBDGObsVmG5MYwk8G4OgTrEjqHRtoc-_FcvSrsOm_LY9rc"
+                            alt="Filigree" />
                     </div>
                     <div class="absolute top-0 right-0 filigree-corner scale-x-[-1]">
-                        <img class="w-full h-full object-contain opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjjuuy7yJ4LrWm5-TRi-vtFZJLnPWEvTPAM3kagzAgBheRZb1orFenlRk5Wh5b0-tFj_RXYC69wIaZKMnTl8Yp0_M8IN6UYjOY2O1OPSLRJl1yxBACWo6fYeF1TqyE9qOkH8wSKdoz4QZvMSJE_pUTsDalfKxV59mc-vfh-Zmp_ku2Q_1JBmOAI0VjntVyVAZFr4LZNgN1nt3SX816S8vugUr9sDcjOZlBta3opEM7xdHDaikcWzc_Okkm_Xwxe_QalZKrUZv_vSA" alt="Filigree" />
+                        <img class="w-full h-full object-contain opacity-40"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjjuuy7yJ4LrWm5-TRi-vtFZJLnPWEvTPAM3kagzAgBheRZb1orFenlRk5Wh5b0-tFj_RXYC69wIaZKMnTl8Yp0_M8IN6UYjOY2O1OPSLRJl1yxBACWo6fYeF1TqyE9qOkH8wSKdoz4QZvMSJE_pUTsDalfKxV59mc-vfh-Zmp_ku2Q_1JBmOAI0VjntVyVAZFr4LZNgN1nt3SX816S8vugUr9sDcjOZlBta3opEM7xdHDaikcWzc_Okkm_Xwxe_QalZKrUZv_vSA"
+                            alt="Filigree" />
                     </div>
 
                     <div class="text-center mb-6">
-                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter V</span>
+                        <span
+                            class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter
+                            V</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Love Letter</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Drag the words into the correct order to reveal the love letter."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Drag the words into the
+                            correct order to reveal the love letter."</p>
                     </div>
 
                     <!-- Scrambled words -->
                     <div class="mb-6 text-center">
-                        <p class="text-sm text-on-surface-variant/60 mb-3">✧ Scrambled words — drag them to the slots below ✧</p>
+                        <p class="text-sm text-on-surface-variant/60 mb-3">✧ Scrambled words — drag them to the slots
+                            below ✧</p>
                         <div class="flex flex-wrap justify-center gap-3" id="scramble-words-container">
                             <!-- Words generated by JS -->
                         </div>
@@ -1363,23 +1628,29 @@
 
                     <!-- Hint & progress -->
                     <div class="mt-4 text-center">
-                        <p class="text-sm text-on-surface-variant/50 italic" id="scramble-hint">Place all words in the correct order. The message is 8 words long.</p>
-                        <p class="text-xs text-on-surface-variant/40 mt-1">Words placed: <span id="scramble-progress">0</span> / 8</p>
+                        <p class="text-sm text-on-surface-variant/50 italic" id="scramble-hint">Place all words in the
+                            correct order. The message is 8 words long.</p>
+                        <p class="text-xs text-on-surface-variant/40 mt-1">Words placed: <span
+                                id="scramble-progress">0</span> / 8</p>
                     </div>
 
                     <!-- Success -->
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="scramble-success">
-                        <p class="font-note-body text-tertiary text-xl italic">"💌 The love letter reads: <span class="text-primary font-bold">"Every day with you is a beautiful adventure"</span>"</p>
-                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                        <p class="font-note-body text-tertiary text-xl italic">"💌 The love letter reads: <span
+                                class="text-primary font-bold">"Every day with you is a beautiful adventure"</span>"</p>
+                        <div
+                            class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                            <span class="font-button-label text-secondary uppercase tracking-widest">Love letter unscrambled!</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Love letter
+                                unscrambled!</span>
                         </div>
                         <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(5)">
                             Next Chapter →
                         </button>
                     </div>
 
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: The message starts with "Every" and ends with "adventure".</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: The message starts
+                        with "Every" and ends with "adventure".</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-5">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1391,23 +1662,35 @@
         <!-- CHAPTER 6: The Moon's Whisper (Morse Code) -->
         <section class="chapter" data-chapter="6" data-title="The Moon's Whisper" data-digit="6" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
-                <div class="relative w-full bg-surface-container/5 backdrop-blur-xl border border-outline/20 rounded-[2rem] p-8 md:p-12 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_40px_rgba(0,0,0,0.5)] parchment-texture overflow-hidden" style="background:radial-gradient(circle at center,#1b1d0e 0%,#0a0b05 100%);">
+                <div class="relative w-full bg-surface-container/5 backdrop-blur-xl border border-outline/20 rounded-[2rem] p-8 md:p-12 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_40px_rgba(0,0,0,0.5)] parchment-texture overflow-hidden"
+                    style="background:radial-gradient(circle at center,#1b1d0e 0%,#0a0b05 100%);">
                     <div class="absolute inset-0 pointer-events-none" id="moon-stars-container"></div>
                     <div class="absolute top-4 left-4 filigree-corner opacity-40">
-                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><circle cx="50" cy="50" fill="currentColor" r="4"/></svg>
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100">
+                            <path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor"
+                                stroke-linecap="round" stroke-width="2" />
+                            <circle cx="50" cy="50" fill="currentColor" r="4" />
+                        </svg>
                     </div>
                     <div class="absolute top-4 right-4 filigree-corner opacity-40 rotate-90">
-                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100">
+                            <path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor"
+                                stroke-linecap="round" stroke-width="2" />
+                        </svg>
                     </div>
                     <div class="text-center mb-8 relative z-10">
-                        <span class="font-button-label text-button-label text-secondary-fixed-dim uppercase tracking-widest mb-2 block">Chapter VI</span>
+                        <span
+                            class="font-button-label text-button-label text-secondary-fixed-dim uppercase tracking-widest mb-2 block">Chapter
+                            VI</span>
                         <h2 class="font-headline-lg text-headline-lg text-inverse-primary">The Moon's Whisper</h2>
-                        <p class="text-inverse-primary/60 text-sm italic mt-2">"The moon speaks in stars and crescents — can you decode its secret?"</p>
+                        <p class="text-inverse-primary/60 text-sm italic mt-2">"The moon speaks in stars and crescents —
+                            can you decode its secret?"</p>
                     </div>
 
                     <!-- Morse Code Display -->
                     <div class="relative z-10 bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-outline/20">
-                        <p class="text-inverse-primary/80 font-note-body text-center text-sm mb-2">⭐ = dot &nbsp;&nbsp; 🌙 = dash</p>
+                        <p class="text-inverse-primary/80 font-note-body text-center text-sm mb-2">⭐ = dot &nbsp;&nbsp;
+                            🌙 = dash</p>
                         <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-6" id="morse-display">
                             <!-- Morse groups generated by JS -->
                         </div>
@@ -1418,20 +1701,29 @@
                             <!-- A-Z buttons -->
                         </div>
                         <div class="mt-4 flex justify-center gap-3">
-                            <button class="px-4 py-2 bg-outline-variant/30 rounded-lg text-sm font-button-label hover:bg-outline-variant/50 transition text-inverse-primary/80" onclick="clearMorseAnswer()">Clear</button>
-                            <button class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition" onclick="checkMorseAnswer()">Check</button>
+                            <button
+                                class="px-4 py-2 bg-outline-variant/30 rounded-lg text-sm font-button-label hover:bg-outline-variant/50 transition text-inverse-primary/80"
+                                onclick="clearMorseAnswer()">Clear</button>
+                            <button
+                                class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition"
+                                onclick="checkMorseAnswer()">Check</button>
                         </div>
                         <div class="mt-4 text-center">
-                            <p class="text-inverse-primary/50 text-sm">Click a slot, then tap a letter. Use keyboard too!</p>
+                            <p class="text-inverse-primary/50 text-sm">Click a slot, then tap a letter. Use keyboard
+                                too!</p>
                         </div>
                     </div>
 
                     <!-- Success -->
-                    <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden relative z-10" id="morse-success">
-                        <p class="font-note-body text-secondary-fixed-dim text-xl italic">"The moon whispers: <span class="text-secondary-container font-bold">FOREVER</span>"</p>
-                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                    <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden relative z-10"
+                        id="morse-success">
+                        <p class="font-note-body text-secondary-fixed-dim text-xl italic">"The moon whispers: <span
+                                class="text-secondary-container font-bold">FOREVER</span>"</p>
+                        <div
+                            class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                            <span class="font-button-label text-secondary uppercase tracking-widest">Moon message decoded!</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Moon message
+                                decoded!</span>
                         </div>
                         <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(6)">
                             Next Chapter →
@@ -1439,12 +1731,19 @@
                     </div>
 
                     <div class="absolute bottom-4 left-4 filigree-corner opacity-40 -rotate-90">
-                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100">
+                            <path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor"
+                                stroke-linecap="round" stroke-width="2" />
+                        </svg>
                     </div>
                     <div class="absolute bottom-4 right-4 filigree-corner opacity-40 rotate-180">
-                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100">
+                            <path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor"
+                                stroke-linecap="round" stroke-width="2" />
+                        </svg>
                     </div>
-                    <div class="text-xs text-inverse-primary/40 mt-4 italic text-center relative z-10">💡 Hint: ⭐ = dot, 🌙 = dash. Translate each group to a letter.</div>
+                    <div class="text-xs text-inverse-primary/40 mt-4 italic text-center relative z-10">💡 Hint: ⭐ = dot,
+                        🌙 = dash. Translate each group to a letter.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-6">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1454,33 +1753,50 @@
         </section>
 
         <!-- CHAPTER 7: The Fragmented Heart -->
-        <section class="chapter" data-chapter="7" data-title="The Fragmented Heart" data-digit="7" data-completed="false">
+        <section class="chapter" data-chapter="7" data-title="The Fragmented Heart" data-digit="7"
+            data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
-                <div class="bg-surface/30 backdrop-blur-sm border-[1px] border-primary/10 rounded-2xl shadow-inner p-8 md:p-12 text-center relative">
-                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-[100px]"></div>
-                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-[100px]"></div>
-                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-[100px]"></div>
-                    <div class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-[100px]"></div>
+                <div
+                    class="bg-surface/30 backdrop-blur-sm border-[1px] border-primary/10 rounded-2xl shadow-inner p-8 md:p-12 text-center relative">
+                    <div
+                        class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-[100px]">
+                    </div>
+                    <div
+                        class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-[100px]">
+                    </div>
+                    <div
+                        class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-[100px]">
+                    </div>
+                    <div
+                        class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-[100px]">
+                    </div>
                     <h2 class="font-headline-lg text-headline-lg text-primary mb-2">The Fragmented Heart</h2>
-                    <p class="font-body-main text-on-surface-variant mb-6">Assemble the pieces to reveal the final message.</p>
-                    <div class="relative w-full mx-auto" style="max-width: 500px; aspect-ratio: 1;" id="puzzle-board-main">
+                    <p class="font-body-main text-on-surface-variant mb-6">Assemble the pieces to reveal the final
+                        message.</p>
+                    <div class="relative w-full mx-auto" style="max-width: 500px; aspect-ratio: 1;"
+                        id="puzzle-board-main">
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div class="w-4/5 h-4/5 opacity-10 flex items-center justify-center" id="target-heart-main">
-                                <span class="material-symbols-outlined text-[250px] text-primary fill-icon">favorite</span>
+                                <span
+                                    class="material-symbols-outlined text-[250px] text-primary fill-icon">favorite</span>
                             </div>
                         </div>
                         <div id="puzzle-pieces-container" class="absolute inset-0"></div>
                     </div>
-                    <div class="hidden mt-12 transition-all duration-700 opacity-0 transform translate-y-4" id="reward-container-puzzle">
-                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
+                    <div class="hidden mt-12 transition-all duration-700 opacity-0 transform translate-y-4"
+                        id="reward-container-puzzle">
+                        <div
+                            class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                            <span class="font-button-label text-secondary uppercase tracking-widest">Heart assembled!</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Heart
+                                assembled!</span>
                         </div>
                         <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(7)">
                             Next Chapter →
                         </button>
                     </div>
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Drag each puzzle piece to the correct position. They snap into place when close.</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Drag each puzzle piece to the
+                        correct position. They snap into place when close.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-7">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1492,16 +1808,29 @@
         <!-- CHAPTER 8: The Hidden Letter -->
         <section class="chapter" data-chapter="8" data-title="The Hidden Letter" data-completed="false">
             <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
-                <div class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
-                    <div class="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-secondary m-8 rounded-tl-full opacity-30"></div>
-                    <div class="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-secondary m-8 rounded-tr-full opacity-30"></div>
-                    <div class="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-secondary m-8 rounded-bl-full opacity-30"></div>
-                    <div class="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-secondary m-8 rounded-br-full opacity-30"></div>
+                <div
+                    class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
+                    <div
+                        class="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-secondary m-8 rounded-tl-full opacity-30">
+                    </div>
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-secondary m-8 rounded-tr-full opacity-30">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-secondary m-8 rounded-bl-full opacity-30">
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-secondary m-8 rounded-br-full opacity-30">
+                    </div>
                     <div class="text-center mb-8">
-                        <span class="font-button-label text-button-label text-secondary uppercase tracking-widest">Chapter VIII</span>
+                        <span
+                            class="font-button-label text-button-label text-secondary uppercase tracking-widest">Chapter
+                            VIII</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Hidden Letter</h2>
-                        <p class="font-note-body text-on-surface-variant text-sm italic mt-2">"Enter the 7-digit code to unlock the final letter."</p>
-                        <p class="text-xs text-on-surface-variant/50 mt-1">You have collected <span id="code-progress-display">0</span> of 7 digits</p>
+                        <p class="font-note-body text-on-surface-variant text-sm italic mt-2">"Enter the 7-digit code to
+                            unlock the final letter."</p>
+                        <p class="text-xs text-on-surface-variant/50 mt-1">You have collected <span
+                                id="code-progress-display">0</span> of 7 digits</p>
                     </div>
 
                     <div class="flex flex-col items-center gap-6">
@@ -1515,28 +1844,56 @@
                             <div class="code-digit" data-index="6">_</div>
                         </div>
                         <div class="grid grid-cols-3 gap-3 max-w-[220px]">
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('1')">1</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('2')">2</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('3')">3</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('4')">4</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('5')">5</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('6')">6</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('7')">7</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('8')">8</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('9')">9</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('0')">0</button>
-                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition text-primary col-span-1" onclick="pressCodeKey('clear')">⌫</button>
-                            <button class="code-key-btn p-3 bg-secondary-container rounded-lg hover:bg-secondary-fixed transition font-bold text-on-secondary-container col-span-2" onclick="checkCodeLock()">↵</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('1')">1</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('2')">2</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('3')">3</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('4')">4</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('5')">5</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('6')">6</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('7')">7</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('8')">8</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('9')">9</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary"
+                                onclick="pressCodeKey('0')">0</button>
+                            <button
+                                class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition text-primary col-span-1"
+                                onclick="pressCodeKey('clear')">⌫</button>
+                            <button
+                                class="code-key-btn p-3 bg-secondary-container rounded-lg hover:bg-secondary-fixed transition font-bold text-on-secondary-container col-span-2"
+                                onclick="checkCodeLock()">↵</button>
                         </div>
-                        <p class="text-sm text-on-surface-variant/60 italic" id="code-hint">Enter the 7-digit code from your collected digits.</p>
+                        <p class="text-sm text-on-surface-variant/60 italic" id="code-hint">Enter the 7-digit code from
+                            your collected digits.</p>
                         <p class="text-xs text-on-surface-variant/40" id="code-attempts">Attempts: 0 / 5</p>
                     </div>
 
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="code-success">
-                        <p class="font-note-body text-tertiary text-xl italic">"<span class="text-primary font-bold">🔓 Unlocked!</span> The letter is yours to read."</p>
-                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                        <p class="font-note-body text-tertiary text-xl italic">"<span class="text-primary font-bold">🔓
+                                Unlocked!</span> The letter is yours to read."</p>
+                        <div
+                            class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">mail</span>
-                            <span class="font-button-label text-secondary uppercase tracking-widest">Letter unlocked!</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Letter
+                                unlocked!</span>
                         </div>
                         <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(8)">
                             Read the Letter →
@@ -1558,98 +1915,122 @@
         <!-- CHAPTER 9: Photo Gallery -->
         <section class="chapter" data-chapter="9" data-title="Photo Gallery" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8">
-                <div class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-12 relative border border-outline-variant/30">
-                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl"></div>
-                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl"></div>
-                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl"></div>
-                    <div class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl"></div>
+                <div
+                    class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-12 relative border border-outline-variant/30">
+                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl">
+                    </div>
+                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl">
+                    </div>
+                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl">
+                    </div>
+                    <div
+                        class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl">
+                    </div>
 
                     <div class="text-center mb-8">
-                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter IX</span>
+                        <span
+                            class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter
+                            IX</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Our Gallery</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments we've shared."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments
+                            we've shared."</p>
                     </div>
 
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="gallery-grid">
-                        <!-- 10 placeholder images – replace src with your own -->
+
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/1.png" alt="Memory 1" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/1.png" alt="Memory 1" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Our first adventure"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/2.png" alt="Memory 2" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/2.png" alt="Memory 2" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Sunset dreams"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/3.png" alt="Memory 3" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/3.png" alt="Memory 3" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"By the sea"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/4.png" alt="Memory 4" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/4.png" alt="Memory 4" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"City lights"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/5.png" alt="Memory 5" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/5.png" alt="Memory 5" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Cozy mornings"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/6.png" alt="Memory 6" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/6.png" alt="Memory 6" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Together"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/7.png" alt="Memory 7" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/7.png" alt="Memory 7" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Dancing in the rain"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/8.png" alt="Memory 8" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/8.png" alt="Memory 8" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Picnic days"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/9.png" alt="Memory 9" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <img class="gallery-img w-full h-auto" src="/files/9.png" alt="Memory 9" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                                 <p class="text-white text-sm font-note-body italic">"Stars above"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/10.jpeg" alt="Memory 10" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                                <p class="text-white text-sm font-note-body italic">"Forever"</p>
+                            <img class="gallery-img w-full h-auto" src="/files/10.jpeg" alt="Memory 10" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Golden hour"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/11.jpeg" alt="Memory 11" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                                <p class="text-white text-sm font-note-body italic">"Forever"</p>
+                            <img class="gallery-img w-full h-auto" src="/files/11.jpeg" alt="Memory 11" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Endless love"</p>
                             </div>
                         </div>
                         <div class="relative overflow-hidden rounded-lg shadow-md group">
-                            <img class="gallery-img w-full h-64 object-cover" src="/files/12.jpeg" alt="Memory 12" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                                <p class="text-white text-sm font-note-body italic">"Forever"</p>
+                            <img class="gallery-img w-full h-auto" src="/files/12.jpeg" alt="Memory 12" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Always & forever"</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-8 text-center p-6 bg-surface-container/50 rounded-xl border border-outline-variant/30">
+                    <div
+                        class="mt-8 text-center p-6 bg-surface-container/50 rounded-xl border border-outline-variant/30">
                         <p class="font-note-body text-on-surface-variant italic text-sm">🎵 A song for you</p>
                         <div class="flex items-center justify-center gap-4 mt-3">
-                            <button class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-105 transition-transform" onclick="playGalleryAudio()">
+                            <button
+                                class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-105 transition-transform"
+                                onclick="playGalleryAudio()">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
                             <span class="text-sm text-on-surface-variant/50">"Our Song" — 3:24</span>
@@ -1657,7 +2038,10 @@
                     </div>
 
                     <div class="mt-8 text-center">
-                        <button class="px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all" onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final Chapter →</button>
+                        <button
+                            class="px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all"
+                            onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final
+                            Chapter →</button>
                     </div>
                 </div>
             </div>
@@ -1666,16 +2050,22 @@
         <!-- CHAPTER 10: The Birthday Wish -->
         <section class="chapter" data-chapter="10" data-title="The Birthday Wish" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8">
-                <div class="parchment-texture rounded-xl shadow-2xl p-8 md:p-16 relative border-2 border-secondary-container/30 overflow-hidden">
+                <div
+                    class="parchment-texture rounded-xl shadow-2xl p-8 md:p-16 relative border-2 border-secondary-container/30 overflow-hidden">
                     <!-- background sparkles -->
                     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-                        <span class="absolute top-10 left-10 text-4xl animate-sparkle" style="animation-delay:0.2s;">✨</span>
-                        <span class="absolute bottom-20 right-16 text-3xl animate-sparkle" style="animation-delay:1.5s;">✨</span>
-                        <span class="absolute top-1/2 left-1/4 text-2xl animate-sparkle" style="animation-delay:0.8s;">🌟</span>
+                        <span class="absolute top-10 left-10 text-4xl animate-sparkle"
+                            style="animation-delay:0.2s;">✨</span>
+                        <span class="absolute bottom-20 right-16 text-3xl animate-sparkle"
+                            style="animation-delay:1.5s;">✨</span>
+                        <span class="absolute top-1/2 left-1/4 text-2xl animate-sparkle"
+                            style="animation-delay:0.8s;">🌟</span>
                     </div>
 
                     <div class="text-center mb-8">
-                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Final Chapter</span>
+                        <span
+                            class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Final
+                            Chapter</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Happy Birthday, Affin!</h2>
                         <div class="w-24 h-px bg-secondary-container mx-auto mt-4"></div>
                     </div>
@@ -1685,30 +2075,44 @@
                             "In the story of us, every chapter has led to this moment — your special day."
                         </p>
                         <p class="font-body-main text-on-surface-variant">
-                            You are the sunshine that brightens every page, the laughter between the lines, and the love that holds it all together.
+                            You are the sunshine that brightens every page, the laughter between the lines, and the love
+                            that holds it all together.
                         </p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                            <div class="bg-surface-container/50 rounded-xl p-6 border border-outline-variant/30 backdrop-blur-sm">
-                                <span class="material-symbols-outlined text-5xl text-secondary fill-icon mb-3">mail</span>
+                            <div
+                                class="bg-surface-container/50 rounded-xl p-6 border border-outline-variant/30 backdrop-blur-sm">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-secondary fill-icon mb-3">mail</span>
                                 <h3 class="font-headline-lg text-primary text-xl">A Letter for You</h3>
-                                <p class="font-body-main text-on-surface-variant text-sm mt-2">Open your heart to the words inside.</p>
-                                <button class="mt-4 px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full shadow-md hover:scale-105 transition-all" onclick="openLetter()">
+                                <p class="font-body-main text-on-surface-variant text-sm mt-2">Open your heart to the
+                                    words inside.</p>
+                                <button
+                                    class="mt-4 px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full shadow-md hover:scale-105 transition-all"
+                                    onclick="openLetter()">
                                     Open Letter ✉️
                                 </button>
                             </div>
-                            <div class="bg-surface-container/50 rounded-xl p-6 border border-outline-variant/30 backdrop-blur-sm">
-                                <span class="material-symbols-outlined text-5xl text-secondary fill-icon mb-3">music_note</span>
+                            <div
+                                class="bg-surface-container/50 rounded-xl p-6 border border-outline-variant/30 backdrop-blur-sm">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-secondary fill-icon mb-3">music_note</span>
                                 <h3 class="font-headline-lg text-primary text-xl">A Voice Note</h3>
-                                <p class="font-body-main text-on-surface-variant text-sm mt-2">Hear my birthday wish for you.</p>
-                                <button class="mt-4 px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full shadow-md hover:scale-105 transition-all" onclick="playBirthdayAudio()">
+                                <p class="font-body-main text-on-surface-variant text-sm mt-2">Hear my birthday wish for
+                                    you.</p>
+                                <button
+                                    class="mt-4 px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full shadow-md hover:scale-105 transition-all"
+                                    onclick="playBirthdayAudio()">
                                     Play Voice 🎧
                                 </button>
                                 <audio id="birthday-audio" src="placeholder.mp3" preload="auto"></audio>
-                                <p class="text-xs text-on-surface-variant/50 mt-2">(replace 'placeholder.mp3' with your own recording)</p>
+                                <p class="text-xs text-on-surface-variant/50 mt-2">(replace 'placeholder.mp3' with your
+                                    own recording)</p>
                             </div>
                         </div>
                         <p class="font-note-body text-primary italic text-lg mt-8">"May our story never end."</p>
-                        <button class="mt-6 px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all" onclick="goToChapter(0)">Return to Home</button>
+                        <button
+                            class="mt-6 px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all"
+                            onclick="goToChapter(0)">Return to Home</button>
                     </div>
                 </div>
             </div>
@@ -1717,16 +2121,21 @@
     </main>
 
     <!-- LETTER MODAL -->
-    <div class="fixed inset-0 z-[300] bg-black/70 backdrop-blur-md flex items-center justify-center p-6 hidden" id="letter-modal">
-        <div class="max-w-xl w-full bg-surface parchment-texture rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30 animate-[fadeIn_0.5s_ease-out]">
+    <div class="fixed inset-0 z-[300] bg-black/70 backdrop-blur-md flex items-center justify-center p-6 hidden"
+        id="letter-modal">
+        <div
+            class="max-w-xl w-full bg-surface parchment-texture rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30 animate-[fadeIn_0.5s_ease-out]">
             <button class="absolute top-4 right-4 text-primary hover:scale-110 transition" onclick="closeLetter()">
                 <span class="material-symbols-outlined text-3xl">close</span>
             </button>
             <h3 class="font-headline-lg text-primary text-2xl mb-6 text-center">My Dearest Affin,</h3>
             <div class="space-y-4 font-body-main text-on-surface-variant leading-relaxed">
-                <p>On your birthday, I want you to know how deeply you are loved. Every moment with you is a treasured page in the book of my life.</p>
-                <p>Your smile lights up my darkest days, your laughter is the sweetest melody, and your love is the greatest gift I’ve ever received.</p>
-                <p>May this year bring you all the happiness you deserve. I can't wait to fill the next chapters of our story together — adventures, quiet moments, and a lifetime of love.</p>
+                <p>On your birthday, I want you to know how deeply you are loved. Every moment with you is a treasured
+                    page in the book of my life.</p>
+                <p>Your smile lights up my darkest days, your laughter is the sweetest melody, and your love is the
+                    greatest gift I’ve ever received.</p>
+                <p>May this year bring you all the happiness you deserve. I can't wait to fill the next chapters of our
+                    story together — adventures, quiet moments, and a lifetime of love.</p>
                 <p class="text-right font-bold text-primary mt-4">Happy Birthday, with all my heart.</p>
                 <p class="text-right handwritten text-2xl mt-2">Yours forever</p>
             </div>
@@ -1734,21 +2143,27 @@
     </div>
 
     <!-- ENVELOPE MODAL -->
-    <div class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md flex items-center justify-center p-6 hidden" id="envelope-modal">
-        <div class="envelope-modal max-w-md w-full bg-surface rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30">
-            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-secondary-container w-16 h-16 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+    <div class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md flex items-center justify-center p-6 hidden"
+        id="envelope-modal">
+        <div
+            class="envelope-modal max-w-md w-full bg-surface rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30">
+            <div
+                class="absolute -top-8 left-1/2 -translate-x-1/2 bg-secondary-container w-16 h-16 rounded-full flex items-center justify-center shadow-lg animate-bounce">
                 <span class="material-symbols-outlined text-on-secondary-container text-4xl fill-icon">mail</span>
             </div>
             <div class="text-center mt-6">
                 <div class="envelope-icon text-secondary-container">✉️</div>
                 <h3 class="font-headline-lg text-primary mt-4" id="envelope-title">Chapter Complete!</h3>
-                <p class="font-note-body text-on-surface-variant italic mt-2" id="envelope-message">"Every step brings us closer together."</p>
+                <p class="font-note-body text-on-surface-variant italic mt-2" id="envelope-message">"Every step brings
+                    us closer together."</p>
                 <div class="my-6 p-4 bg-surface-container rounded-xl border border-secondary-container/20">
                     <p class="text-sm text-on-surface-variant font-note-body">Your code digit:</p>
                     <div class="code-digit-reveal mt-2" id="envelope-digit">1</div>
                 </div>
                 <p class="text-xs text-on-surface-variant/50">Collect all 7 digits to unlock the final letter.</p>
-                <button class="mt-6 w-full py-4 bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-container font-button-label rounded-full shadow-md hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95" id="envelope-continue-btn" onclick="closeEnvelope()">
+                <button
+                    class="mt-6 w-full py-4 bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-container font-button-label rounded-full shadow-md hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95"
+                    id="envelope-continue-btn" onclick="closeEnvelope()">
                     <span class="flex items-center justify-center gap-2">
                         Continue Your Journey
                         <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
@@ -1759,16 +2174,23 @@
     </div>
 
     <!-- BOTTOM NAVIGATION BAR -->
-    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe-area-bottom pt-2 bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 rounded-t-full shadow-[0px_-10px_20px_rgba(0,0,0,0.05)]" id="bottom-nav">
-        <button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant px-4 py-2 hover:bg-primary-fixed transition-all rounded-xl" id="prev-btn" onclick="prevChapter()">
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe-area-bottom pt-2 bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 rounded-t-full shadow-[0px_-10px_20px_rgba(0,0,0,0.05)]"
+        id="bottom-nav">
+        <button
+            class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant px-4 py-2 hover:bg-primary-fixed transition-all rounded-xl"
+            id="prev-btn" onclick="prevChapter()">
             <span class="material-symbols-outlined">keyboard_double_arrow_left</span>
             <span class="font-button-label text-[10px]">Previous</span>
         </button>
-        <button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 active:scale-95 duration-200 ease-out" onclick="toggleDrawer()">
+        <button
+            class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 active:scale-95 duration-200 ease-out"
+            onclick="toggleDrawer()">
             <span class="material-symbols-outlined fill-icon">auto_stories</span>
             <span class="font-button-label text-[10px]">Chapters</span>
         </button>
-        <button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant px-4 py-2 hover:bg-primary-fixed transition-all rounded-xl" id="next-btn" onclick="nextChapter()">
+        <button
+            class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant px-4 py-2 hover:bg-primary-fixed transition-all rounded-xl"
+            id="next-btn" onclick="nextChapter()">
             <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
             <span class="font-button-label text-[10px]">Next</span>
         </button>
@@ -1795,7 +2217,7 @@
         };
 
         // ── Random digit pool ──
-        const DIGIT_POOL = ['0','1','2','3','4','5','6','7','8','9'];
+        const DIGIT_POOL = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         let availableDigits = [...DIGIT_POOL].sort(() => Math.random() - 0.5);
 
         // ── State ──
@@ -1923,10 +2345,10 @@
                     'text-on-surface-variant hover:bg-surface-variant';
                 const icon = i === 0 ? 'home' : i === 10 ? 'cake' : 'menu_book';
                 const check = isCompleted && i > 0 && i < 10 ? ' ✅' : '';
-                const digit = (i >= 1 && i <= 7 && collectedDigits[i-1]) ? ` ${collectedDigits[i-1]}` : '';
+                const digit = (i >= 1 && i <= 7 && collectedDigits[i - 1]) ? ` ${collectedDigits[i - 1]}` : '';
                 html += `
-                    <div class="${active} mx-2 px-4 py-3 rounded-xl transition-all cursor-pointer flex items-center gap-4 hover:translate-x-1 ${!isCompleted && i>0 && i<10 ? 'opacity-50' : ''}"
-                         onclick="${isCompleted || i===0 || i===10 ? `goToChapter(${i}); toggleDrawer();` : `showLockOverlay(${i})`}">
+                    <div class="${active} mx-2 px-4 py-3 rounded-xl transition-all cursor-pointer flex items-center gap-4 hover:translate-x-1 ${!isCompleted && i > 0 && i < 10 ? 'opacity-50' : ''}"
+                         onclick="${isCompleted || i === 0 || i === 10 ? `goToChapter(${i}); toggleDrawer();` : `showLockOverlay(${i})`}">
                         <span class="material-symbols-outlined">${icon}</span>
                         <span class="font-note-body">${title}${digit}${check}</span>
                         ${i === currentChapter ? '<span class="ml-auto text-xs">◀</span>' : ''}
@@ -1943,41 +2365,41 @@
 
         // ── Countdown (Home) ──
         function initCountdown() {
-    // Birthday date: 19 June 2026 (month is 0‑indexed)
-    const targetDate = new Date(2026, 5, 19);
-    targetDate.setHours(0, 0, 0, 0);
+            // Birthday date: 19 June 2026 (month is 0‑indexed)
+            const targetDate = new Date(2026, 5, 19);
+            targetDate.setHours(0, 0, 0, 0);
 
-    function update() {
-        const now = new Date();
-        const diff = targetDate - now;
-        if (diff <= 0) {
-            document.querySelectorAll('#days, #hours, #minutes, #seconds').forEach(el => el.textContent = '00');
-            document.querySelector('.font-note-body.text-lg').textContent = "🎉 Happy Birthday Affin! The secret is revealed.";
+            function update() {
+                const now = new Date();
+                const diff = targetDate - now;
+                if (diff <= 0) {
+                    document.querySelectorAll('#days, #hours, #minutes, #seconds').forEach(el => el.textContent = '00');
+                    document.querySelector('.font-note-body.text-lg').textContent = "🎉 Happy Birthday Affin! The secret is revealed.";
+                    if (window._countdownInterval) clearInterval(window._countdownInterval);
+                    return;
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('days').textContent = String(d).padStart(2, '0');
+                document.getElementById('hours').textContent = String(h).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+            }
+            update();
             if (window._countdownInterval) clearInterval(window._countdownInterval);
-            return;
+            window._countdownInterval = setInterval(update, 1000);
         }
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-        document.getElementById('days').textContent = String(d).padStart(2, '0');
-        document.getElementById('hours').textContent = String(h).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(s).padStart(2, '0');
-    }
-    update();
-    if (window._countdownInterval) clearInterval(window._countdownInterval);
-    window._countdownInterval = setInterval(update, 1000);
-}
 
         // ── Home book interaction ──
-        document.getElementById('home-book')?.addEventListener('click', function() {
+        document.getElementById('home-book')?.addEventListener('click', function () {
             this.classList.remove('animate-float');
             void this.offsetWidth;
             this.classList.add('animate-float');
             const flash = document.createElement('div');
             flash.className =
-            'fixed inset-0 bg-white/20 z-[100] pointer-events-none transition-opacity duration-1000 opacity-0';
+                'fixed inset-0 bg-white/20 z-[100] pointer-events-none transition-opacity duration-1000 opacity-0';
             document.body.appendChild(flash);
             requestAnimationFrame(() => {
                 flash.classList.replace('opacity-0', 'opacity-100');
@@ -2050,13 +2472,13 @@
 
             if (chapterIdx === 8) {
                 btn.innerHTML = '<span class="flex items-center justify-center gap-2">View Gallery <span class="material-symbols-outlined">photo_library</span></span>';
-                btn.onclick = function() {
+                btn.onclick = function () {
                     closeEnvelope();
                     goToChapter(9);
                 };
             } else {
                 btn.innerHTML = '<span class="flex items-center justify-center gap-2">Continue Your Journey <span class="material-symbols-outlined">keyboard_double_arrow_right</span></span>';
-                btn.onclick = function() {
+                btn.onclick = function () {
                     closeEnvelope();
                     if (chapterIdx < 7) goToChapter(chapterIdx + 1);
                     else if (chapterIdx === 7) goToChapter(8);
@@ -2112,7 +2534,7 @@
                 const cell = document.createElement('div');
                 cell.className = 'star-cell disabled';
                 cell.dataset.index = i;
-                cell.innerHTML = `<span class="star-icon">⭐</span><span class="cell-index">${i+1}</span>`;
+                cell.innerHTML = `<span class="star-icon">⭐</span><span class="cell-index">${i + 1}</span>`;
                 cell.addEventListener('click', () => onStarClick(i));
                 grid.appendChild(cell);
                 starGame.cells.push(cell);
@@ -2340,7 +2762,7 @@
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
             const radius = 100, center = 120;
             letters.forEach((char, i) => {
-                const angle = (i / letters.length) * 2 * Math.PI - Math.PI/2;
+                const angle = (i / letters.length) * 2 * Math.PI - Math.PI / 2;
                 const x = center + radius * Math.cos(angle) - 16;
                 const y = center + radius * Math.sin(angle) - 16;
                 const span = document.createElement('span');
@@ -2433,7 +2855,7 @@
                 slot.className = 'scramble-slot';
                 slot.dataset.index = idx;
                 slot.dataset.expected = word;
-                slot.textContent = `drop ${idx+1}`;
+                slot.textContent = `drop ${idx + 1}`;
                 slotsContainer.appendChild(slot);
                 scrambleState.slots.push(slot);
             });
@@ -2634,10 +3056,10 @@
             const board = document.getElementById('puzzle-board-main');
             puzzleBoardRect = board.getBoundingClientRect();
             const piecesData = [
-                { id:0, xPercent:10, yPercent:10, correctXPercent:36, correctYPercent:24, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuDcrs8ac0yQjBPpWxmazna7VOYYCevUkcVLpYJFzHAjXS8n6qvIE0UlU2HgCAPxqFRaKiq7t8UF-SYV2teyQsH602nZYuHqnXJjYKIIRliOGabFAz3ouONE0bfvrtuB22TQ3XkJQeGVR5q2oMahAEmLp0YzpsnIukGKAoCiXUAOMGDWBt6ZKb8LULxQPb9sDIFb9X-ujmMktob6pxdWE6wj_1WcjnJXqQYGDGpd6Sprp0S2IAawg7J5beKUVJ2FvsrszFcVJ3Z_B8E'},
-                { id:1, xPercent:60, yPercent:20, correctXPercent:52, correctYPercent:36, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuBhXzKte41AH_PYTwA41CQJSJQbADeQWdVY_ju5uCtuszfoJxOI5uxewTQUKrv0ol7mOs0jCYpKwaxBVm8UcdBvgJ-hrx_VetDVvVuIAIco2pUmXtOqLT0HXR89tV69zzyfd9ZC3KlzYBdPh95pPiAAMXzUpc_xvjFUMrjTYjEputq96GMrwji6qV3T8ONcbaETLX120pxhfYbs4sbBxpCZ89nupZpXmptcMWpqlao9QcqLA9hCxG9VANBtA3FgsDOq1wzV9Pl68jE'},
-                { id:2, xPercent:10, yPercent:70, correctXPercent:36, correctYPercent:56, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuDiznbYncNWhu0aTKzXjU_xIP7QcRw6cM-8G1o0Ia8U3HEbXV849Hyps9hCiuXG_XGRucSrN1_IWVAdjM42EhEY0VW8aaRy2BbDdt4yEQoSv_G06rfixOfs40T6QrrxXOdyhV2YFl_anhlrW1tpyNmLHMoTN3RF2lRPJlUC7kaP7Z-Hvpk7MdiauVzquus9UfQzqRyOWnLkjrjgxvnwGIkHzxYkhA7bPsi4UFL0VhstUTVvrrifvCdt07gcEWgADW0Jv5cv8HhIPw'},
-                { id:3, xPercent:60, yPercent:70, correctXPercent:52, correctYPercent:56, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuC-2c07fxFkoNLQvV6upz5uoPIPBae4u1sMf_gcuSaqFJDK3dS2n6bsNol8WS9vWQlg9_WJcUki2R5DZaDvEPhJqOQj0TUf8SDJBlVLIynjAyenmXYpR4_z_LFgmlV1bV6g3vhY_9j3dWL3tVBmRmXLwgcYhXS9UepZmhD1PUJqLNnxq_v_5r6fnysxf2e5q9kvPYYXx9wIKEgUmdMe1863grRyfBhe6ikqpyuf1bD9YeYKf8elhs3rdCPo_RqN8C_Apfg68PfzPlc'}
+                { id: 0, xPercent: 10, yPercent: 10, correctXPercent: 36, correctYPercent: 24, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDcrs8ac0yQjBPpWxmazna7VOYYCevUkcVLpYJFzHAjXS8n6qvIE0UlU2HgCAPxqFRaKiq7t8UF-SYV2teyQsH602nZYuHqnXJjYKIIRliOGabFAz3ouONE0bfvrtuB22TQ3XkJQeGVR5q2oMahAEmLp0YzpsnIukGKAoCiXUAOMGDWBt6ZKb8LULxQPb9sDIFb9X-ujmMktob6pxdWE6wj_1WcjnJXqQYGDGpd6Sprp0S2IAawg7J5beKUVJ2FvsrszFcVJ3Z_B8E' },
+                { id: 1, xPercent: 60, yPercent: 20, correctXPercent: 52, correctYPercent: 36, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBhXzKte41AH_PYTwA41CQJSJQbADeQWdVY_ju5uCtuszfoJxOI5uxewTQUKrv0ol7mOs0jCYpKwaxBVm8UcdBvgJ-hrx_VetDVvVuIAIco2pUmXtOqLT0HXR89tV69zzyfd9ZC3KlzYBdPh95pPiAAMXzUpc_xvjFUMrjTYjEputq96GMrwji6qV3T8ONcbaETLX120pxhfYbs4sbBxpCZ89nupZpXmptcMWpqlao9QcqLA9hCxG9VANBtA3FgsDOq1wzV9Pl68jE' },
+                { id: 2, xPercent: 10, yPercent: 70, correctXPercent: 36, correctYPercent: 56, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDiznbYncNWhu0aTKzXjU_xIP7QcRw6cM-8G1o0Ia8U3HEbXV849Hyps9hCiuXG_XGRucSrN1_IWVAdjM42EhEY0VW8aaRy2BbDdt4yEQoSv_G06rfixOfs40T6QrrxXOdyhV2YFl_anhlrW1tpyNmLHMoTN3RF2lRPJlUC7kaP7Z-Hvpk7MdiauVzquus9UfQzqRyOWnLkjrjgxvnwGIkHzxYkhA7bPsi4UFL0VhstUTVvrrifvCdt07gcEWgADW0Jv5cv8HhIPw' },
+                { id: 3, xPercent: 60, yPercent: 70, correctXPercent: 52, correctYPercent: 56, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-2c07fxFkoNLQvV6upz5uoPIPBae4u1sMf_gcuSaqFJDK3dS2n6bsNol8WS9vWQlg9_WJcUki2R5DZaDvEPhJqOQj0TUf8SDJBlVLIynjAyenmXYpR4_z_LFgmlV1bV6g3vhY_9j3dWL3tVBmRmXLwgcYhXS9UepZmhD1PUJqLNnxq_v_5r6fnysxf2e5q9kvPYYXx9wIKEgUmdMe1863grRyfBhe6ikqpyuf1bD9YeYKf8elhs3rdCPo_RqN8C_Apfg68PfzPlc' }
             ];
             const boardWidth = puzzleBoardRect.width;
             const boardHeight = puzzleBoardRect.height;
@@ -2713,7 +3135,7 @@
                                     s.style.opacity = '0';
                                     s.style.transition = 'all 1s ease-out';
                                     document.body.appendChild(s);
-                                    setTimeout(() => { s.style.opacity = '1'; s.style.transform = `translate(${Math.random()*40-20}px,-100px)`; }, 10);
+                                    setTimeout(() => { s.style.opacity = '1'; s.style.transform = `translate(${Math.random() * 40 - 20}px,-100px)`; }, 10);
                                     setTimeout(() => s.remove(), 1100);
                                 }
                             }, 500);
@@ -2846,4 +3268,5 @@
     </script>
 
 </body>
+
 </html>
