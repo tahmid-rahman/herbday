@@ -1,0 +1,2847 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>The Book of Us — A Digital Heirloom</title>
+
+    <!-- Tailwind + Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Literata:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&family=Homemade+Apple&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        tertiary: "#3a272a",
+                        "secondary-container": "#fed65b",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb4a8",
+                        primary: "#610000",
+                        surface: "#fbfbe2",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "on-primary-fixed": "#410000",
+                        "outline-variant": "#e3beb8",
+                        error: "#ba1a1a",
+                        "tertiary-fixed": "#fbdbde",
+                        "on-secondary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#e9c349",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e4e4cc",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed": "#281719",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#523d40",
+                        "on-tertiary-container": "#c5a8ab",
+                        "on-error-container": "#93000a",
+                        outline: "#8e706b",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#debfc2",
+                        "inverse-on-surface": "#f2f2d9",
+                        "on-primary-container": "#ff907f",
+                        "surface-dim": "#dbdcc3",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fbfbe2",
+                        "primary-fixed": "#ffdad4",
+                        "on-surface": "#1b1d0e",
+                        "on-surface-variant": "#5a403c",
+                        "surface-tint": "#b52619",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-background": "#1b1d0e",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container": "#efefd7",
+                        "surface-container-low": "#f5f5dc",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303221",
+                        secondary: "#735c00",
+                        background: "#fbfbe2",
+                        "primary-container": "#8b0000",
+                        "on-tertiary-fixed-variant": "#574144",
+                        "on-primary-fixed-variant": "#920703",
+                        "surface-container-highest": "#e4e4cc",
+                        "surface-container-high": "#eaead1"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "safe-area-bottom": "32px",
+                        "element-gap": "16px",
+                        "page-margin": "24px",
+                        "section-padding": "40px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Libre Caslon Text"],
+                        "button-label": ["Plus Jakarta Sans"],
+                        "note-body": ["Playfair Display"],
+                        "body-main": ["Literata"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        handwritten: ["Homemade Apple"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "button-label": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "note-body": ["22px", { lineHeight: "32px", fontWeight: "400" }],
+                        "body-main": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "38px", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ── Global Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100dvh;
+            background: #fbfbe2;
+            font-family: 'Literata', serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        /* ── Animations ── */
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+        }
+        @keyframes sparkle {
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+        @keyframes twinkle {
+            0%,
+            100% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+        @keyframes moonPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 40px rgba(254, 214, 91, 0.3));
+            }
+            50% {
+                transform: scale(1.02);
+                filter: drop-shadow(0 0 60px rgba(254, 214, 91, 0.5));
+            }
+        }
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        @keyframes pulse-glow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(254, 214, 91, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(254, 214, 91, 0.6);
+            }
+        }
+        @keyframes envelope-open {
+            0% {
+                transform: scale(0.8) rotateY(90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            75% {
+                transform: translateX(10px);
+            }
+        }
+        @keyframes star-pop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes card-flip {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(180deg);
+            }
+        }
+        @keyframes match-pop {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes word-drop {
+            0% {
+                transform: translateY(-30px) scale(0.8);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(5px) scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-sparkle {
+            animation: sparkle 3s ease-in-out infinite;
+        }
+        .sparkle-text {
+            background: linear-gradient(to right, #fed65b 20%, #e9c349 40%, #D4AF37 60%, #fed65b 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(254, 214, 91, 0.5), 0 0 20px rgba(233, 195, 73, 0.3);
+        }
+        .moon-glow {
+            filter: drop-shadow(0 0 40px rgba(254, 214, 91, 0.4));
+        }
+        .moon-pulse {
+            animation: moonPulse 3s infinite ease-in-out;
+        }
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+            background-color: #fbfbe2;
+        }
+        .page-reveal {
+            animation: fadeAndBloom 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fadeAndBloom {
+            0% {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ── Chapter pages ── */
+        .chapter {
+            display: none;
+            animation: pageReveal 0.6s ease-out forwards;
+        }
+        .chapter.active {
+            display: block;
+        }
+        @keyframes pageReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Sparkle particle ── */
+        .sparkle-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: float-up 2s ease-out forwards;
+        }
+        .sparkle-particle.fast {
+            animation-duration: 1.2s;
+        }
+
+        /* ── Puzzle pieces ── */
+        .puzzle-piece {
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+            position: absolute;
+            z-index: 20;
+        }
+        .puzzle-piece:active {
+            cursor: grabbing;
+            scale: 1.05;
+            z-index: 50;
+        }
+        .puzzle-piece.locked {
+            cursor: default;
+            scale: 1;
+        }
+
+        /* ── Misc ── */
+        .polaroid {
+            background: #fffdf5;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .washi-tape {
+            background-color: rgba(212, 175, 55, 0.4);
+            backdrop-filter: blur(2px);
+            width: 100px;
+            height: 30px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            z-index: 25;
+            border-left: 2px dashed rgba(255, 255, 255, 0.3);
+            border-right: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        .handwriting {
+            font-family: 'Homemade Apple', cursive;
+            color: #5a403c;
+        }
+        .ink-input:focus {
+            outline: none;
+            border-bottom: 2px solid #610000;
+        }
+        .journal-entry {
+            background-image: linear-gradient(#e3beb8 1px, transparent 1px);
+            background-size: 100% 2rem;
+            line-height: 2rem;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #fed65b;
+            border-radius: 10px;
+        }
+        .star-field {
+            background: linear-gradient(to bottom, #0a0a2a 0%, #1b1d0e 100%);
+        }
+        .reveal-fragment {
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(10px) scale(0.9);
+        }
+        .reveal-fragment.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .filigree-corner {
+            pointer-events: none;
+            width: 120px;
+            height: 120px;
+            opacity: 0.6;
+        }
+
+        /* ── Drawer ── */
+        #nav-drawer {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #drawer-overlay {
+            transition: opacity 0.4s ease;
+        }
+
+        /* ── Star Memory Game ── */
+        .star-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .star-cell {
+            aspect-ratio: 1 / 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 2px solid rgba(254, 214, 91, 0.2);
+            box-shadow: 0 0 20px rgba(254, 214, 91, 0.05);
+            user-select: none;
+            position: relative;
+        }
+        .star-cell:hover:not(.disabled) {
+            transform: scale(1.05);
+            border-color: rgba(254, 214, 91, 0.5);
+        }
+        .star-cell .star-icon {
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .star-cell.active .star-icon {
+            color: #fed65b;
+            filter: drop-shadow(0 0 20px #fed65b);
+            animation: star-pop 0.4s ease forwards;
+        }
+        .star-cell.active {
+            border-color: #fed65b;
+            box-shadow: 0 0 40px rgba(254, 214, 91, 0.6);
+        }
+        .star-cell.correct {
+            border-color: #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.4);
+        }
+        .star-cell.correct .star-icon {
+            color: #4caf50;
+        }
+        .star-cell.wrong {
+            animation: shake 0.4s ease;
+            border-color: #f44336;
+        }
+        .star-cell.wrong .star-icon {
+            color: #f44336;
+        }
+        .star-cell.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .star-cell .cell-index {
+            position: absolute;
+            bottom: 2px;
+            right: 6px;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Literata', serif;
+            pointer-events: none;
+        }
+
+        .game-status {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-game {
+            background: linear-gradient(135deg, #fed65b, #e9c349);
+            color: #610000;
+            font-weight: 700;
+            padding: 0.75rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(254, 214, 91, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+        .btn-game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
+        }
+        .btn-game:active {
+            transform: scale(0.95);
+        }
+        .btn-game:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ── Chapter lock overlay ── */
+        .chapter-lock-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        .chapter-lock-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .chapter-lock-overlay .lock-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+        .chapter-lock-overlay p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            max-width: 80%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ── Code lock ── */
+        .code-digit {
+            width: 48px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: 'Libre Caslon Text', serif;
+            font-weight: 700;
+            background: #f5f5dc;
+            border: 2px solid #8e706b;
+            border-radius: 8px;
+            cursor: default;
+            transition: all 0.2s ease;
+            color: #610000;
+        }
+        .code-digit.filled {
+            border-color: #610000;
+            background: #f5f0e8;
+        }
+        .code-digit.correct {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+        .code-digit.wrong {
+            border-color: #f44336;
+            background: #ffebee;
+            animation: shake 0.4s ease;
+        }
+
+        .code-key-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .code-key-btn:hover {
+            transform: scale(1.05);
+            background: #fed65b !important;
+        }
+        .code-key-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ── Cryptogram ── */
+        .crypto-letter {
+            display: inline-block;
+            width: 28px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            font-family: 'Libre Caslon Text', serif;
+            font-weight: 700;
+            font-size: 18px;
+            border-bottom: 2px solid #8e706b;
+            margin: 0 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #610000;
+        }
+        .crypto-letter:hover {
+            border-color: #610000;
+            transform: scale(1.05);
+        }
+        .crypto-letter.filled {
+            border-color: #610000;
+            background: rgba(254, 214, 91, 0.1);
+        }
+        .crypto-letter.hint-highlight {
+            border-color: #fed65b;
+            background: rgba(254, 214, 91, 0.2);
+            animation: pulse-glow 1s infinite;
+        }
+        .crypto-key {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            font-family: 'Libre Caslon Text', serif;
+            font-weight: 400;
+            font-size: 14px;
+            border-radius: 50%;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #5a403c;
+            border: 1px solid transparent;
+        }
+        .crypto-key:hover {
+            border-color: #8e706b;
+            transform: scale(1.1);
+        }
+        .crypto-key.active {
+            border-color: #610000;
+            background: #fed65b;
+            color: #610000;
+            font-weight: 700;
+        }
+
+        /* ── Memory Match Cards ── */
+        .memory-card {
+            aspect-ratio: 4 / 3;
+            perspective: 800px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .memory-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .memory-card.flipped .memory-card-inner {
+            transform: rotateY(180deg);
+        }
+        .memory-card.matched .memory-card-inner {
+            animation: match-pop 0.4s ease;
+        }
+        .memory-card.matched .memory-card-front {
+            border-color: #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+        .memory-card-front,
+        .memory-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 2px solid rgba(97, 0, 0, 0.15);
+            background: #fdfdf0;
+            transition: border-color 0.3s ease;
+        }
+        .memory-card-front {
+            transform: rotateY(180deg);
+            background: #f5f0e8;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #610000;
+            font-size: 2rem;
+        }
+        .memory-card-back {
+            background: linear-gradient(145deg, #610000, #8b0000);
+            color: #fed65b;
+            font-size: 3rem;
+            border-color: #fed65b;
+            box-shadow: inset 0 0 30px rgba(254, 214, 91, 0.1);
+        }
+        .memory-card-back .card-icon {
+            font-size: 3rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+        .memory-card:hover:not(.flipped):not(.matched) .memory-card-back {
+            border-color: #fed65b;
+            box-shadow: 0 0 30px rgba(254, 214, 91, 0.2);
+        }
+        .memory-card.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* ── Word Scramble / Unscramble ── */
+        .scramble-word {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #f5f0e8;
+            border: 2px solid #8e706b;
+            border-radius: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #610000;
+            cursor: grab;
+            user-select: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            touch-action: none;
+            position: relative;
+            z-index: 1;
+        }
+        .scramble-word:hover {
+            transform: scale(1.05);
+            border-color: #610000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .scramble-word:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+        .scramble-word.placed {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            cursor: default;
+            opacity: 0.8;
+            animation: word-drop 0.5s ease forwards;
+            pointer-events: none;
+        }
+        .scramble-word.wrong {
+            animation: shake 0.4s ease;
+            border-color: #f44336;
+        }
+        .scramble-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            padding: 0.75rem 1rem;
+            border: 2px dashed #8e706b;
+            border-radius: 12px;
+            min-height: 60px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #8e706b;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+        .scramble-slot.highlight {
+            border-color: #fed65b;
+            background: rgba(254, 214, 91, 0.1);
+            box-shadow: 0 0 20px rgba(254, 214, 91, 0.1);
+        }
+        .scramble-slot.filled {
+            border-style: solid;
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.05);
+            color: #610000;
+            font-weight: 700;
+        }
+        .scramble-slot .slot-word {
+            display: inline-block;
+            animation: word-drop 0.4s ease forwards;
+        }
+
+        /* ── Envelope Modal ── */
+        .envelope-modal {
+            animation: envelope-open 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .envelope-modal .envelope-icon {
+            font-size: 72px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .code-digit-reveal {
+            display: inline-block;
+            width: 48px;
+            height: 56px;
+            line-height: 56px;
+            text-align: center;
+            font-size: 32px;
+            font-family: 'Libre Caslon Text', serif;
+            font-weight: 700;
+            background: #f5f5dc;
+            border: 3px solid #fed65b;
+            border-radius: 8px;
+            color: #610000;
+            animation: pulse-glow 1.5s infinite;
+        }
+
+        /* ── Gallery ── */
+        .gallery-img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            border-color: #fed65b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fed65b;
+            border-radius: 10px;
+        }
+
+        /* ── Next Chapter Button ── */
+        .btn-next-chapter {
+            background: linear-gradient(135deg, #fed65b, #e9c349);
+            color: #610000;
+            font-weight: 700;
+            padding: 0.75rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(254, 214, 91, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-next-chapter:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
+        }
+        .btn-next-chapter:active {
+            transform: scale(0.95);
+        }
+
+        /* ── Cipher Wheel ── */
+        .cipher-wheel {
+            width: 240px;
+            height: 240px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .cipher-wheel .char {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Libre Caslon Text', serif;
+            color: #5a403c;
+            background: #f5f0e8;
+            border: 1px solid #e3beb8;
+            font-size: 0.9rem;
+        }
+        .cipher-wheel .char:hover {
+            background: #fed65b;
+            border-color: #610000;
+        }
+        .cipher-wheel .char.active-char {
+            background: #fed65b;
+            border-color: #610000;
+            color: #610000;
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #fed65b;
+        }
+
+        /* ── Morse Game ── */
+        .morse-letter-slot {
+            display: inline-flex;
+            width: 44px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #8e706b;
+            border-radius: 8px;
+            font-family: 'Libre Caslon Text', serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: #610000;
+            background: rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 4px;
+            user-select: none;
+        }
+        .morse-letter-slot:hover:not(.filled) {
+            border-color: #fed65b;
+            background: rgba(254,214,91,0.15);
+        }
+        .morse-letter-slot.active {
+            border-color: #fed65b;
+            box-shadow: 0 0 15px #fed65b;
+        }
+        .morse-letter-slot.filled {
+            background: rgba(254,214,91,0.2);
+            border-color: #610000;
+        }
+        .morse-key-btn {
+            width: 40px;
+            height: 40px;
+            margin: 3px;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            background: #f5f0e8;
+            border: 1px solid #e3beb8;
+            color: #610000;
+            transition: all 0.2s ease;
+        }
+        .morse-key-btn:hover {
+            background: #fed65b;
+            transform: scale(1.05);
+        }
+        .morse-key-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md flex justify-between items-center px-page-margin py-3 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]" id="top-nav">
+        <div class="flex items-center gap-3">
+            <button class="text-primary scale-95 active:scale-90 transition-transform duration-300" id="menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary italic">The Book of Us</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="chapter-indicator">Home</span>
+            <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="code-display-small">🔑 _ _ _ _ _ _ _</span>
+            <button class="text-primary scale-95 active:scale-90 transition-transform duration-300">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL'1;">lock</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDE DRAWER -->
+    <div class="fixed inset-y-0 left-0 z-[60] flex flex-col py-section-padding bg-surface/95 backdrop-blur-md shadow-2xl h-full w-80 rounded-r-full -translate-x-full transition-transform duration-500 border-r border-outline-variant/30" id="nav-drawer">
+        <div class="px-8 mb-8 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-2xl fill-icon">extension</span>
+            </div>
+            <div>
+                <h3 class="font-headline-lg-mobile text-primary text-xl">A Story of Us</h3>
+                <p class="text-on-surface-variant text-sm font-note-body"><span id="puzzle-count">0</span> of 12 puzzles found</p>
+            </div>
+        </div>
+        <nav class="flex flex-col gap-2" id="drawer-nav">
+            <!-- populated by JS -->
+        </nav>
+        <div class="mt-auto px-8 pt-4 border-t border-outline-variant/30">
+            <div class="flex items-center gap-2 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-sm">key</span>
+                <span>Code: <span id="drawer-code-display" class="font-bold text-primary tracking-widest">_ _ _ _ _ _ _</span></span>
+            </div>
+            <p class="font-note-body italic text-primary text-sm mt-2">A digital heirloom</p>
+        </div>
+    </div>
+    <div class="fixed inset-0 bg-black/20 backdrop-blur-sm z-[55] hidden transition-opacity" id="drawer-overlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-20 pb-28 min-h-screen relative" id="app">
+
+        <!-- CHAPTER 0: HOME -->
+        <section class="chapter active" data-chapter="0" data-title="Home" data-completed="true">
+            <div class="max-w-4xl mx-auto px-page-margin py-8">
+                <div class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-16 relative border border-outline-variant/30">
+                    <div class="absolute top-0 left-0 w-24 h-24 opacity-40">
+                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                    </div>
+                    <div class="absolute top-0 right-0 w-24 h-24 opacity-40 rotate-90">
+                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 opacity-40 -rotate-90">
+                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                    </div>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 opacity-40 rotate-180">
+                        <span class="material-symbols-outlined text-secondary-fixed-dim text-6xl fill-icon">fluid_med</span>
+                    </div>
+                    <div class="flex flex-col items-center text-center space-y-8">
+                        <div class="space-y-2">
+                            <h1 class="font-headline-lg text-headline-lg md:text-6xl text-primary drop-shadow-sm">The Book of Us</h1>
+                            <p class="font-note-body text-note-body italic text-on-surface-variant">A story written by two hearts.</p>
+                        </div>
+                        <div class="relative w-64 h-80 md:w-80 md:h-96 my-12 animate-float gold-glow group cursor-pointer" id="home-book">
+                            <div class="absolute inset-0 bg-primary rounded-r-lg shadow-2xl border-l-8 border-primary-container transform group-hover:rotate-y-6 transition-transform"></div>
+                            <div class="absolute top-4 left-4 right-4 bottom-4 border-2 border-secondary-container/50 rounded-md flex flex-col items-center justify-center space-y-4 p-6">
+                                <span class="material-symbols-outlined text-secondary text-7xl md:text-8xl fill-icon">auto_stories</span>
+                                <div class="w-12 h-0.5 bg-secondary-container"></div>
+                                <div class="font-headline-lg text-secondary-container text-xl uppercase tracking-widest">Chapters of Life</div>
+                            </div>
+                            <span class="absolute -top-4 -right-4 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-3xl fill-icon">spark</span>
+                            <span class="absolute bottom-1/4 -left-6 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-2xl fill-icon" style="animation-delay:1s">star</span>
+                            <span class="absolute top-1/2 -right-8 material-symbols-outlined text-secondary-fixed-dim animate-sparkle text-2xl fill-icon" style="animation-delay:2s">favorite</span>
+                        </div>
+                        <div class="w-full max-w-md space-y-6">
+                            <div class="flex items-center justify-center gap-4 text-primary">
+                                <span class="material-symbols-outlined">celebration</span>
+                                <h2 class="font-button-label text-button-label tracking-widest uppercase">Affin's Birthday Surprise</h2>
+                                <span class="material-symbols-outlined">celebration</span>
+                            </div>
+                            <div class="grid grid-cols-4 gap-4">
+                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="days">00</span>
+                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Days</span>
+                                </div>
+                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="hours">00</span>
+                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Hours</span>
+                                </div>
+                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="minutes">00</span>
+                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Mins</span>
+                                </div>
+                                <div class="flex flex-col items-center p-4 bg-surface-container rounded-xl border border-outline-variant shadow-sm">
+                                    <span class="font-headline-lg text-primary text-3xl md:text-4xl" id="seconds">00</span>
+                                    <span class="font-button-label text-[10px] text-on-surface-variant uppercase">Secs</span>
+                                </div>
+                            </div>
+                            <p class="font-note-body text-lg text-on-surface-variant italic py-4">"The secret unfolds when the clock strikes twelve."</p>
+                            <button class="relative group bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-container px-10 py-4 rounded-full font-button-label shadow-lg hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95 overflow-hidden" onclick="goToChapter(1)">
+                                <span class="relative z-10 flex items-center gap-2">
+                                    Begin the Journey
+                                    <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+                                </span>
+                                <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 1: The Invitation -->
+        <section class="chapter" data-chapter="1" data-title="The Invitation" data-digit="1" data-completed="false">
+            <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
+                <div class="relative bg-surface parchment-texture rounded-sm shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-700 hover:shadow-2xl">
+                    <div class="absolute inset-0 border-[1px] border-primary/10 m-4 pointer-events-none"></div>
+                    <div class="absolute top-0 left-0 p-6 text-primary/30">
+                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'opsz'48;">flare</span>
+                    </div>
+                    <div class="absolute top-0 right-0 p-6 text-primary/30 rotate-90">
+                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'opsz'48;">flare</span>
+                    </div>
+                    <div class="absolute bottom-0 right-0 p-6 text-primary/30 -rotate-180">
+                        <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'opsz'48;">flare</span>
+                    </div>
+                    <div class="relative z-10 px-8 py-20 md:px-16 md:py-28 flex flex-col items-center text-center space-y-12 page-fold-shadow min-h-[600px]">
+                        <div class="space-y-2">
+                            <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter I</span>
+                            <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary italic">The Invitation</h2>
+                            <div class="w-16 h-[1px] bg-secondary-container mx-auto mt-4"></div>
+                        </div>
+                        <div class="space-y-8 max-w-md">
+                            <p class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_forwards]">"Hello Affin."</p>
+                            <p class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_0.8s_forwards]">"This book contains a secret."</p>
+                            <p class="font-note-body text-note-body text-tertiary leading-relaxed opacity-0 animate-[fadeIn_1s_ease-out_1.6s_forwards]">"To discover it, you must finish every chapter."</p>
+                        </div>
+                        <div class="relative mt-4 transform -rotate-2 hover:rotate-0 transition-transform duration-500 group">
+                            <div class="bg-[#fdfdfd] p-3 pb-12 shadow-md border border-surface-variant w-64 h-64 flex items-center justify-center overflow-hidden relative">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv-5Je-EpAJ0ZBfpTdQm4OskrXk8tE35IL6vsZYngmPG9bcXaqorK-ESaq805WBjMFWlgizFe37Wkucjnzy85z_VFpSg6k_SmYf-b86Fzgl0bAzSpxHPngrKhb8ARgMWSEWJjuTbvQQzuofx4uHHvMVMY2Ku9oK5G0l87v11wyn5qV5A7Z4k5hFuSB6QYLWhwm2gJ_ihkt_twrdWpdvDAKBlpDKME5dZleiPlKSMdzz8Tm75RMuJZZK45RD_12Tgmw8YgfDOONz1c" alt="Wax seal" />
+                                <div class="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer" onclick="completeChapter(1)">
+                                    <p class="text-on-primary font-note-body text-lg italic px-4 text-center">"The first step is always the hardest.<br/>Click to begin your journey."</p>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-2 left-0 right-0 text-center">
+                                <span class="handwritten text-on-surface-variant text-sm opacity-60 italic">The First Step — click the seal</span>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button class="group relative inline-flex items-center gap-2 px-8 py-3 bg-secondary-container/20 rounded-full border border-secondary-container/50 hover:bg-secondary-container/40 transition-all duration-300 transform active:scale-95" onclick="goToChapter(2)">
+                                <span class="handwritten text-note-body text-primary gold-glow">Turn Page →</span>
+                            </button>
+                        </div>
+                        <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Click the wax seal to begin.</div>
+                    </div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-1">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete the previous chapter first.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 2: The Lost Star -->
+        <section class="chapter" data-chapter="2" data-title="The Lost Star" data-digit="2" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
+                <div class="bg-surface border-4 border-double border-outline-variant shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] rounded-lg p-8 md:p-12 text-center min-h-[600px] flex flex-col justify-between relative">
+                    <header class="mb-6">
+                        <span class="font-note-body text-secondary italic">Chapter 2</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Lost Star</h2>
+                        <div class="w-24 h-px bg-primary mx-auto mt-4 opacity-30"></div>
+                        <p class="font-body-main text-on-surface-variant mt-3 italic text-sm">"Follow the star's trail — repeat the sequence to find your way."</p>
+                    </header>
+
+                    <div class="star-field rounded-xl p-6 relative" style="min-height: 420px;">
+                        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                            <div class="absolute top-10 left-10 animate-sparkle" style="animation-delay:0.2s;">
+                                <span class="material-symbols-outlined text-secondary-fixed-dim text-xs opacity-20">star</span>
+                            </div>
+                            <div class="absolute bottom-20 right-16 animate-sparkle" style="animation-delay:1.5s;">
+                                <span class="material-symbols-outlined text-secondary-fixed-dim text-sm opacity-20">star</span>
+                            </div>
+                            <div class="absolute top-32 right-8 animate-sparkle" style="animation-delay:0.8s;">
+                                <span class="material-symbols-outlined text-secondary-fixed-dim text-xs opacity-20">star</span>
+                            </div>
+                            <div class="absolute bottom-12 left-24 animate-sparkle" style="animation-delay:2.2s;">
+                                <span class="material-symbols-outlined text-secondary-fixed-dim text-sm opacity-20">star</span>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 flex flex-col items-center">
+                            <div class="flex justify-between w-full max-w-xs mb-4 text-sm text-surface-container-low/70">
+                                <span id="star-round-display" class="game-status">Round 1</span>
+                                <span id="star-length-display" class="game-status">Length: 3</span>
+                            </div>
+
+                            <div class="star-grid" id="star-grid">
+                                <!-- 9 cells generated by JS -->
+                            </div>
+
+                            <div class="mt-6 flex flex-col items-center gap-3">
+                                <button class="btn-game" id="star-start-btn">Start Game</button>
+                                <p class="text-xs text-surface-container-low/50 italic" id="star-hint">Click "Start Game" to begin. Watch the stars light up, then repeat the sequence.</p>
+                            </div>
+
+                            <div class="mt-6 space-y-4 opacity-0 transition-all duration-1000 hidden" id="star-success">
+                                <p class="font-note-body text-tertiary text-2xl italic">"🌟 You've mastered the star trail!"</p>
+                                <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
+                                    <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                                    <span class="font-button-label text-secondary uppercase tracking-widest">Star sequence complete!</span>
+                                </div>
+                                <button class="btn-next-chapter mx-auto" onclick="completeChapter(2)">
+                                    Next Chapter →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Watch the stars carefully. Click them in the exact order they lit up.</div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-2">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter I to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 3: Memory Match -->
+        <section class="chapter" data-chapter="3" data-title="Memories" data-digit="3" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
+                <div class="paper-canvas bg-[#fdfdf0] rounded-xl p-8 md:p-12 relative overflow-hidden shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.1)]">
+                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl"></div>
+                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl"></div>
+                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl"></div>
+                    <div class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl"></div>
+
+                    <div class="text-center mb-6">
+                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter 3</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Memory Match</h2>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Flip the cards and find the matching pairs. Each match reveals a letter."</p>
+                    </div>
+
+                    <div class="flex justify-between items-center max-w-md mx-auto mb-6 text-sm">
+                        <span class="font-note-body text-on-surface-variant">Matches: <span id="match-count" class="font-bold text-primary">0</span>/8</span>
+                        <span class="font-note-body text-on-surface-variant">Flips: <span id="flip-count" class="font-bold text-primary">0</span></span>
+                        <span class="font-note-body text-on-surface-variant">Time: <span id="timer-display" class="font-bold text-primary">0s</span></span>
+                    </div>
+
+                    <div class="text-center mb-6 min-h-[3rem]">
+                        <span class="text-sm text-on-surface-variant/60">Revealed letters: </span>
+                        <span id="revealed-letters-display" class="font-headline-lg text-primary tracking-[0.3em]"></span>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto" id="memory-grid">
+                        <!-- Cards generated by JS -->
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button class="px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full hover:scale-105 transition-all active:scale-95 shadow-md" onclick="resetMemoryGame()">🔄 New Game</button>
+                        <div class="mt-4 opacity-0 transition-all duration-1000 hidden" id="memory-success">
+                            <p class="font-note-body text-tertiary text-xl italic">"🧠 You've unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"</p>
+                            <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                                <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                                <span class="font-button-label text-secondary uppercase tracking-widest">All memories found!</span>
+                            </div>
+                            <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(3)">
+                                Next Chapter →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: Find all 8 pairs to reveal the hidden word. Each pair gives you a letter.</div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-3">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter II to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 4: The Heart's Question -->
+        <section class="chapter" data-chapter="4" data-title="The Heart's Question" data-digit="4" data-completed="false">
+            <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
+                <div class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
+                    <div class="filigree-corner top-0 left-0 border-t-4 border-l-4 border-secondary-container/40 rounded-tl-full m-4"></div>
+                    <div class="filigree-corner top-0 right-0 border-t-4 border-r-4 border-secondary-container/40 rounded-tr-full m-4"></div>
+                    <div class="filigree-corner bottom-0 left-0 border-b-4 border-l-4 border-secondary-container/40 rounded-bl-full m-4"></div>
+                    <div class="filigree-corner bottom-0 right-0 border-b-4 border-r-4 border-secondary-container/40 rounded-br-full m-4"></div>
+                    <div class="text-center mb-8">
+                        <span class="font-button-label text-secondary tracking-[0.2em] uppercase">Chapter IV</span>
+                        <h2 class="font-headline-lg text-primary mt-2">The Heart's Question</h2>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Solve the riddle, then use the cipher to reveal the answer."</p>
+                    </div>
+
+                    <div class="glass-panel rounded-xl p-6 mb-8 border-2 border-dashed border-outline-variant">
+                        <p class="font-note-body text-tertiary text-xl italic text-center leading-relaxed">
+                            "I have no voice, but I speak to you.<br/>
+                            I have no wings, but I fly to you.<br/>
+                            I have no hands, but I hold you close.<br/>
+                            What am I?"
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-center mb-8">
+                        <div class="cipher-wheel" id="cipher-wheel">
+                            <!-- Letters placed by JS -->
+                        </div>
+                        <p class="text-xs text-on-surface-variant mt-3">Click a letter on the wheel, then click the answer slot to fill it.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="flex gap-2 flex-wrap justify-center" id="cipher-answer-slots">
+                            <div class="crypto-letter" data-index="0"></div>
+                            <div class="crypto-letter" data-index="1"></div>
+                            <div class="crypto-letter" data-index="2"></div>
+                            <div class="crypto-letter" data-index="3"></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="px-4 py-2 bg-outline-variant/30 rounded-lg text-sm font-button-label hover:bg-outline-variant/50 transition" onclick="clearCipherAnswer()">Clear</button>
+                            <button class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition" onclick="checkCipherAnswer()">Check Answer</button>
+                        </div>
+                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: The answer is 4 letters long. Click a letter then a slot.</p>
+                    </div>
+
+                    <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="cipher-success">
+                        <p class="font-note-body text-tertiary text-xl italic">"<span class="text-primary font-bold">LOVE</span> — the heart's true answer."</p>
+                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                            <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Riddle solved!</span>
+                        </div>
+                        <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(4)">
+                            Next Chapter →
+                        </button>
+                    </div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is what you feel for someone special. Use the wheel to spell it out.</div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-4">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter III to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 5: The Love Letter -->
+        <section class="chapter" data-chapter="5" data-title="The Love Letter" data-digit="5" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
+                <div class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
+                    <div class="absolute top-0 left-0 filigree-corner">
+                        <img class="w-full h-full object-contain opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHaZodkaQj5BQKD4RMzQVTYb4uH-YhXpH-srIah23yhNQKGZY5MjIymetynazQpQzVkOpMFkFC0FGqgwVLUtalkbPWoBsEu7jFg_ed1-Oy4ZpPTiuj5hXNQeUXma4Y_o4x4ZhhUXD2s7ZEGgO6CTJPH1H2VkQeDqyj6CLUR2OH_y1X1JRYmZowu59sL997f3Y-W0343b0GuSdMIX-iRP4In73A_8Cf5FBDGObsVmG5MYwk8G4OgTrEjqHRtoc-_FcvSrsOm_LY9rc" alt="Filigree" />
+                    </div>
+                    <div class="absolute top-0 right-0 filigree-corner scale-x-[-1]">
+                        <img class="w-full h-full object-contain opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjjuuy7yJ4LrWm5-TRi-vtFZJLnPWEvTPAM3kagzAgBheRZb1orFenlRk5Wh5b0-tFj_RXYC69wIaZKMnTl8Yp0_M8IN6UYjOY2O1OPSLRJl1yxBACWo6fYeF1TqyE9qOkH8wSKdoz4QZvMSJE_pUTsDalfKxV59mc-vfh-Zmp_ku2Q_1JBmOAI0VjntVyVAZFr4LZNgN1nt3SX816S8vugUr9sDcjOZlBta3opEM7xdHDaikcWzc_Okkm_Xwxe_QalZKrUZv_vSA" alt="Filigree" />
+                    </div>
+
+                    <div class="text-center mb-6">
+                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter V</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Love Letter</h2>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Drag the words into the correct order to reveal the love letter."</p>
+                    </div>
+
+                    <!-- Scrambled words -->
+                    <div class="mb-6 text-center">
+                        <p class="text-sm text-on-surface-variant/60 mb-3">✧ Scrambled words — drag them to the slots below ✧</p>
+                        <div class="flex flex-wrap justify-center gap-3" id="scramble-words-container">
+                            <!-- Words generated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Drop zones -->
+                    <div class="text-center">
+                        <p class="text-sm text-on-surface-variant/60 mb-3">✧ Drop here in the right order ✧</p>
+                        <div class="flex flex-wrap justify-center gap-3" id="scramble-slots-container">
+                            <!-- Slots generated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Hint & progress -->
+                    <div class="mt-4 text-center">
+                        <p class="text-sm text-on-surface-variant/50 italic" id="scramble-hint">Place all words in the correct order. The message is 8 words long.</p>
+                        <p class="text-xs text-on-surface-variant/40 mt-1">Words placed: <span id="scramble-progress">0</span> / 8</p>
+                    </div>
+
+                    <!-- Success -->
+                    <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="scramble-success">
+                        <p class="font-note-body text-tertiary text-xl italic">"💌 The love letter reads: <span class="text-primary font-bold">"Every day with you is a beautiful adventure"</span>"</p>
+                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                            <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Love letter unscrambled!</span>
+                        </div>
+                        <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(5)">
+                            Next Chapter →
+                        </button>
+                    </div>
+
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: The message starts with "Every" and ends with "adventure".</div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-5">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter IV to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 6: The Moon's Whisper (Morse Code) -->
+        <section class="chapter" data-chapter="6" data-title="The Moon's Whisper" data-digit="6" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
+                <div class="relative w-full bg-surface-container/5 backdrop-blur-xl border border-outline/20 rounded-[2rem] p-8 md:p-12 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_40px_rgba(0,0,0,0.5)] parchment-texture overflow-hidden" style="background:radial-gradient(circle at center,#1b1d0e 0%,#0a0b05 100%);">
+                    <div class="absolute inset-0 pointer-events-none" id="moon-stars-container"></div>
+                    <div class="absolute top-4 left-4 filigree-corner opacity-40">
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><circle cx="50" cy="50" fill="currentColor" r="4"/></svg>
+                    </div>
+                    <div class="absolute top-4 right-4 filigree-corner opacity-40 rotate-90">
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                    </div>
+                    <div class="text-center mb-8 relative z-10">
+                        <span class="font-button-label text-button-label text-secondary-fixed-dim uppercase tracking-widest mb-2 block">Chapter VI</span>
+                        <h2 class="font-headline-lg text-headline-lg text-inverse-primary">The Moon's Whisper</h2>
+                        <p class="text-inverse-primary/60 text-sm italic mt-2">"The moon speaks in stars and crescents — can you decode its secret?"</p>
+                    </div>
+
+                    <!-- Morse Code Display -->
+                    <div class="relative z-10 bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-outline/20">
+                        <p class="text-inverse-primary/80 font-note-body text-center text-sm mb-2">⭐ = dot &nbsp;&nbsp; 🌙 = dash</p>
+                        <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-6" id="morse-display">
+                            <!-- Morse groups generated by JS -->
+                        </div>
+                        <div class="flex justify-center gap-2 flex-wrap mb-6" id="morse-letter-slots">
+                            <!-- Letter input slots -->
+                        </div>
+                        <div class="flex justify-center flex-wrap gap-1 max-w-md mx-auto" id="morse-keypad">
+                            <!-- A-Z buttons -->
+                        </div>
+                        <div class="mt-4 flex justify-center gap-3">
+                            <button class="px-4 py-2 bg-outline-variant/30 rounded-lg text-sm font-button-label hover:bg-outline-variant/50 transition text-inverse-primary/80" onclick="clearMorseAnswer()">Clear</button>
+                            <button class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition" onclick="checkMorseAnswer()">Check</button>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-inverse-primary/50 text-sm">Click a slot, then tap a letter. Use keyboard too!</p>
+                        </div>
+                    </div>
+
+                    <!-- Success -->
+                    <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden relative z-10" id="morse-success">
+                        <p class="font-note-body text-secondary-fixed-dim text-xl italic">"The moon whispers: <span class="text-secondary-container font-bold">FOREVER</span>"</p>
+                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                            <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Moon message decoded!</span>
+                        </div>
+                        <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(6)">
+                            Next Chapter →
+                        </button>
+                    </div>
+
+                    <div class="absolute bottom-4 left-4 filigree-corner opacity-40 -rotate-90">
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                    </div>
+                    <div class="absolute bottom-4 right-4 filigree-corner opacity-40 rotate-180">
+                        <svg class="w-full h-full text-secondary-container" fill="none" viewBox="0 0 100 100"><path d="M10 10C10 30 30 50 50 50M10 10C30 10 50 30 50 50M10 10L50 50" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>
+                    </div>
+                    <div class="text-xs text-inverse-primary/40 mt-4 italic text-center relative z-10">💡 Hint: ⭐ = dot, 🌙 = dash. Translate each group to a letter.</div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-6">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter V to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 7: The Fragmented Heart -->
+        <section class="chapter" data-chapter="7" data-title="The Fragmented Heart" data-digit="7" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
+                <div class="bg-surface/30 backdrop-blur-sm border-[1px] border-primary/10 rounded-2xl shadow-inner p-8 md:p-12 text-center relative">
+                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-[100px]"></div>
+                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-[100px]"></div>
+                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-[100px]"></div>
+                    <div class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-[100px]"></div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-2">The Fragmented Heart</h2>
+                    <p class="font-body-main text-on-surface-variant mb-6">Assemble the pieces to reveal the final message.</p>
+                    <div class="relative w-full mx-auto" style="max-width: 500px; aspect-ratio: 1;" id="puzzle-board-main">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-4/5 h-4/5 opacity-10 flex items-center justify-center" id="target-heart-main">
+                                <span class="material-symbols-outlined text-[250px] text-primary fill-icon">favorite</span>
+                            </div>
+                        </div>
+                        <div id="puzzle-pieces-container" class="absolute inset-0"></div>
+                    </div>
+                    <div class="hidden mt-12 transition-all duration-700 opacity-0 transform translate-y-4" id="reward-container-puzzle">
+                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
+                            <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Heart assembled!</span>
+                        </div>
+                        <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(7)">
+                            Next Chapter →
+                        </button>
+                    </div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Drag each puzzle piece to the correct position. They snap into place when close.</div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-7">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter VI to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 8: The Hidden Letter -->
+        <section class="chapter" data-chapter="8" data-title="The Hidden Letter" data-completed="false">
+            <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
+                <div class="parchment-texture rounded-xl p-8 md:p-12 relative border border-outline-variant/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)]">
+                    <div class="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-secondary m-8 rounded-tl-full opacity-30"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-secondary m-8 rounded-tr-full opacity-30"></div>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-secondary m-8 rounded-bl-full opacity-30"></div>
+                    <div class="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-secondary m-8 rounded-br-full opacity-30"></div>
+                    <div class="text-center mb-8">
+                        <span class="font-button-label text-button-label text-secondary uppercase tracking-widest">Chapter VIII</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Hidden Letter</h2>
+                        <p class="font-note-body text-on-surface-variant text-sm italic mt-2">"Enter the 7-digit code to unlock the final letter."</p>
+                        <p class="text-xs text-on-surface-variant/50 mt-1">You have collected <span id="code-progress-display">0</span> of 7 digits</p>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="flex gap-3" id="code-lock">
+                            <div class="code-digit" data-index="0">_</div>
+                            <div class="code-digit" data-index="1">_</div>
+                            <div class="code-digit" data-index="2">_</div>
+                            <div class="code-digit" data-index="3">_</div>
+                            <div class="code-digit" data-index="4">_</div>
+                            <div class="code-digit" data-index="5">_</div>
+                            <div class="code-digit" data-index="6">_</div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3 max-w-[220px]">
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('1')">1</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('2')">2</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('3')">3</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('4')">4</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('5')">5</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('6')">6</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('7')">7</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('8')">8</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('9')">9</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition font-bold text-primary" onclick="pressCodeKey('0')">0</button>
+                            <button class="code-key-btn p-3 bg-surface-container rounded-lg hover:bg-secondary-container/30 transition text-primary col-span-1" onclick="pressCodeKey('clear')">⌫</button>
+                            <button class="code-key-btn p-3 bg-secondary-container rounded-lg hover:bg-secondary-fixed transition font-bold text-on-secondary-container col-span-2" onclick="checkCodeLock()">↵</button>
+                        </div>
+                        <p class="text-sm text-on-surface-variant/60 italic" id="code-hint">Enter the 7-digit code from your collected digits.</p>
+                        <p class="text-xs text-on-surface-variant/40" id="code-attempts">Attempts: 0 / 5</p>
+                    </div>
+
+                    <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="code-success">
+                        <p class="font-note-body text-tertiary text-xl italic">"<span class="text-primary font-bold">🔓 Unlocked!</span> The letter is yours to read."</p>
+                        <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                            <span class="material-symbols-outlined text-secondary fill-icon text-3xl">mail</span>
+                            <span class="font-button-label text-secondary uppercase tracking-widest">Letter unlocked!</span>
+                        </div>
+                        <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(8)">
+                            Read the Letter →
+                        </button>
+                    </div>
+
+                    <div class="mt-6 text-center text-on-surface-variant/50 text-sm">
+                        <p>💌 The letter is sealed with a 7-digit code.</p>
+                        <p class="text-xs mt-1">Collect all 7 digits from the previous chapters.</p>
+                    </div>
+                </div>
+                <div class="chapter-lock-overlay" id="lock-8">
+                    <span class="lock-icon material-symbols-outlined">lock</span>
+                    <p>Complete Chapter VII to unlock this chapter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 9: Photo Gallery -->
+        <section class="chapter" data-chapter="9" data-title="Photo Gallery" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8">
+                <div class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-12 relative border border-outline-variant/30">
+                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl"></div>
+                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl"></div>
+                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl"></div>
+                    <div class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl"></div>
+
+                    <div class="text-center mb-8">
+                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter IX</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Our Gallery</h2>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments we've shared."</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="gallery-grid">
+                        <!-- 10 placeholder images – replace src with your own -->
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/1.png" alt="Memory 1" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Our first adventure"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/2.png" alt="Memory 2" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Sunset dreams"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/3.png" alt="Memory 3" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"By the sea"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/4.png" alt="Memory 4" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"City lights"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/5.png" alt="Memory 5" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Cozy mornings"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/6.png" alt="Memory 6" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Together"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/7.png" alt="Memory 7" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Dancing in the rain"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/8.png" alt="Memory 8" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Picnic days"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/9.png" alt="Memory 9" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Stars above"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/10.png" alt="Memory 10" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Forever"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/11.png" alt="Memory 11" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Forever"</p>
+                            </div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-lg shadow-md group">
+                            <img class="gallery-img w-full h-64 object-cover" src="/files/12.png" alt="Memory 12" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <p class="text-white text-sm font-note-body italic">"Forever"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center p-6 bg-surface-container/50 rounded-xl border border-outline-variant/30">
+                        <p class="font-note-body text-on-surface-variant italic text-sm">🎵 A song for you</p>
+                        <div class="flex items-center justify-center gap-4 mt-3">
+                            <button class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-105 transition-transform" onclick="playGalleryAudio()">
+                                <span class="material-symbols-outlined">play_arrow</span>
+                            </button>
+                            <span class="text-sm text-on-surface-variant/50">"Our Song" — 3:24</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <button class="px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all" onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final Chapter →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 10: The Birthday Wish -->
+        <section class="chapter" data-chapter="10" data-title="The Birthday Wish" data-completed="false">
+            <div class="max-w-4xl mx-auto px-page-margin py-8">
+                <div class="parchment-texture rounded-xl shadow-2xl p-8 md:p-16 relative border-2 border-secondary-container/30 overflow-hidden">
+                    <!-- background sparkles -->
+                    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                        <span class="absolute top-10 left-10 text-4xl animate-sparkle" style="animation-delay:0.2s;">✨</span>
+                        <span class="absolute bottom-20 right-16 text-3xl animate-sparkle" style="animation-delay:1.5s;">✨</span>
+                        <span class="absolute top-1/2 left-1/4 text-2xl animate-sparkle" style="animation-delay:0.8s;">🌟</span>
+                    </div>
+
+                    <div class="text-center mb-8">
+                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Final Chapter</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Happy Birthday, Affin!</h2>
+                        <div class="w-24 h-px bg-secondary-container mx-auto mt-4"></div>
+                    </div>
+
+                    <div class="space-y-6 text-center max-w-2xl mx-auto">
+                        <p class="font-note-body text-tertiary text-xl italic leading-relaxed">
+                            "In the story of us, every chapter has led to this moment — your special day."
+                        </p>
+                        <p class="font-body-main text-on-surface-variant">
+                            You are the sunshine that brightens every page, the laughter between the lines, and the love that holds it all together.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div class="bg-surface-container/50 rounded-xl p-6 border border-outline-variant/30 backdrop-blur-sm">
+                                <span class="material-symbols-outlined text-5xl text-secondary fill-icon mb-3">mail</span>
+                                <h3 class="font-headline-lg text-primary text-xl">A Letter for You</h3>
+                                <p class="font-body-main text-on-surface-variant text-sm mt-2">Open your heart to the words inside.</p>
+                                <button class="mt-4 px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full shadow-md hover:scale-105 transition-all" onclick="openLetter()">
+                                    Open Letter ✉️
+                                </button>
+                            </div>
+                            <div class="bg-surface-container/50 rounded-xl p-6 border border-outline-variant/30 backdrop-blur-sm">
+                                <span class="material-symbols-outlined text-5xl text-secondary fill-icon mb-3">music_note</span>
+                                <h3 class="font-headline-lg text-primary text-xl">A Voice Note</h3>
+                                <p class="font-body-main text-on-surface-variant text-sm mt-2">Hear my birthday wish for you.</p>
+                                <button class="mt-4 px-6 py-2 bg-secondary-container text-on-secondary-container font-button-label rounded-full shadow-md hover:scale-105 transition-all" onclick="playBirthdayAudio()">
+                                    Play Voice 🎧
+                                </button>
+                                <audio id="birthday-audio" src="placeholder.mp3" preload="auto"></audio>
+                                <p class="text-xs text-on-surface-variant/50 mt-2">(replace 'placeholder.mp3' with your own recording)</p>
+                            </div>
+                        </div>
+                        <p class="font-note-body text-primary italic text-lg mt-8">"May our story never end."</p>
+                        <button class="mt-6 px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all" onclick="goToChapter(0)">Return to Home</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LETTER MODAL -->
+    <div class="fixed inset-0 z-[300] bg-black/70 backdrop-blur-md flex items-center justify-center p-6 hidden" id="letter-modal">
+        <div class="max-w-xl w-full bg-surface parchment-texture rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30 animate-[fadeIn_0.5s_ease-out]">
+            <button class="absolute top-4 right-4 text-primary hover:scale-110 transition" onclick="closeLetter()">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <h3 class="font-headline-lg text-primary text-2xl mb-6 text-center">My Dearest Affin,</h3>
+            <div class="space-y-4 font-body-main text-on-surface-variant leading-relaxed">
+                <p>On your birthday, I want you to know how deeply you are loved. Every moment with you is a treasured page in the book of my life.</p>
+                <p>Your smile lights up my darkest days, your laughter is the sweetest melody, and your love is the greatest gift I’ve ever received.</p>
+                <p>May this year bring you all the happiness you deserve. I can't wait to fill the next chapters of our story together — adventures, quiet moments, and a lifetime of love.</p>
+                <p class="text-right font-bold text-primary mt-4">Happy Birthday, with all my heart.</p>
+                <p class="text-right handwritten text-2xl mt-2">Yours forever</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENVELOPE MODAL -->
+    <div class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md flex items-center justify-center p-6 hidden" id="envelope-modal">
+        <div class="envelope-modal max-w-md w-full bg-surface rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30">
+            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-secondary-container w-16 h-16 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                <span class="material-symbols-outlined text-on-secondary-container text-4xl fill-icon">mail</span>
+            </div>
+            <div class="text-center mt-6">
+                <div class="envelope-icon text-secondary-container">✉️</div>
+                <h3 class="font-headline-lg text-primary mt-4" id="envelope-title">Chapter Complete!</h3>
+                <p class="font-note-body text-on-surface-variant italic mt-2" id="envelope-message">"Every step brings us closer together."</p>
+                <div class="my-6 p-4 bg-surface-container rounded-xl border border-secondary-container/20">
+                    <p class="text-sm text-on-surface-variant font-note-body">Your code digit:</p>
+                    <div class="code-digit-reveal mt-2" id="envelope-digit">1</div>
+                </div>
+                <p class="text-xs text-on-surface-variant/50">Collect all 7 digits to unlock the final letter.</p>
+                <button class="mt-6 w-full py-4 bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-container font-button-label rounded-full shadow-md hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95" id="envelope-continue-btn" onclick="closeEnvelope()">
+                    <span class="flex items-center justify-center gap-2">
+                        Continue Your Journey
+                        <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe-area-bottom pt-2 bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 rounded-t-full shadow-[0px_-10px_20px_rgba(0,0,0,0.05)]" id="bottom-nav">
+        <button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant px-4 py-2 hover:bg-primary-fixed transition-all rounded-xl" id="prev-btn" onclick="prevChapter()">
+            <span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+            <span class="font-button-label text-[10px]">Previous</span>
+        </button>
+        <button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 active:scale-95 duration-200 ease-out" onclick="toggleDrawer()">
+            <span class="material-symbols-outlined fill-icon">auto_stories</span>
+            <span class="font-button-label text-[10px]">Chapters</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant px-4 py-2 hover:bg-primary-fixed transition-all rounded-xl" id="next-btn" onclick="nextChapter()">
+            <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+            <span class="font-button-label text-[10px]">Next</span>
+        </button>
+    </nav>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ── Configuration ──
+        const TOTAL_CHAPTERS = 11; // 0-10
+        const CHAPTER_TITLES = [
+            'Home', 'The Invitation', 'The Lost Star', 'Memories',
+            'The Heart\'s Question', 'The Love Letter', 'The Moon\'s Whisper',
+            'The Fragmented Heart', 'The Hidden Letter', 'Photo Gallery', 'The Birthday Wish'
+        ];
+        const ENVELOPE_MESSAGES = {
+            1: '"The first step is the beginning of every great adventure."',
+            2: '"Even the stars guide those who look up with hope."',
+            3: '"Memories are the threads that weave our story together."',
+            4: '"The heart knows what the mind cannot always see."',
+            5: '"Every word you placed reveals a little more of my heart."',
+            6: '"The moon whispers secrets to those who listen."',
+            7: '"Every piece of the heart tells a story of love."',
+            8: '"The final chapter begins where all love stories live — in the heart."'
+        };
+
+        // ── Random digit pool ──
+        const DIGIT_POOL = ['0','1','2','3','4','5','6','7','8','9'];
+        let availableDigits = [...DIGIT_POOL].sort(() => Math.random() - 0.5);
+
+        // ── State ──
+        let currentChapter = 0;
+        let puzzlePiecesFound = 0;
+        const MAX_PUZZLES = 12;
+        let collectedDigits = new Array(7).fill(null);  // index 0‑6 for chapters 1‑7
+        let chapterCompleted = {};
+        let codeAttempts = 0;
+        const MAX_CODE_ATTEMPTS = 5;
+
+        // ── DOM refs ──
+        const chapters = document.querySelectorAll('.chapter');
+        const drawerNav = document.getElementById('drawer-nav');
+        const puzzleCountEl = document.getElementById('puzzle-count');
+        const chapterIndicator = document.getElementById('chapter-indicator');
+        const codeDisplaySmall = document.getElementById('code-display-small');
+
+        // ── Navigation ──
+        function goToChapter(idx) {
+            if (idx < 0 || idx >= TOTAL_CHAPTERS) return;
+            if (idx > currentChapter + 1) return;
+            if (idx > 0 && idx < 10) {
+                const prevIdx = idx - 1;
+                if (prevIdx > 0 && !chapterCompleted[prevIdx]) {
+                    showLockOverlay(idx);
+                    return;
+                }
+            }
+            if (idx === 10 && !chapterCompleted[9]) {
+                showLockOverlay(10);
+                return;
+            }
+
+            chapters.forEach((ch, i) => {
+                ch.classList.toggle('active', i === idx);
+            });
+            currentChapter = idx;
+            updateNavButtons();
+            updateChapterIndicator();
+            updateDrawer();
+            updateCodeDisplay();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Init chapter-specific features
+            if (idx === 2) initStarMemory();
+            if (idx === 3) initMemoryMatch();
+            if (idx === 4) initCipherWheel();
+            if (idx === 5) initScrambleGame();
+            if (idx === 6) initMorseGame();
+            if (idx === 7) initPuzzle();
+            if (idx === 0) initCountdown();
+
+            document.querySelectorAll('.chapter-lock-overlay').forEach(el => el.classList.remove('show'));
+        }
+
+        function nextChapter() {
+            if (currentChapter < TOTAL_CHAPTERS - 1) {
+                if (currentChapter >= 1 && currentChapter <= 9) {
+                    if (!chapterCompleted[currentChapter]) {
+                        showLockOverlay(currentChapter + 1);
+                        return;
+                    }
+                }
+                goToChapter(currentChapter + 1);
+            }
+        }
+
+        function prevChapter() {
+            if (currentChapter > 0) goToChapter(currentChapter - 1);
+        }
+
+        function updateNavButtons() {
+            const prev = document.getElementById('prev-btn');
+            const next = document.getElementById('next-btn');
+            prev.style.opacity = currentChapter === 0 ? '0.3' : '1';
+            prev.style.cursor = currentChapter === 0 ? 'default' : 'pointer';
+            let locked = false;
+            const nextIdx = currentChapter + 1;
+            if (nextIdx < TOTAL_CHAPTERS && nextIdx >= 1 && nextIdx <= 9) {
+                if (!chapterCompleted[currentChapter] && currentChapter >= 1 && currentChapter <= 9) locked = true;
+            }
+            if (nextIdx === 10 && !chapterCompleted[9]) locked = true;
+            next.style.opacity = (currentChapter === TOTAL_CHAPTERS - 1 || locked) ? '0.3' : '1';
+            next.style.cursor = (currentChapter === TOTAL_CHAPTERS - 1 || locked) ? 'default' : 'pointer';
+        }
+
+        function updateChapterIndicator() {
+            chapterIndicator.textContent = CHAPTER_TITLES[currentChapter] || 'Home';
+        }
+
+        function updateCodeDisplay() {
+            const filled = collectedDigits.filter(d => d !== null);
+            const display = filled.length > 0 ? filled.join(' ') : '_ _ _ _ _ _ _';
+            const smallDisplay = filled.length > 0 ? '🔑 ' + filled.join(' ') : '🔑 _ _ _ _ _ _ _';
+            const drawerDisplay = filled.length > 0 ? filled.join(' ') : '_ _ _ _ _ _ _';
+            document.getElementById('code-display-small').textContent = smallDisplay;
+            document.getElementById('drawer-code-display').textContent = drawerDisplay;
+            const progressEl = document.getElementById('code-progress-display');
+            if (progressEl) progressEl.textContent = filled.length;
+        }
+
+        function showLockOverlay(chapterIdx) {
+            const overlay = document.getElementById('lock-' + chapterIdx);
+            if (overlay) {
+                overlay.classList.add('show');
+                setTimeout(() => overlay.classList.remove('show'), 3000);
+            }
+        }
+
+        // ── Drawer ──
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isOpen = drawer.style.transform === 'translateX(0px)';
+            drawer.style.transform = isOpen ? 'translateX(-100%)' : 'translateX(0px)';
+            overlay.classList.toggle('hidden', isOpen);
+        }
+
+        function updateDrawer() {
+            let html = '';
+            CHAPTER_TITLES.forEach((title, i) => {
+                const isCompleted = i === 0 || chapterCompleted[i] || i === 10;
+                const active = i === currentChapter ? 'bg-primary-container text-on-primary-container font-bold' :
+                    'text-on-surface-variant hover:bg-surface-variant';
+                const icon = i === 0 ? 'home' : i === 10 ? 'cake' : 'menu_book';
+                const check = isCompleted && i > 0 && i < 10 ? ' ✅' : '';
+                const digit = (i >= 1 && i <= 7 && collectedDigits[i-1]) ? ` ${collectedDigits[i-1]}` : '';
+                html += `
+                    <div class="${active} mx-2 px-4 py-3 rounded-xl transition-all cursor-pointer flex items-center gap-4 hover:translate-x-1 ${!isCompleted && i>0 && i<10 ? 'opacity-50' : ''}"
+                         onclick="${isCompleted || i===0 || i===10 ? `goToChapter(${i}); toggleDrawer();` : `showLockOverlay(${i})`}">
+                        <span class="material-symbols-outlined">${icon}</span>
+                        <span class="font-note-body">${title}${digit}${check}</span>
+                        ${i === currentChapter ? '<span class="ml-auto text-xs">◀</span>' : ''}
+                    </div>
+                `;
+            });
+            drawerNav.innerHTML = html;
+            puzzleCountEl.textContent = Math.min(puzzlePiecesFound, MAX_PUZZLES);
+            updateCodeDisplay();
+        }
+
+        document.getElementById('menu-btn').addEventListener('click', toggleDrawer);
+        document.getElementById('drawer-overlay').addEventListener('click', toggleDrawer);
+
+        // ── Countdown (Home) ──
+        function initCountdown() {
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 7);
+            targetDate.setHours(0, 0, 0, 0);
+
+            function update() {
+                const now = new Date();
+                const diff = targetDate - now;
+                if (diff <= 0) {
+                    document.querySelectorAll('#days, #hours, #minutes, #seconds').forEach(el => el.textContent = '00');
+                    return;
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('days').textContent = String(d).padStart(2, '0');
+                document.getElementById('hours').textContent = String(h).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+            }
+            update();
+            if (window._countdownInterval) clearInterval(window._countdownInterval);
+            window._countdownInterval = setInterval(update, 1000);
+        }
+
+        // ── Home book interaction ──
+        document.getElementById('home-book')?.addEventListener('click', function() {
+            this.classList.remove('animate-float');
+            void this.offsetWidth;
+            this.classList.add('animate-float');
+            const flash = document.createElement('div');
+            flash.className =
+            'fixed inset-0 bg-white/20 z-[100] pointer-events-none transition-opacity duration-1000 opacity-0';
+            document.body.appendChild(flash);
+            requestAnimationFrame(() => {
+                flash.classList.replace('opacity-0', 'opacity-100');
+                setTimeout(() => {
+                    flash.classList.replace('opacity-100', 'opacity-0');
+                    setTimeout(() => flash.remove(), 1000);
+                }, 50);
+            });
+        });
+
+        // ── COMPLETE CHAPTER ──
+        function completeChapter(chapterIdx) {
+            if (chapterCompleted[chapterIdx]) return;
+            if (chapterIdx < 1 || chapterIdx > 9) return; // only puzzle chapters give digits
+
+            chapterCompleted[chapterIdx] = true;
+            puzzlePiecesFound = Math.min(puzzlePiecesFound + 1, MAX_PUZZLES);
+
+            if (chapterIdx >= 1 && chapterIdx <= 7) {
+                if (!collectedDigits[chapterIdx - 1]) {
+                    const digit = availableDigits.pop();
+                    collectedDigits[chapterIdx - 1] = digit;
+                }
+                updateCodeDisplay();
+                updateDrawer();
+                showEnvelope(chapterIdx, collectedDigits[chapterIdx - 1]);
+            } else if (chapterIdx === 8) {
+                updateDrawer();
+                showEnvelope(8, '❤️');
+            } else if (chapterIdx === 9) {
+                // Gallery is just a passage, no digit
+                chapterCompleted[9] = true;
+                updateDrawer();
+                updateNavButtons();
+                return;
+            }
+
+            updateNavButtons();
+            updateDrawer();
+        }
+
+        // ── Envelope Modal ──
+        function showEnvelope(chapterIdx, digit) {
+            const modal = document.getElementById('envelope-modal');
+            const title = document.getElementById('envelope-title');
+            const message = document.getElementById('envelope-message');
+            const digitDisplay = document.getElementById('envelope-digit');
+            const btn = document.getElementById('envelope-continue-btn');
+
+            const titles = {
+                1: '✨ First Step Taken!',
+                2: '🌟 Star Trail Mastered!',
+                3: '🧠 Memory Unlocked!',
+                4: '💖 Heart Revealed!',
+                5: '💌 Love Letter Unscrambled!',
+                6: '🌙 Moon Whispered!',
+                7: '🧩 Heart Assembled!',
+                8: '📜 Letter Unlocked!'
+            };
+
+            title.textContent = titles[chapterIdx] || 'Chapter Complete!';
+            message.textContent = ENVELOPE_MESSAGES[chapterIdx] || '"Every step brings us closer together."';
+            digitDisplay.textContent = digit;
+
+            modal.classList.remove('hidden');
+            const content = modal.querySelector('.envelope-modal');
+            content.style.animation = 'none';
+            void content.offsetWidth;
+            content.style.animation = 'envelope-open 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+
+            if (chapterIdx === 8) {
+                btn.innerHTML = '<span class="flex items-center justify-center gap-2">View Gallery <span class="material-symbols-outlined">photo_library</span></span>';
+                btn.onclick = function() {
+                    closeEnvelope();
+                    goToChapter(9);
+                };
+            } else {
+                btn.innerHTML = '<span class="flex items-center justify-center gap-2">Continue Your Journey <span class="material-symbols-outlined">keyboard_double_arrow_right</span></span>';
+                btn.onclick = function() {
+                    closeEnvelope();
+                    if (chapterIdx < 7) goToChapter(chapterIdx + 1);
+                    else if (chapterIdx === 7) goToChapter(8);
+                };
+            }
+        }
+
+        function closeEnvelope() {
+            document.getElementById('envelope-modal').classList.add('hidden');
+        }
+
+        // ── Chapter 10: Letter & Audio ──
+        function openLetter() {
+            document.getElementById('letter-modal').classList.remove('hidden');
+        }
+        function closeLetter() {
+            document.getElementById('letter-modal').classList.add('hidden');
+        }
+        function playBirthdayAudio() {
+            const audio = document.getElementById('birthday-audio');
+            if (audio.paused) {
+                audio.play().catch(e => console.log('Audio playback failed: please use your own file.'));
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
+
+        // ── Star Memory (Ch2) ──
+        let starGame = {
+            sequence: [],
+            playerSequence: [],
+            round: 0,
+            maxRounds: 7,
+            isShowing: false,
+            isPlayerTurn: false,
+            gameOver: false,
+            cells: []
+        };
+        function initStarMemory() {
+            if (chapterCompleted[2]) return;
+            const grid = document.getElementById('star-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            starGame.cells = [];
+            starGame.sequence = [];
+            starGame.playerSequence = [];
+            starGame.round = 0;
+            starGame.isShowing = false;
+            starGame.isPlayerTurn = false;
+            starGame.gameOver = false;
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'star-cell disabled';
+                cell.dataset.index = i;
+                cell.innerHTML = `<span class="star-icon">⭐</span><span class="cell-index">${i+1}</span>`;
+                cell.addEventListener('click', () => onStarClick(i));
+                grid.appendChild(cell);
+                starGame.cells.push(cell);
+            }
+            document.getElementById('star-round-display').textContent = 'Round 1';
+            document.getElementById('star-length-display').textContent = 'Length: 3';
+            document.getElementById('star-hint').textContent = 'Click "Start Game" to begin.';
+            document.getElementById('star-success').classList.add('hidden');
+            document.getElementById('star-start-btn').disabled = false;
+            document.getElementById('star-start-btn').textContent = 'Start Game';
+            document.getElementById('star-start-btn').onclick = startStarGame;
+            starGame.cells.forEach(c => c.classList.remove('disabled'));
+        }
+        function startStarGame() {
+            if (starGame.gameOver) return;
+            const btn = document.getElementById('star-start-btn');
+            btn.disabled = true;
+            btn.textContent = 'Watch...';
+            starGame.round = 1;
+            starGame.sequence = [];
+            starGame.playerSequence = [];
+            generateNextRound();
+        }
+        function generateNextRound() {
+            if (starGame.round > starGame.maxRounds) {
+                starGame.gameOver = true;
+                document.getElementById('star-success').classList.remove('hidden');
+                document.getElementById('star-hint').textContent = '🎉 You completed all rounds!';
+                document.getElementById('star-start-btn').textContent = '✓ Done';
+                starGame.cells.forEach(c => c.classList.add('disabled'));
+                return;
+            }
+            const newStar = Math.floor(Math.random() * 9);
+            starGame.sequence.push(newStar);
+            starGame.playerSequence = [];
+            document.getElementById('star-round-display').textContent = `Round ${starGame.round}`;
+            document.getElementById('star-length-display').textContent = `Length: ${starGame.sequence.length}`;
+            document.getElementById('star-hint').textContent = 'Watch the sequence...';
+            starGame.isShowing = true;
+            starGame.cells.forEach(c => c.classList.add('disabled'));
+            let i = 0;
+            const showInterval = setInterval(() => {
+                if (i >= starGame.sequence.length) {
+                    clearInterval(showInterval);
+                    starGame.isShowing = false;
+                    starGame.isPlayerTurn = true;
+                    starGame.cells.forEach(c => c.classList.remove('disabled'));
+                    document.getElementById('star-hint').textContent = 'Your turn!';
+                    document.getElementById('star-start-btn').textContent = 'Your Turn';
+                    return;
+                }
+                const idx = starGame.sequence[i];
+                starGame.cells[idx].classList.add('active');
+                setTimeout(() => starGame.cells[idx].classList.remove('active'), 500);
+                i++;
+            }, 700);
+        }
+        function onStarClick(index) {
+            if (starGame.isShowing || !starGame.isPlayerTurn || starGame.gameOver) return;
+            const cell = starGame.cells[index];
+            const expected = starGame.sequence[starGame.playerSequence.length];
+            if (index === expected) {
+                cell.classList.add('correct');
+                setTimeout(() => cell.classList.remove('correct'), 300);
+                starGame.playerSequence.push(index);
+                if (starGame.playerSequence.length === starGame.sequence.length) {
+                    starGame.isPlayerTurn = false;
+                    starGame.cells.forEach(c => c.classList.add('disabled'));
+                    document.getElementById('star-hint').textContent = '✅ Good job! Next round...';
+                    starGame.round++;
+                    setTimeout(generateNextRound, 800);
+                }
+            } else {
+                cell.classList.add('wrong');
+                setTimeout(() => cell.classList.remove('wrong'), 400);
+                document.getElementById('star-hint').textContent = '❌ Oops! Try again.';
+                starGame.playerSequence = [];
+                starGame.isPlayerTurn = false;
+                starGame.cells.forEach(c => c.classList.add('disabled'));
+                setTimeout(() => {
+                    starGame.isShowing = true;
+                    let i = 0;
+                    const showInterval = setInterval(() => {
+                        if (i >= starGame.sequence.length) {
+                            clearInterval(showInterval);
+                            starGame.isShowing = false;
+                            starGame.isPlayerTurn = true;
+                            starGame.cells.forEach(c => c.classList.remove('disabled'));
+                            document.getElementById('star-hint').textContent = 'Try again!';
+                            return;
+                        }
+                        const idx = starGame.sequence[i];
+                        starGame.cells[idx].classList.add('active');
+                        setTimeout(() => starGame.cells[idx].classList.remove('active'), 500);
+                        i++;
+                    }, 700);
+                }, 600);
+            }
+        }
+
+        // ── Memory Match (Ch3) ──
+        let memoryGame = {
+            cards: [],
+            flipped: [],
+            matched: 0,
+            flips: 0,
+            locked: false,
+            timer: 0,
+            timerInterval: null,
+            isComplete: false,
+            revealedLetters: []
+        };
+        const MEMORY_PAIRS = [
+            { emoji: '🌅', letter: 'M' }, { emoji: '🌊', letter: 'E' }, { emoji: '🌺', letter: 'M' },
+            { emoji: '🌄', letter: 'O' }, { emoji: '🌙', letter: 'R' }, { emoji: '⭐', letter: 'I' },
+            { emoji: '🌸', letter: 'E' }, { emoji: '🌻', letter: 'S' }
+        ];
+        function initMemoryMatch() {
+            if (chapterCompleted[3]) {
+                document.getElementById('memory-success').classList.remove('hidden');
+                document.querySelector('#memory-success .font-note-body').innerHTML = '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
+                return;
+            }
+            resetMemoryGame();
+        }
+        function resetMemoryGame() {
+            if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval); memoryGame.timerInterval = null; }
+            memoryGame.timer = 0;
+            document.getElementById('timer-display').textContent = '0s';
+            memoryGame.flipped = [];
+            memoryGame.matched = 0;
+            memoryGame.flips = 0;
+            memoryGame.locked = false;
+            memoryGame.isComplete = false;
+            memoryGame.revealedLetters = [];
+            document.getElementById('match-count').textContent = '0';
+            document.getElementById('flip-count').textContent = '0';
+            document.getElementById('revealed-letters-display').textContent = '';
+            document.getElementById('memory-success').classList.add('hidden');
+            const deck = [];
+            MEMORY_PAIRS.forEach((pair, idx) => {
+                deck.push({ id: idx * 2, pairId: idx, emoji: pair.emoji, letter: pair.letter });
+                deck.push({ id: idx * 2 + 1, pairId: idx, emoji: pair.emoji, letter: pair.letter });
+            });
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+            memoryGame.cards = deck;
+            const grid = document.getElementById('memory-grid');
+            grid.innerHTML = '';
+            deck.forEach((card, index) => {
+                const div = document.createElement('div');
+                div.className = 'memory-card';
+                div.dataset.index = index;
+                div.dataset.pairId = card.pairId;
+                div.dataset.letter = card.letter;
+                div.innerHTML = `<div class="memory-card-inner"><div class="memory-card-back"><span class="card-icon">✦</span></div><div class="memory-card-front">${card.emoji}</div></div>`;
+                div.addEventListener('click', () => flipCard(index));
+                grid.appendChild(div);
+            });
+        }
+        function flipCard(index) {
+            if (memoryGame.locked || memoryGame.isComplete) return;
+            const cardEl = document.querySelectorAll('.memory-card')[index];
+            if (!cardEl || cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+            if (memoryGame.flips === 0 && !memoryGame.timerInterval) {
+                memoryGame.timerInterval = setInterval(() => {
+                    memoryGame.timer++;
+                    document.getElementById('timer-display').textContent = memoryGame.timer + 's';
+                }, 1000);
+            }
+            cardEl.classList.add('flipped');
+            memoryGame.flipped.push(index);
+            memoryGame.flips++;
+            document.getElementById('flip-count').textContent = memoryGame.flips;
+            if (memoryGame.flipped.length === 2) {
+                memoryGame.locked = true;
+                const [idx1, idx2] = memoryGame.flipped;
+                const card1 = document.querySelectorAll('.memory-card')[idx1];
+                const card2 = document.querySelectorAll('.memory-card')[idx2];
+                const pair1 = memoryGame.cards[idx1].pairId;
+                const pair2 = memoryGame.cards[idx2].pairId;
+                if (pair1 === pair2) {
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    memoryGame.matched++;
+                    document.getElementById('match-count').textContent = memoryGame.matched;
+                    memoryGame.revealedLetters.push(memoryGame.cards[idx1].letter);
+                    document.getElementById('revealed-letters-display').textContent = memoryGame.revealedLetters.join(' ');
+                    memoryGame.flipped = [];
+                    memoryGame.locked = false;
+                    if (memoryGame.matched === 8) {
+                        memoryGame.isComplete = true;
+                        if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval); memoryGame.timerInterval = null; }
+                        document.getElementById('memory-success').classList.remove('hidden');
+                        document.querySelector('#memory-success .font-note-body').innerHTML = '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
+                    }
+                } else {
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        memoryGame.flipped = [];
+                        memoryGame.locked = false;
+                    }, 700);
+                }
+            }
+        }
+
+        // ── Cipher Wheel (Ch4) ──
+        let cipherState = {
+            selectedLetter: null,
+            answer: ['', '', '', ''],
+            correct: ['L', 'O', 'V', 'E'],
+            completed: false
+        };
+        function initCipherWheel() {
+            if (cipherState.completed || chapterCompleted[4]) return;
+            const wheel = document.getElementById('cipher-wheel');
+            if (!wheel) return;
+            wheel.innerHTML = '';
+            cipherState.answer = ['', '', '', ''];
+            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => { slot.textContent = ''; slot.className = 'crypto-letter'; });
+            document.getElementById('cipher-success').classList.add('hidden');
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+            const radius = 100, center = 120;
+            letters.forEach((char, i) => {
+                const angle = (i / letters.length) * 2 * Math.PI - Math.PI/2;
+                const x = center + radius * Math.cos(angle) - 16;
+                const y = center + radius * Math.sin(angle) - 16;
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.textContent = char;
+                span.style.left = x + 'px';
+                span.style.top = y + 'px';
+                span.dataset.letter = char;
+                span.addEventListener('click', () => {
+                    if (cipherState.completed || chapterCompleted[4]) return;
+                    document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove('active-char'));
+                    span.classList.add('active-char');
+                    cipherState.selectedLetter = char;
+                });
+                wheel.appendChild(span);
+            });
+            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach((slot, i) => {
+                slot.addEventListener('click', () => {
+                    if (cipherState.completed || chapterCompleted[4]) return;
+                    if (cipherState.selectedLetter && cipherState.answer[i] === '') {
+                        cipherState.answer[i] = cipherState.selectedLetter;
+                        slot.textContent = cipherState.selectedLetter;
+                        slot.classList.add('filled');
+                        document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove('active-char'));
+                        cipherState.selectedLetter = null;
+                        if (cipherState.answer.every(l => l !== '')) checkCipherAnswer();
+                    }
+                });
+            });
+        }
+        function clearCipherAnswer() {
+            if (cipherState.completed || chapterCompleted[4]) return;
+            cipherState.answer = ['', '', '', ''];
+            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => { slot.textContent = ''; slot.className = 'crypto-letter'; });
+            document.getElementById('cipher-hint').textContent = 'Hint: The answer is 4 letters long. Click a letter then a slot.';
+        }
+        function checkCipherAnswer() {
+            if (cipherState.completed || chapterCompleted[4]) return;
+            const answer = cipherState.answer.join('');
+            if (answer === 'LOVE') {
+                cipherState.completed = true;
+                document.getElementById('cipher-success').classList.remove('hidden');
+                document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => slot.classList.add('correct'));
+                document.getElementById('cipher-hint').textContent = '✅ Correct! The answer is LOVE.';
+            } else {
+                document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => { if (slot.textContent) slot.classList.add('wrong'); setTimeout(() => slot.classList.remove('wrong'), 400); });
+                document.getElementById('cipher-hint').textContent = '❌ Not quite. Try again!';
+                setTimeout(() => document.getElementById('cipher-hint').textContent = 'Hint: The answer is 4 letters long. Click a letter then a slot.', 2000);
+            }
+        }
+
+        // ── Scramble (Ch5) ──
+        let scrambleState = {
+            words: ['Every', 'day', 'with', 'you', 'is', 'a', 'beautiful', 'adventure'],
+            placed: [],
+            slots: [],
+            completed: false,
+            draggingEl: null,
+            dragOffsetX: 0,
+            dragOffsetY: 0,
+            initialPosition: null
+        };
+        function initScrambleGame() {
+            if (scrambleState.completed || chapterCompleted[5]) { document.getElementById('scramble-success').classList.remove('hidden'); return; }
+            const container = document.getElementById('scramble-words-container');
+            const slotsContainer = document.getElementById('scramble-slots-container');
+            if (!container || !slotsContainer) return;
+            scrambleState.placed = [];
+            scrambleState.completed = false;
+            container.innerHTML = '';
+            slotsContainer.innerHTML = '';
+            document.getElementById('scramble-success').classList.add('hidden');
+            document.getElementById('scramble-progress').textContent = '0 / 8';
+            scrambleState.draggingEl = null;
+            const shuffled = [...scrambleState.words].sort(() => Math.random() - 0.5);
+            shuffled.forEach(word => {
+                const el = document.createElement('span');
+                el.className = 'scramble-word';
+                el.textContent = word;
+                el.dataset.word = word;
+                el.addEventListener('touchstart', (e) => handleScrambleDragStart(e, el));
+                el.addEventListener('touchmove', (e) => handleScrambleDragMove(e));
+                el.addEventListener('touchend', (e) => handleScrambleDragEnd(e));
+                el.addEventListener('mousedown', (e) => handleScrambleDragStart(e, el));
+                container.appendChild(el);
+            });
+            scrambleState.slots = [];
+            scrambleState.words.forEach((word, idx) => {
+                const slot = document.createElement('div');
+                slot.className = 'scramble-slot';
+                slot.dataset.index = idx;
+                slot.dataset.expected = word;
+                slot.textContent = `drop ${idx+1}`;
+                slotsContainer.appendChild(slot);
+                scrambleState.slots.push(slot);
+            });
+        }
+        function handleScrambleDragStart(e, el) {
+            if (el.classList.contains('placed') || scrambleState.completed || chapterCompleted[5]) return;
+            e.preventDefault();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const rect = el.getBoundingClientRect();
+            scrambleState.draggingEl = el;
+            scrambleState.dragOffsetX = clientX - rect.left;
+            scrambleState.dragOffsetY = clientY - rect.top;
+            scrambleState.initialPosition = { left: el.style.left, top: el.style.top, position: el.style.position };
+            el.style.position = 'fixed';
+            el.style.left = (clientX - scrambleState.dragOffsetX) + 'px';
+            el.style.top = (clientY - scrambleState.dragOffsetY) + 'px';
+            el.style.zIndex = '100';
+            el.style.transition = 'none';
+            el.style.pointerEvents = 'none';
+            document.addEventListener('mousemove', handleScrambleDragMove);
+            document.addEventListener('mouseup', handleScrambleDragEnd);
+        }
+        function handleScrambleDragMove(e) {
+            if (!scrambleState.draggingEl) return;
+            e.preventDefault();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const el = scrambleState.draggingEl;
+            el.style.left = (clientX - scrambleState.dragOffsetX) + 'px';
+            el.style.top = (clientY - scrambleState.dragOffsetY) + 'px';
+        }
+        function handleScrambleDragEnd(e) {
+            if (!scrambleState.draggingEl) return;
+            e.preventDefault();
+            const el = scrambleState.draggingEl;
+            const word = el.dataset.word;
+            let dropped = false;
+            const clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+            const clientY = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+            const slots = document.querySelectorAll('.scramble-slot');
+            slots.forEach(slot => {
+                const rect = slot.getBoundingClientRect();
+                if (clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom) {
+                    const slotIdx = parseInt(slot.dataset.index);
+                    if (!scrambleState.placed.includes(slotIdx) && !slot.classList.contains('filled')) {
+                        if (word === slot.dataset.expected) {
+                            placeWordInSlot(slotIdx, word, el);
+                            dropped = true;
+                        } else {
+                            el.classList.add('wrong');
+                            setTimeout(() => el.classList.remove('wrong'), 400);
+                        }
+                    }
+                }
+            });
+            el.style.position = scrambleState.initialPosition?.position || '';
+            el.style.left = scrambleState.initialPosition?.left || '';
+            el.style.top = scrambleState.initialPosition?.top || '';
+            el.style.zIndex = '';
+            el.style.transition = '';
+            el.style.pointerEvents = '';
+            document.removeEventListener('mousemove', handleScrambleDragMove);
+            document.removeEventListener('mouseup', handleScrambleDragEnd);
+            scrambleState.draggingEl = null;
+            scrambleState.initialPosition = null;
+        }
+        function placeWordInSlot(slotIdx, word, wordEl) {
+            if (scrambleState.placed.includes(slotIdx)) return;
+            scrambleState.placed.push(slotIdx);
+            wordEl.classList.add('placed');
+            wordEl.style.display = 'none';
+            scrambleState.slots[slotIdx].classList.add('filled');
+            scrambleState.slots[slotIdx].innerHTML = `<span class="slot-word">${word}</span>`;
+            scrambleState.slots[slotIdx].style.color = '#4caf50';
+            document.getElementById('scramble-progress').textContent = `${scrambleState.placed.length} / 8`;
+            if (scrambleState.placed.length === scrambleState.words.length) {
+                scrambleState.completed = true;
+                document.getElementById('scramble-success').classList.remove('hidden');
+                document.getElementById('scramble-hint').textContent = '✅ Complete! Beautiful message!';
+            }
+        }
+
+        // ── Morse Game (Ch6) ──
+        const morseCode = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+            'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+            'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+            'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..'
+        };
+        const morseTarget = 'FOREVER';
+        let morseGame = { letters: [], slots: [], currentSlot: 0, completed: false };
+        function initMorseGame() {
+            if (morseGame.completed || chapterCompleted[6]) return;
+            const display = document.getElementById('morse-display');
+            const slotsContainer = document.getElementById('morse-letter-slots');
+            const keypad = document.getElementById('morse-keypad');
+            if (!display || !slotsContainer || !keypad) return;
+            display.innerHTML = '';
+            slotsContainer.innerHTML = '';
+            keypad.innerHTML = '';
+            morseGame.letters = morseTarget.split('');
+            morseGame.slots = [];
+            morseGame.currentSlot = 0;
+            morseGame.completed = false;
+            document.getElementById('morse-success').classList.add('hidden');
+            morseGame.letters.forEach((letter, i) => {
+                const code = morseCode[letter];
+                const group = document.createElement('div');
+                group.className = 'flex items-center gap-1 px-2';
+                code.split('').forEach(symbol => {
+                    const span = document.createElement('span');
+                    span.className = 'text-2xl';
+                    span.textContent = symbol === '.' ? '⭐' : '🌙';
+                    group.appendChild(span);
+                });
+                display.appendChild(group);
+            });
+            morseGame.letters.forEach((_, i) => {
+                const slot = document.createElement('span');
+                slot.className = 'morse-letter-slot';
+                slot.dataset.index = i;
+                slot.textContent = '';
+                slot.addEventListener('click', () => { if (!morseGame.completed && !chapterCompleted[6]) setMorseActiveSlot(i); });
+                slotsContainer.appendChild(slot);
+                morseGame.slots.push(slot);
+            });
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(letter => {
+                const btn = document.createElement('button');
+                btn.className = 'morse-key-btn';
+                btn.textContent = letter;
+                btn.addEventListener('click', () => fillMorseLetter(letter));
+                keypad.appendChild(btn);
+            });
+            setMorseActiveSlot(0);
+            document.addEventListener('keydown', morseKeyHandler);
+        }
+        function morseKeyHandler(e) {
+            if (!document.querySelector('.chapter[data-chapter="6"].active')) return;
+            if (morseGame.completed || chapterCompleted[6]) return;
+            const key = e.key.toUpperCase();
+            if (/^[A-Z]$/.test(key)) {
+                e.preventDefault();
+                fillMorseLetter(key);
+            } else if (key === 'BACKSPACE' || key === 'DELETE') {
+                e.preventDefault();
+                clearMorseSlot(morseGame.currentSlot);
+            }
+        }
+        function setMorseActiveSlot(index) {
+            morseGame.slots.forEach(s => s.classList.remove('active'));
+            if (index >= 0 && index < morseGame.slots.length) {
+                morseGame.slots[index].classList.add('active');
+                morseGame.currentSlot = index;
+            }
+        }
+        function fillMorseLetter(letter) {
+            if (morseGame.completed || chapterCompleted[6]) return;
+            const slot = morseGame.slots[morseGame.currentSlot];
+            slot.textContent = letter;
+            slot.classList.add('filled');
+            const nextEmpty = morseGame.slots.findIndex((s, i) => s.textContent === '' && i > morseGame.currentSlot);
+            if (nextEmpty !== -1) setMorseActiveSlot(nextEmpty);
+            else checkMorseAnswer();
+        }
+        function clearMorseSlot(index) {
+            if (morseGame.completed || chapterCompleted[6]) return;
+            morseGame.slots[index].textContent = '';
+            morseGame.slots[index].classList.remove('filled');
+            setMorseActiveSlot(index);
+        }
+        function clearMorseAnswer() {
+            if (morseGame.completed || chapterCompleted[6]) return;
+            morseGame.slots.forEach((slot, i) => { slot.textContent = ''; slot.classList.remove('filled'); });
+            setMorseActiveSlot(0);
+        }
+        function checkMorseAnswer() {
+            if (morseGame.completed || chapterCompleted[6]) return;
+            const answer = morseGame.slots.map(s => s.textContent).join('');
+            if (answer === morseTarget) {
+                morseGame.completed = true;
+                document.getElementById('morse-success').classList.remove('hidden');
+                document.removeEventListener('keydown', morseKeyHandler);
+            } else {
+                morseGame.slots.forEach(slot => slot.classList.add('wrong'));
+                setTimeout(() => morseGame.slots.forEach(slot => slot.classList.remove('wrong')), 400);
+            }
+        }
+
+        // ── Puzzle (Ch7) ──
+        let puzzleSolved = false;
+        let puzzleBoardRect = null;
+        function initPuzzle() {
+            if (puzzleSolved || chapterCompleted[7]) return;
+            const container = document.getElementById('puzzle-pieces-container');
+            if (!container || container.hasChildNodes()) return;
+            const board = document.getElementById('puzzle-board-main');
+            puzzleBoardRect = board.getBoundingClientRect();
+            const piecesData = [
+                { id:0, xPercent:10, yPercent:10, correctXPercent:36, correctYPercent:24, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuDcrs8ac0yQjBPpWxmazna7VOYYCevUkcVLpYJFzHAjXS8n6qvIE0UlU2HgCAPxqFRaKiq7t8UF-SYV2teyQsH602nZYuHqnXJjYKIIRliOGabFAz3ouONE0bfvrtuB22TQ3XkJQeGVR5q2oMahAEmLp0YzpsnIukGKAoCiXUAOMGDWBt6ZKb8LULxQPb9sDIFb9X-ujmMktob6pxdWE6wj_1WcjnJXqQYGDGpd6Sprp0S2IAawg7J5beKUVJ2FvsrszFcVJ3Z_B8E'},
+                { id:1, xPercent:60, yPercent:20, correctXPercent:52, correctYPercent:36, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuBhXzKte41AH_PYTwA41CQJSJQbADeQWdVY_ju5uCtuszfoJxOI5uxewTQUKrv0ol7mOs0jCYpKwaxBVm8UcdBvgJ-hrx_VetDVvVuIAIco2pUmXtOqLT0HXR89tV69zzyfd9ZC3KlzYBdPh95pPiAAMXzUpc_xvjFUMrjTYjEputq96GMrwji6qV3T8ONcbaETLX120pxhfYbs4sbBxpCZ89nupZpXmptcMWpqlao9QcqLA9hCxG9VANBtA3FgsDOq1wzV9Pl68jE'},
+                { id:2, xPercent:10, yPercent:70, correctXPercent:36, correctYPercent:56, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuDiznbYncNWhu0aTKzXjU_xIP7QcRw6cM-8G1o0Ia8U3HEbXV849Hyps9hCiuXG_XGRucSrN1_IWVAdjM42EhEY0VW8aaRy2BbDdt4yEQoSv_G06rfixOfs40T6QrrxXOdyhV2YFl_anhlrW1tpyNmLHMoTN3RF2lRPJlUC7kaP7Z-Hvpk7MdiauVzquus9UfQzqRyOWnLkjrjgxvnwGIkHzxYkhA7bPsi4UFL0VhstUTVvrrifvCdt07gcEWgADW0Jv5cv8HhIPw'},
+                { id:3, xPercent:60, yPercent:70, correctXPercent:52, correctYPercent:56, img:'https://lh3.googleusercontent.com/aida-public/AB6AXuC-2c07fxFkoNLQvV6upz5uoPIPBae4u1sMf_gcuSaqFJDK3dS2n6bsNol8WS9vWQlg9_WJcUki2R5DZaDvEPhJqOQj0TUf8SDJBlVLIynjAyenmXYpR4_z_LFgmlV1bV6g3vhY_9j3dWL3tVBmRmXLwgcYhXS9UepZmhD1PUJqLNnxq_v_5r6fnysxf2e5q9kvPYYXx9wIKEgUmdMe1863grRyfBhe6ikqpyuf1bD9YeYKf8elhs3rdCPo_RqN8C_Apfg68PfzPlc'}
+            ];
+            const boardWidth = puzzleBoardRect.width;
+            const boardHeight = puzzleBoardRect.height;
+            let piecesCorrect = 0;
+            const totalPieces = piecesData.length;
+            piecesData.forEach((data) => {
+                const piece = document.createElement('div');
+                piece.className = 'puzzle-piece w-32 h-32 overflow-hidden rounded-xl border-2 border-primary/30 shadow-md';
+                piece.style.left = (data.xPercent / 100 * boardWidth) + 'px';
+                piece.style.top = (data.yPercent / 100 * boardHeight) + 'px';
+                piece.style.transform = 'rotate(' + (Math.random() * 30 - 15) + 'deg)';
+                piece.dataset.correctXPercent = data.correctXPercent;
+                piece.dataset.correctYPercent = data.correctYPercent;
+                piece.dataset.id = data.id;
+                piece.innerHTML = `<div class="w-full h-full bg-cover bg-center" style="background-image:url('${data.img}')"></div>`;
+                container.appendChild(piece);
+                let isDragging = false, startX, startY, currentX, currentY;
+                const startDrag = (e) => {
+                    if (piece.classList.contains('locked') || puzzleSolved || chapterCompleted[7]) return;
+                    isDragging = true;
+                    piece.style.zIndex = '100';
+                    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+                    const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+                    startX = clientX - piece.offsetLeft;
+                    startY = clientY - piece.offsetTop;
+                    document.addEventListener('mousemove', drag);
+                    document.addEventListener('touchmove', drag, { passive: false });
+                    document.addEventListener('mouseup', stopDrag);
+                    document.addEventListener('touchend', stopDrag);
+                };
+                const drag = (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+                    const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+                    currentX = clientX - startX;
+                    currentY = clientY - startY;
+                    piece.style.left = currentX + 'px';
+                    piece.style.top = currentY + 'px';
+                };
+                const stopDrag = () => {
+                    isDragging = false;
+                    document.removeEventListener('mousemove', drag);
+                    document.removeEventListener('touchmove', drag);
+                    const boardRect = board.getBoundingClientRect();
+                    const boardW = boardRect.width, boardH = boardRect.height;
+                    const correctX = (parseFloat(piece.dataset.correctXPercent) / 100) * boardW;
+                    const correctY = (parseFloat(piece.dataset.correctYPercent) / 100) * boardH;
+                    const pieceLeft = parseFloat(piece.style.left);
+                    const pieceTop = parseFloat(piece.style.top);
+                    const distance = Math.sqrt(Math.pow(pieceLeft - correctX, 2) + Math.pow(pieceTop - correctY, 2));
+                    if (distance < 40) {
+                        piece.style.left = correctX + 'px';
+                        piece.style.top = correctY + 'px';
+                        piece.style.transform = 'rotate(0deg)';
+                        piece.style.boxShadow = '0 0 15px rgba(212,175,55,0.5)';
+                        piece.classList.add('locked');
+                        piece.style.zIndex = '10';
+                        piecesCorrect++;
+                        piece.style.scale = '1.1';
+                        setTimeout(() => piece.style.scale = '1', 200);
+                        if (piecesCorrect === totalPieces) {
+                            puzzleSolved = true;
+                            const reward = document.getElementById('reward-container-puzzle');
+                            setTimeout(() => {
+                                if (reward) { reward.classList.remove('hidden'); reward.style.opacity = '1'; reward.style.transform = 'translateY(0)'; }
+                                for (let i = 0; i < 20; i++) {
+                                    const s = document.createElement('div');
+                                    s.innerHTML = '<span class="material-symbols-outlined text-secondary-fixed">sparkles</span>';
+                                    s.className = 'fixed pointer-events-none z-[60]';
+                                    s.style.left = Math.random() * 100 + 'vw';
+                                    s.style.top = Math.random() * 100 + 'vh';
+                                    s.style.opacity = '0';
+                                    s.style.transition = 'all 1s ease-out';
+                                    document.body.appendChild(s);
+                                    setTimeout(() => { s.style.opacity = '1'; s.style.transform = `translate(${Math.random()*40-20}px,-100px)`; }, 10);
+                                    setTimeout(() => s.remove(), 1100);
+                                }
+                            }, 500);
+                        }
+                    }
+                };
+                piece.addEventListener('mousedown', startDrag);
+                piece.addEventListener('touchstart', startDrag, { passive: false });
+            });
+        }
+
+        // ── Code Lock (Ch8) ──
+        let codeState = {
+            digits: ['', '', '', '', '', '', ''],
+            attempts: 0,
+            maxAttempts: 5,
+            locked: false
+        };
+        function pressCodeKey(val) {
+            if (codeState.locked || chapterCompleted[8]) return;
+            if (val === 'clear') { codeState.digits = ['', '', '', '', '', '', '']; updateCodeLockDisplay(); return; }
+            const idx = codeState.digits.findIndex(d => d === '');
+            if (idx === -1) return;
+            codeState.digits[idx] = val;
+            updateCodeLockDisplay();
+            if (codeState.digits.every(d => d !== '')) setTimeout(checkCodeLock, 300);
+        }
+        function updateCodeLockDisplay() {
+            document.querySelectorAll('#code-lock .code-digit').forEach((el, i) => {
+                el.textContent = codeState.digits[i] || '_';
+                el.className = 'code-digit' + (codeState.digits[i] ? ' filled' : '');
+            });
+        }
+        function checkCodeLock() {
+            if (codeState.locked || chapterCompleted[8]) return;
+            const entered = codeState.digits.join('');
+            const expected = collectedDigits.filter(d => d !== null).join('');
+            if (entered === expected && expected.length === 7) {
+                codeState.locked = true;
+                document.querySelectorAll('#code-lock .code-digit').forEach(el => el.classList.add('correct'));
+                document.getElementById('code-success').classList.remove('hidden');
+                document.getElementById('code-hint').textContent = '✅ Correct! The letter is unlocked.';
+            } else {
+                codeState.attempts++;
+                document.getElementById('code-attempts').textContent = `Attempts: ${codeState.attempts} / ${codeState.maxAttempts}`;
+                document.querySelectorAll('#code-lock .code-digit').forEach(el => { el.classList.add('wrong'); setTimeout(() => el.classList.remove('wrong'), 400); });
+                if (codeState.attempts >= codeState.maxAttempts) {
+                    codeState.locked = true;
+                    document.getElementById('code-hint').textContent = `🔒 Too many attempts. The code is: ${expected || 'collect all 7 digits first'}`;
+                    document.querySelectorAll('#code-lock .code-digit').forEach(el => el.textContent = '?');
+                } else {
+                    document.getElementById('code-hint').textContent = `❌ Wrong. ${codeState.maxAttempts - codeState.attempts} attempts remaining.`;
+                    setTimeout(() => document.getElementById('code-hint').textContent = 'Enter the 7-digit code from your collected digits.', 2000);
+                }
+                codeState.digits = ['', '', '', '', '', '', ''];
+                updateCodeLockDisplay();
+            }
+        }
+
+        // ── Gallery Audio (Ch9) ──
+        function playGalleryAudio() {
+            const btn = document.querySelector('#gallery-grid + .mt-8 .w-12');
+            if (btn) {
+                btn.classList.toggle('bg-secondary-container');
+                btn.classList.toggle('bg-primary');
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = icon.textContent === 'play_arrow' ? 'pause' : 'play_arrow';
+                }
+                setTimeout(() => {
+                    if (icon) icon.textContent = 'play_arrow';
+                    btn.classList.remove('bg-primary');
+                    btn.classList.add('bg-secondary-container');
+                }, 3000);
+            }
+        }
+
+        // ── Init ──
+        document.addEventListener('DOMContentLoaded', () => {
+            chapterCompleted[0] = true;
+            goToChapter(0);
+            updateDrawer();
+            initCountdown();
+
+            const observer = new MutationObserver(() => {
+                const ch2 = document.querySelector('.chapter[data-chapter="2"]');
+                if (ch2 && ch2.classList.contains('active')) initStarMemory();
+                const ch3 = document.querySelector('.chapter[data-chapter="3"]');
+                if (ch3 && ch3.classList.contains('active')) initMemoryMatch();
+                const ch4 = document.querySelector('.chapter[data-chapter="4"]');
+                if (ch4 && ch4.classList.contains('active')) initCipherWheel();
+                const ch5 = document.querySelector('.chapter[data-chapter="5"]');
+                if (ch5 && ch5.classList.contains('active')) initScrambleGame();
+                const ch6 = document.querySelector('.chapter[data-chapter="6"]');
+                if (ch6 && ch6.classList.contains('active')) initMorseGame();
+                const ch7 = document.querySelector('.chapter[data-chapter="7"]');
+                if (ch7 && ch7.classList.contains('active')) initPuzzle();
+            });
+            document.querySelectorAll('.chapter').forEach(ch => {
+                observer.observe(ch, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
+
+        // ── Expose ──
+        window.goToChapter = goToChapter;
+        window.nextChapter = nextChapter;
+        window.prevChapter = prevChapter;
+        window.toggleDrawer = toggleDrawer;
+        window.completeChapter = completeChapter;
+        window.closeEnvelope = closeEnvelope;
+        window.showLockOverlay = showLockOverlay;
+        window.clearCipherAnswer = clearCipherAnswer;
+        window.checkCipherAnswer = checkCipherAnswer;
+        window.initCipherWheel = initCipherWheel;
+        window.initScrambleGame = initScrambleGame;
+        window.initMorseGame = initMorseGame;
+        window.clearMorseAnswer = clearMorseAnswer;
+        window.checkMorseAnswer = checkMorseAnswer;
+        window.initPuzzle = initPuzzle;
+        window.pressCodeKey = pressCodeKey;
+        window.checkCodeLock = checkCodeLock;
+        window.playGalleryAudio = playGalleryAudio;
+        window.initStarMemory = initStarMemory;
+        window.initMemoryMatch = initMemoryMatch;
+        window.resetMemoryGame = resetMemoryGame;
+        window.flipCard = flipCard;
+        window.openLetter = openLetter;
+        window.closeLetter = closeLetter;
+        window.playBirthdayAudio = playBirthdayAudio;
+    </script>
+
+</body>
+</html>
