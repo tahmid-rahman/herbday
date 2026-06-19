@@ -391,238 +391,6 @@
             animation-duration: 1.2s;
         }
 
-        /* ── Puzzle pieces ── */
-        .puzzle-piece {
-            cursor: grab;
-            touch-action: none;
-            user-select: none;
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
-            position: absolute;
-            z-index: 20;
-        }
-
-        .puzzle-piece:active {
-            cursor: grabbing;
-            scale: 1.05;
-            z-index: 50;
-        }
-
-        .puzzle-piece.locked {
-            cursor: default;
-            scale: 1;
-        }
-
-        /* ── Misc ── */
-        .polaroid {
-            background: #fffdf5;
-            padding: 12px 12px 40px 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-
-        .polaroid:hover {
-            transform: scale(1.05) rotate(0deg) !important;
-            z-index: 20;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .washi-tape {
-            background-color: rgba(212, 175, 55, 0.4);
-            backdrop-filter: blur(2px);
-            width: 100px;
-            height: 30px;
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-2deg);
-            z-index: 25;
-            border-left: 2px dashed rgba(255, 255, 255, 0.3);
-            border-right: 2px dashed rgba(255, 255, 255, 0.3);
-        }
-
-        .handwriting {
-            font-family: 'Homemade Apple', cursive;
-            color: #5a403c;
-        }
-
-        .ink-input:focus {
-            outline: none;
-            border-bottom: 2px solid #610000;
-        }
-
-        .journal-entry {
-            background-image: linear-gradient(#e3beb8 1px, transparent 1px);
-            background-size: 100% 2rem;
-            line-height: 2rem;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #fed65b;
-            border-radius: 10px;
-        }
-
-        .star-field {
-            background: linear-gradient(to bottom, #0a0a2a 0%, #1b1d0e 100%);
-        }
-
-        .reveal-fragment {
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0;
-            transform: translateY(10px) scale(0.9);
-        }
-
-        .reveal-fragment.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .filigree-corner {
-            pointer-events: none;
-            width: 120px;
-            height: 120px;
-            opacity: 0.6;
-        }
-
-        /* ── Drawer ── */
-        #nav-drawer {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        #drawer-overlay {
-            transition: opacity 0.4s ease;
-        }
-
-        /* ── Star Memory Game ── */
-        .star-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .star-cell {
-            aspect-ratio: 1 / 1;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border: 2px solid rgba(254, 214, 91, 0.2);
-            box-shadow: 0 0 20px rgba(254, 214, 91, 0.05);
-            user-select: none;
-            position: relative;
-        }
-
-        .star-cell:hover:not(.disabled) {
-            transform: scale(1.05);
-            border-color: rgba(254, 214, 91, 0.5);
-        }
-
-        .star-cell .star-icon {
-            font-size: 2.2rem;
-            color: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .star-cell.active .star-icon {
-            color: #fed65b;
-            filter: drop-shadow(0 0 20px #fed65b);
-            animation: star-pop 0.4s ease forwards;
-        }
-
-        .star-cell.active {
-            border-color: #fed65b;
-            box-shadow: 0 0 40px rgba(254, 214, 91, 0.6);
-        }
-
-        .star-cell.correct {
-            border-color: #4caf50;
-            box-shadow: 0 0 30px rgba(76, 175, 80, 0.4);
-        }
-
-        .star-cell.correct .star-icon {
-            color: #4caf50;
-        }
-
-        .star-cell.wrong {
-            animation: shake 0.4s ease;
-            border-color: #f44336;
-        }
-
-        .star-cell.wrong .star-icon {
-            color: #f44336;
-        }
-
-        .star-cell.disabled {
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
-
-        .star-cell .cell-index {
-            position: absolute;
-            bottom: 2px;
-            right: 6px;
-            font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.15);
-            font-family: 'Literata', serif;
-            pointer-events: none;
-        }
-
-        .game-status {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .btn-game {
-            background: linear-gradient(135deg, #fed65b, #e9c349);
-            color: #610000;
-            font-weight: 700;
-            padding: 0.75rem 2.5rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(254, 214, 91, 0.3);
-            cursor: pointer;
-            border: none;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
-
-        .btn-game:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
-        }
-
-        .btn-game:active {
-            transform: scale(0.95);
-        }
-
-        .btn-game:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
         /* ── Chapter lock overlay ── */
         .chapter-lock-overlay {
             position: absolute;
@@ -771,251 +539,6 @@
             font-weight: 700;
         }
 
-        /* ── Memory Match Cards ── */
-        .memory-card {
-            aspect-ratio: 4 / 3;
-            perspective: 800px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .memory-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .memory-card.flipped .memory-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .memory-card.matched .memory-card-inner {
-            animation: match-pop 0.4s ease;
-        }
-
-        .memory-card.matched .memory-card-front {
-            border-color: #4caf50;
-            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
-        }
-
-        .memory-card-front,
-        .memory-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            border: 2px solid rgba(97, 0, 0, 0.15);
-            background: #fdfdf0;
-            transition: border-color 0.3s ease;
-        }
-
-        .memory-card-front {
-            transform: rotateY(180deg);
-            background: #f5f0e8;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: #610000;
-            font-size: 2rem;
-        }
-
-        .memory-card-back {
-            background: linear-gradient(145deg, #610000, #8b0000);
-            color: #fed65b;
-            font-size: 3rem;
-            border-color: #fed65b;
-            box-shadow: inset 0 0 30px rgba(254, 214, 91, 0.1);
-        }
-
-        .memory-card-back .card-icon {
-            font-size: 3rem;
-            animation: sparkle 3s ease-in-out infinite;
-        }
-
-        .memory-card:hover:not(.flipped):not(.matched) .memory-card-back {
-            border-color: #fed65b;
-            box-shadow: 0 0 30px rgba(254, 214, 91, 0.2);
-        }
-
-        .memory-card.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        /* ── Word Scramble / Unscramble ── */
-        .scramble-word {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #f5f0e8;
-            border: 2px solid #8e706b;
-            border-radius: 12px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #610000;
-            cursor: grab;
-            user-select: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            touch-action: none;
-            position: relative;
-            z-index: 1;
-        }
-
-        .scramble-word:hover {
-            transform: scale(1.05);
-            border-color: #610000;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .scramble-word:active {
-            cursor: grabbing;
-            transform: scale(0.95);
-        }
-
-        .scramble-word.placed {
-            background: #e8f5e9;
-            border-color: #4caf50;
-            cursor: default;
-            opacity: 0.8;
-            animation: word-drop 0.5s ease forwards;
-            pointer-events: none;
-        }
-
-        .scramble-word.wrong {
-            animation: shake 0.4s ease;
-            border-color: #f44336;
-        }
-
-        .scramble-slot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 100px;
-            padding: 0.75rem 1rem;
-            border: 2px dashed #8e706b;
-            border-radius: 12px;
-            min-height: 60px;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #8e706b;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.3);
-            position: relative;
-        }
-
-        .scramble-slot.highlight {
-            border-color: #fed65b;
-            background: rgba(254, 214, 91, 0.1);
-            box-shadow: 0 0 20px rgba(254, 214, 91, 0.1);
-        }
-
-        .scramble-slot.filled {
-            border-style: solid;
-            border-color: #4caf50;
-            background: rgba(76, 175, 80, 0.05);
-            color: #610000;
-            font-weight: 700;
-        }
-
-        .scramble-slot .slot-word {
-            display: inline-block;
-            animation: word-drop 0.4s ease forwards;
-        }
-
-        /* ── Envelope Modal ── */
-        .envelope-modal {
-            animation: envelope-open 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .envelope-modal .envelope-icon {
-            font-size: 72px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .code-digit-reveal {
-            display: inline-block;
-            width: 48px;
-            height: 56px;
-            line-height: 56px;
-            text-align: center;
-            font-size: 32px;
-            font-family: 'Libre Caslon Text', serif;
-            font-weight: 700;
-            background: #f5f5dc;
-            border: 3px solid #fed65b;
-            border-radius: 8px;
-            color: #610000;
-            animation: pulse-glow 1.5s infinite;
-        }
-
-        /* ── Gallery ── */
-        .gallery-img {
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .gallery-img:hover {
-            transform: scale(1.05);
-            border-color: #fed65b;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-        }
-
-        /* ── Scrollbar ── */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #fed65b;
-            border-radius: 10px;
-        }
-
-        /* ── Next Chapter Button ── */
-        .btn-next-chapter {
-            background: linear-gradient(135deg, #fed65b, #e9c349);
-            color: #610000;
-            font-weight: 700;
-            padding: 0.75rem 2.5rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(254, 214, 91, 0.3);
-            cursor: pointer;
-            border: none;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-next-chapter:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
-        }
-
-        .btn-next-chapter:active {
-            transform: scale(0.95);
-        }
-
         /* ── Cipher Wheel ── */
         .cipher-wheel {
             width: 240px;
@@ -1113,6 +636,612 @@
         .morse-key-btn:active {
             transform: scale(0.95);
         }
+
+        /* ── 15-Puzzle (Sliding Puzzle) ── */
+        .puzzle-grid {
+            display: grid;
+            gap: 4px;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            aspect-ratio: 1/1;
+            background: #8e706b;
+            padding: 4px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .puzzle-tile {
+            background: #f5f0e8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #610000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 1/1;
+        }
+
+        .puzzle-tile:hover:not(.empty) {
+            transform: scale(1.05);
+            background: #fed65b;
+        }
+
+        .puzzle-tile.empty {
+            background: transparent;
+            cursor: default;
+            box-shadow: none;
+        }
+
+        .puzzle-tile.correct {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+
+        .puzzle-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #5a403c;
+            font-size: 0.95rem;
+        }
+
+        .puzzle-stats span {
+            font-weight: 700;
+            color: #610000;
+        }
+
+        .btn-reset-puzzle {
+            background: linear-gradient(135deg, #fed65b, #e9c349);
+            color: #610000;
+            padding: 0.5rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(254, 214, 91, 0.3);
+        }
+
+        .btn-reset-puzzle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(254, 214, 91, 0.5);
+        }
+
+        /* ── Gallery (Chapter 9) ── */
+        .gallery-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            aspect-ratio: 1/1;
+            background: #fffdf5;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+            border-color: #fed65b;
+            z-index: 10;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            pointer-events: none;
+        }
+
+        .gallery-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-card .overlay p {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            margin: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .gallery-card .polaroid-tape {
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 60px;
+            height: 24px;
+            background: rgba(212, 175, 55, 0.35);
+            backdrop-filter: blur(4px);
+            border-radius: 4px 4px 8px 8px;
+            border-left: 2px dashed rgba(255, 255, 255, 0.3);
+            border-right: 2px dashed rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-card:hover .polaroid-tape {
+            opacity: 1;
+        }
+
+        /* ── Gallery Modal ── */
+        .gallery-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .gallery-modal.active {
+            display: flex;
+        }
+
+        .gallery-modal img {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: star-pop 0.4s ease;
+        }
+
+        .gallery-modal .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .gallery-modal .close-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ── Envelope Modal ── */
+        .envelope-modal {
+            animation: envelope-open 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .envelope-modal .envelope-icon {
+            font-size: 72px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .code-digit-reveal {
+            display: inline-block;
+            width: 48px;
+            height: 56px;
+            line-height: 56px;
+            text-align: center;
+            font-size: 32px;
+            font-family: 'Libre Caslon Text', serif;
+            font-weight: 700;
+            background: #f5f5dc;
+            border: 3px solid #fed65b;
+            border-radius: 8px;
+            color: #610000;
+            animation: pulse-glow 1.5s infinite;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fed65b;
+            border-radius: 10px;
+        }
+
+        /* ── Next Chapter Button ── */
+        .btn-next-chapter {
+            background: linear-gradient(135deg, #fed65b, #e9c349);
+            color: #610000;
+            font-weight: 700;
+            padding: 0.75rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(254, 214, 91, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-next-chapter:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
+        }
+
+        .btn-next-chapter:active {
+            transform: scale(0.95);
+        }
+
+        /* ── Misc ── */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #fed65b;
+            border-radius: 10px;
+        }
+
+        .star-field {
+            background: linear-gradient(to bottom, #0a0a2a 0%, #1b1d0e 100%);
+        }
+
+        .reveal-fragment {
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(10px) scale(0.9);
+        }
+
+        .reveal-fragment.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .filigree-corner {
+            pointer-events: none;
+            width: 120px;
+            height: 120px;
+            opacity: 0.6;
+        }
+
+        /* ── Drawer ── */
+        #nav-drawer {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #drawer-overlay {
+            transition: opacity 0.4s ease;
+        }
+
+        /* ── Star Memory Game ── */
+        .star-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .star-cell {
+            aspect-ratio: 1 / 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 2px solid rgba(254, 214, 91, 0.2);
+            box-shadow: 0 0 20px rgba(254, 214, 91, 0.05);
+            user-select: none;
+            position: relative;
+        }
+
+        .star-cell:hover:not(.disabled) {
+            transform: scale(1.05);
+            border-color: rgba(254, 214, 91, 0.5);
+        }
+
+        .star-cell .star-icon {
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .star-cell.active .star-icon {
+            color: #fed65b;
+            filter: drop-shadow(0 0 20px #fed65b);
+            animation: star-pop 0.4s ease forwards;
+        }
+
+        .star-cell.active {
+            border-color: #fed65b;
+            box-shadow: 0 0 40px rgba(254, 214, 91, 0.6);
+        }
+
+        .star-cell.correct {
+            border-color: #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .star-cell.correct .star-icon {
+            color: #4caf50;
+        }
+
+        .star-cell.wrong {
+            animation: shake 0.4s ease;
+            border-color: #f44336;
+        }
+
+        .star-cell.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .star-cell .cell-index {
+            position: absolute;
+            bottom: 2px;
+            right: 6px;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Literata', serif;
+            pointer-events: none;
+        }
+
+        .game-status {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-game {
+            background: linear-gradient(135deg, #fed65b, #e9c349);
+            color: #610000;
+            font-weight: 700;
+            padding: 0.75rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(254, 214, 91, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(254, 214, 91, 0.5);
+        }
+
+        .btn-game:active {
+            transform: scale(0.95);
+        }
+
+        .btn-game:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ── Memory Match Cards ── */
+        .memory-card {
+            aspect-ratio: 4 / 3;
+            perspective: 800px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .memory-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .memory-card.flipped .memory-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card.matched .memory-card-inner {
+            animation: match-pop 0.4s ease;
+        }
+
+        .memory-card.matched .memory-card-front {
+            border-color: #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .memory-card-front,
+        .memory-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 2px solid rgba(97, 0, 0, 0.15);
+            background: #fdfdf0;
+            transition: border-color 0.3s ease;
+        }
+
+        .memory-card-front {
+            transform: rotateY(180deg);
+            background: #f5f0e8;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #610000;
+            font-size: 2rem;
+        }
+
+        .memory-card-back {
+            background: linear-gradient(145deg, #610000, #8b0000);
+            color: #fed65b;
+            font-size: 3rem;
+            border-color: #fed65b;
+            box-shadow: inset 0 0 30px rgba(254, 214, 91, 0.1);
+        }
+
+        .memory-card-back .card-icon {
+            font-size: 3rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .memory-card:hover:not(.flipped):not(.matched) .memory-card-back {
+            border-color: #fed65b;
+            box-shadow: 0 0 30px rgba(254, 214, 91, 0.2);
+        }
+
+        .memory-card.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* ── Word Scramble ── */
+        .scramble-word {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #f5f0e8;
+            border: 2px solid #8e706b;
+            border-radius: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #610000;
+            cursor: grab;
+            user-select: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            touch-action: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scramble-word:hover {
+            transform: scale(1.05);
+            border-color: #610000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .scramble-word:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+
+        .scramble-word.placed {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            cursor: default;
+            opacity: 0.8;
+            animation: word-drop 0.5s ease forwards;
+            pointer-events: none;
+        }
+
+        .scramble-word.wrong {
+            animation: shake 0.4s ease;
+            border-color: #f44336;
+        }
+
+        .scramble-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            padding: 0.75rem 1rem;
+            border: 2px dashed #8e706b;
+            border-radius: 12px;
+            min-height: 60px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #8e706b;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .scramble-slot.highlight {
+            border-color: #fed65b;
+            background: rgba(254, 214, 91, 0.1);
+            box-shadow: 0 0 20px rgba(254, 214, 91, 0.1);
+        }
+
+        .scramble-slot.filled {
+            border-style: solid;
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.05);
+            color: #610000;
+            font-weight: 700;
+        }
+
+        .scramble-slot .slot-word {
+            display: inline-block;
+            animation: word-drop 0.4s ease forwards;
+        }
     </style>
 </head>
 
@@ -1133,6 +1262,10 @@
                 id="chapter-indicator">Home</span>
             <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="code-display-small">🔑 _ _
                 _ _ _ _ _</span>
+            <!-- Music toggle button -->
+            <button id="music-toggle" class="text-primary scale-95 active:scale-90 transition-transform duration-300" title="Toggle music">
+                <span class="material-symbols-outlined" id="music-icon">music_note</span>
+            </button>
             <button class="text-primary scale-95 active:scale-90 transition-transform duration-300">
                 <span class="material-symbols-outlined" style="font-variation-settings:'FILL'1;">lock</span>
             </button>
@@ -1500,7 +1633,7 @@
             </div>
         </section>
 
-        <!-- CHAPTER 4: The Heart's Question -->
+        <!-- CHAPTER 4: The Heart's Question (Randomized) -->
         <section class="chapter" data-chapter="4" data-title="The Heart's Question" data-digit="4"
             data-completed="false">
             <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
@@ -1526,7 +1659,7 @@
                     </div>
 
                     <div class="glass-panel rounded-xl p-6 mb-8 border-2 border-dashed border-outline-variant">
-                        <p class="font-note-body text-tertiary text-xl italic text-center leading-relaxed">
+                        <p class="font-note-body text-tertiary text-xl italic text-center leading-relaxed" id="riddle-text">
                             "I have no voice, but I speak to you.<br />
                             I have no wings, but I fly to you.<br />
                             I have no hands, but I hold you close.<br />
@@ -1544,10 +1677,7 @@
 
                     <div class="flex flex-col items-center gap-4">
                         <div class="flex gap-2 flex-wrap justify-center" id="cipher-answer-slots">
-                            <div class="crypto-letter" data-index="0"></div>
-                            <div class="crypto-letter" data-index="1"></div>
-                            <div class="crypto-letter" data-index="2"></div>
-                            <div class="crypto-letter" data-index="3"></div>
+                            <!-- slots generated by JS -->
                         </div>
                         <div class="flex gap-2">
                             <button
@@ -1557,13 +1687,12 @@
                                 class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition"
                                 onclick="checkCipherAnswer()">Check Answer</button>
                         </div>
-                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: The answer is 4
-                            letters long. Click a letter then a slot.</p>
+                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: Click a letter then a slot.</p>
                     </div>
 
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="cipher-success">
                         <p class="font-note-body text-tertiary text-xl italic">"<span
-                                class="text-primary font-bold">LOVE</span> — the heart's true answer."</p>
+                                class="text-primary font-bold" id="cipher-answer-word">LOVE</span> — the heart's true answer."</p>
                         <div
                             class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
@@ -1574,8 +1703,7 @@
                             Next Chapter →
                         </button>
                     </div>
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is what you feel for
-                        someone special. Use the wheel to spell it out.</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is a 4-letter word. Use the wheel to spell it out.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-4">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1584,7 +1712,7 @@
             </div>
         </section>
 
-        <!-- CHAPTER 5: The Love Letter -->
+        <!-- CHAPTER 5: The Love Letter (Randomized) -->
         <section class="chapter" data-chapter="5" data-title="The Love Letter" data-digit="5" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
                 <div
@@ -1609,7 +1737,6 @@
                             correct order to reveal the love letter."</p>
                     </div>
 
-                    <!-- Scrambled words -->
                     <div class="mb-6 text-center">
                         <p class="text-sm text-on-surface-variant/60 mb-3">✧ Scrambled words — drag them to the slots
                             below ✧</p>
@@ -1618,7 +1745,6 @@
                         </div>
                     </div>
 
-                    <!-- Drop zones -->
                     <div class="text-center">
                         <p class="text-sm text-on-surface-variant/60 mb-3">✧ Drop here in the right order ✧</p>
                         <div class="flex flex-wrap justify-center gap-3" id="scramble-slots-container">
@@ -1626,18 +1752,16 @@
                         </div>
                     </div>
 
-                    <!-- Hint & progress -->
                     <div class="mt-4 text-center">
                         <p class="text-sm text-on-surface-variant/50 italic" id="scramble-hint">Place all words in the
-                            correct order. The message is 8 words long.</p>
+                            correct order.</p>
                         <p class="text-xs text-on-surface-variant/40 mt-1">Words placed: <span
-                                id="scramble-progress">0</span> / 8</p>
+                                id="scramble-progress">0</span> / <span id="scramble-total">8</span></p>
                     </div>
 
-                    <!-- Success -->
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="scramble-success">
                         <p class="font-note-body text-tertiary text-xl italic">"💌 The love letter reads: <span
-                                class="text-primary font-bold">"Every day with you is a beautiful adventure"</span>"</p>
+                                class="text-primary font-bold" id="scramble-revealed-message">"Every day with you is a beautiful adventure"</span>"</p>
                         <div
                             class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
@@ -1650,7 +1774,7 @@
                     </div>
 
                     <div class="text-xs text-on-surface-variant/50 mt-4 italic text-center">💡 Hint: The message starts
-                        with "Every" and ends with "adventure".</div>
+                        with the first word you see in the slot.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-5">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1659,7 +1783,7 @@
             </div>
         </section>
 
-        <!-- CHAPTER 6: The Moon's Whisper (Morse Code) -->
+        <!-- CHAPTER 6: The Moon's Whisper (Randomized Morse) -->
         <section class="chapter" data-chapter="6" data-title="The Moon's Whisper" data-digit="6" data-completed="false">
             <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
                 <div class="relative w-full bg-surface-container/5 backdrop-blur-xl border border-outline/20 rounded-[2rem] p-8 md:p-12 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_40px_rgba(0,0,0,0.5)] parchment-texture overflow-hidden"
@@ -1687,7 +1811,6 @@
                             can you decode its secret?"</p>
                     </div>
 
-                    <!-- Morse Code Display -->
                     <div class="relative z-10 bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-outline/20">
                         <p class="text-inverse-primary/80 font-note-body text-center text-sm mb-2">⭐ = dot &nbsp;&nbsp;
                             🌙 = dash</p>
@@ -1714,11 +1837,10 @@
                         </div>
                     </div>
 
-                    <!-- Success -->
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden relative z-10"
                         id="morse-success">
                         <p class="font-note-body text-secondary-fixed-dim text-xl italic">"The moon whispers: <span
-                                class="text-secondary-container font-bold">FOREVER</span>"</p>
+                                class="text-secondary-container font-bold" id="morse-revealed-word">FOREVER</span>"</p>
                         <div
                             class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
@@ -1752,51 +1874,63 @@
             </div>
         </section>
 
-        <!-- CHAPTER 7: The Fragmented Heart -->
-        <section class="chapter" data-chapter="7" data-title="The Fragmented Heart" data-digit="7"
-            data-completed="false">
-            <div class="max-w-4xl mx-auto px-page-margin py-8 relative">
+        <!-- CHAPTER 7: Sliding Puzzle (15-Puzzle) -->
+        <section class="chapter" data-chapter="7" data-title="Sliding Puzzle" data-digit="7" data-completed="false">
+            <div class="max-w-2xl mx-auto px-page-margin py-8 relative">
                 <div
-                    class="bg-surface/30 backdrop-blur-sm border-[1px] border-primary/10 rounded-2xl shadow-inner p-8 md:p-12 text-center relative">
-                    <div
-                        class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-[100px]">
+                    class="parchment-texture rounded-xl p-8 md:p-12 relative border-2 border-secondary-container/30 shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_20px_40px_rgba(0,0,0,0.15)]">
+                    <div class="absolute top-0 left-0 w-24 h-24 opacity-20">
+                        <span class="material-symbols-outlined text-secondary text-6xl fill-icon">grid_3x3</span>
                     </div>
-                    <div
-                        class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-[100px]">
+                    <div class="absolute top-0 right-0 w-24 h-24 opacity-20 rotate-90">
+                        <span class="material-symbols-outlined text-secondary text-6xl fill-icon">grid_3x3</span>
                     </div>
-                    <div
-                        class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-[100px]">
+                    <div class="absolute bottom-0 left-0 w-24 h-24 opacity-20 -rotate-90">
+                        <span class="material-symbols-outlined text-secondary text-6xl fill-icon">grid_3x3</span>
                     </div>
-                    <div
-                        class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-[100px]">
+                    <div class="absolute bottom-0 right-0 w-24 h-24 opacity-20 rotate-180">
+                        <span class="material-symbols-outlined text-secondary text-6xl fill-icon">grid_3x3</span>
                     </div>
-                    <h2 class="font-headline-lg text-headline-lg text-primary mb-2">The Fragmented Heart</h2>
-                    <p class="font-body-main text-on-surface-variant mb-6">Assemble the pieces to reveal the final
-                        message.</p>
-                    <div class="relative w-full mx-auto" style="max-width: 500px; aspect-ratio: 1;"
-                        id="puzzle-board-main">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-4/5 h-4/5 opacity-10 flex items-center justify-center" id="target-heart-main">
-                                <span
-                                    class="material-symbols-outlined text-[250px] text-primary fill-icon">favorite</span>
+
+                    <div class="text-center mb-6 relative z-10">
+                        <span class="font-button-label text-secondary tracking-[0.2em] uppercase">Chapter VII</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Sliding Heart</h2>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Arrange the tiles in order. Click a tile adjacent to the empty space to slide it."</p>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col items-center gap-4" id="puzzle-container">
+                        <!-- Puzzle grid -->
+                        <div class="puzzle-grid" id="puzzle-grid" style="grid-template-columns: repeat(4, 1fr);">
+                            <!-- Tiles generated by JS -->
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="puzzle-stats">
+                            <div>Moves: <span id="puzzle-moves">0</span></div>
+                            <div>Time: <span id="puzzle-timer">0s</span></div>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="flex gap-4">
+                            <button class="btn-reset-puzzle" id="puzzle-reset">New Puzzle</button>
+                        </div>
+
+                        <div class="text-sm text-on-surface-variant/60 italic" id="puzzle-status">Slide the tiles into order (1-15, empty at bottom-right).</div>
+
+                        <!-- Success -->
+                        <div class="mt-4 text-center opacity-0 transition-all duration-1000 hidden" id="puzzle-success">
+                            <p class="font-note-body text-tertiary text-xl italic">"🧩 Perfect! The heart finds its order."</p>
+                            <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                                <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                                <span class="font-button-label text-secondary uppercase tracking-widest">Puzzle solved!</span>
                             </div>
+                            <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(7)">
+                                Next Chapter →
+                            </button>
                         </div>
-                        <div id="puzzle-pieces-container" class="absolute inset-0"></div>
+
+                        <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The empty space must end up at the bottom‑right. Keep sliding!</div>
                     </div>
-                    <div class="hidden mt-12 transition-all duration-700 opacity-0 transform translate-y-4"
-                        id="reward-container-puzzle">
-                        <div
-                            class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce">
-                            <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                            <span class="font-button-label text-secondary uppercase tracking-widest">Heart
-                                assembled!</span>
-                        </div>
-                        <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(7)">
-                            Next Chapter →
-                        </button>
-                    </div>
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: Drag each puzzle piece to the
-                        correct position. They snap into place when close.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-7">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1912,147 +2046,52 @@
             </div>
         </section>
 
-        <!-- CHAPTER 9: Photo Gallery -->
+        <!-- CHAPTER 9: Photo Gallery (Enhanced with Modal) -->
         <section class="chapter" data-chapter="9" data-title="Photo Gallery" data-completed="false">
-            <div class="max-w-4xl mx-auto px-page-margin py-8">
+            <div class="max-w-5xl mx-auto px-page-margin py-8">
                 <div
-                    class="parchment-texture rounded-xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-8 md:p-12 relative border border-outline-variant/30">
-                    <div class="filigree-corner top-4 left-4 border-t-2 border-l-2 border-primary/20 rounded-tl-3xl">
-                    </div>
-                    <div class="filigree-corner top-4 right-4 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl">
-                    </div>
-                    <div class="filigree-corner bottom-4 left-4 border-b-2 border-l-2 border-primary/20 rounded-bl-3xl">
-                    </div>
-                    <div
-                        class="filigree-corner bottom-4 right-4 border-b-2 border-r-2 border-primary/20 rounded-br-3xl">
-                    </div>
+                    class="parchment-texture rounded-2xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-6 md:p-10 relative border border-outline-variant/30">
+                    <div class="absolute top-3 left-3 w-16 h-16 border-t-2 border-l-2 border-secondary-container/30 rounded-tl-2xl"></div>
+                    <div class="absolute top-3 right-3 w-16 h-16 border-t-2 border-r-2 border-secondary-container/30 rounded-tr-2xl"></div>
+                    <div class="absolute bottom-3 left-3 w-16 h-16 border-b-2 border-l-2 border-secondary-container/30 rounded-bl-2xl"></div>
+                    <div class="absolute bottom-3 right-3 w-16 h-16 border-b-2 border-r-2 border-secondary-container/30 rounded-br-2xl"></div>
 
                     <div class="text-center mb-8">
-                        <span
-                            class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter
-                            IX</span>
+                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter IX</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Our Gallery</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments
-                            we've shared."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments we've shared."</p>
+                        <div class="w-16 h-0.5 bg-secondary-container mx-auto mt-4"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="gallery-grid">
-                        <!-- Each image card now shows the full image without cropping -->
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/1.png" alt="Memory 1" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Our first adventure"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/2.png" alt="Memory 2" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Sunset dreams"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/3.png" alt="Memory 3" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"By the sea"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/4.png" alt="Memory 4" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"City lights"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/5.png" alt="Memory 5" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Cozy mornings"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/6.png" alt="Memory 6" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Together"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/7.png" alt="Memory 7" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Dancing in the rain"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/8.png" alt="Memory 8" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Picnic days"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/9.png" alt="Memory 9" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Stars above"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/10.jpeg" alt="Memory 10" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Golden hour"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/11.jpeg" alt="Memory 11" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Endless love"</p>
-                            </div>
-                        </div>
-
-                        <div class="relative shadow-md group">
-                            <img class="gallery-img w-full h-auto rounded-lg" src="/files/12.jpeg" alt="Memory 12" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 rounded-lg pointer-events-none">
-                                <p class="text-white text-sm font-note-body italic">"Always & forever"</p>
-                            </div>
-                        </div>
+                    <div class="gallery-grid-modern" id="gallery-grid-modern">
+                        <!-- Cards generated by JS -->
                     </div>
 
-                    <div
-                        class="mt-8 text-center p-6 bg-surface-container/50 rounded-xl border border-outline-variant/30">
-                        <p class="font-note-body text-on-surface-variant italic text-sm">🎵 A song for you</p>
-                        <div class="flex items-center justify-center gap-4 mt-3">
-                            <button
-                                class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-105 transition-transform"
-                                onclick="playGalleryAudio()">
-                                <span class="material-symbols-outlined">play_arrow</span>
+                    <div class="mt-10 p-6 bg-surface-container/60 rounded-2xl border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                                <span class="material-symbols-outlined fill-icon text-2xl">music_note</span>
+                            </div>
+                            <div>
+                                <p class="font-note-body text-primary font-semibold">"Our Song"</p>
+                                <p class="text-xs text-on-surface-variant/50">A melody for two hearts</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors" onclick="playGalleryAudio()">
+                                <span class="material-symbols-outlined" id="gallery-audio-icon">play_arrow</span>
                             </button>
-                            <span class="text-sm text-on-surface-variant/50">"Our Song" — 3:24</span>
+                            <span class="text-sm text-on-surface-variant/50">3:24</span>
+                            <div class="w-32 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full w-1/3 bg-secondary-container rounded-full"></div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mt-8 text-center">
                         <button
                             class="px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all"
-                            onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final
-                            Chapter →</button>
+                            onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final Chapter →</button>
                     </div>
                 </div>
             </div>
@@ -2063,7 +2102,6 @@
             <div class="max-w-4xl mx-auto px-page-margin py-8">
                 <div
                     class="parchment-texture rounded-xl shadow-2xl p-8 md:p-16 relative border-2 border-secondary-container/30 overflow-hidden">
-                    <!-- background sparkles -->
                     <div class="absolute inset-0 pointer-events-none overflow-hidden">
                         <span class="absolute top-10 left-10 text-4xl animate-sparkle"
                             style="animation-delay:0.2s;">✨</span>
@@ -2144,11 +2182,16 @@
                 <p>On your birthday, I want you to know how deeply you are loved. Every moment with you is a treasured
                     page in the book of my life.</p>
                 <p>Your smile lights up my darkest days, your laughter is the sweetest melody, and your love is the
-                    greatest gift I’ve ever received.</p>
-                <p>May this year bring you all the happiness you deserve. I can't wait to fill the next chapters of our
-                    story together — adventures, quiet moments, and a lifetime of love.</p>
+                    greatest gift I've ever received.</p>
+                <p>May this year is our final chapter. In my final act of love, I want to give you everything you deserve and desire except me. So, one last time I truly want to say ILOVEYOU Affin.
+                </p>
+                <p>
+                    You know, fun fact: I'm still crying while writing this letter, and you will always be the reason for my tears and my dreams. Even when this ends, you will stay in every quiet moment of my heart, like a memory I can never erase and never replace.
+                </p>
+                <p>If love had a face, it would still look like you in my eyes—soft, painful, unforgettable. And if goodbye is the price of loving you, I'll pay it with a broken smile.</p>
+                <p>ILOVEYOU, always… even when you're no longer mine.</p>
                 <p class="text-right font-bold text-primary mt-4">Happy Birthday, with all my heart.</p>
-                <p class="text-right handwritten text-2xl mt-2">Yours forever</p>
+                <p class="text-right handwritten text-2xl mt-2">Forever yours, LF</p>
             </div>
         </div>
     </div>
@@ -2184,6 +2227,19 @@
         </div>
     </div>
 
+    <!-- GALLERY FULL-IMAGE MODAL -->
+    <div class="gallery-modal" id="gallery-modal">
+        <button class="close-btn" onclick="closeGalleryModal()">✕</button>
+        <img id="gallery-modal-img" src="" alt="Full view" />
+    </div>
+
+    <!-- BACKGROUND MUSIC -->
+    <!-- Replace "music.mp3" with your own audio file path -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="/files/Tum.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- BOTTOM NAVIGATION BAR -->
     <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe-area-bottom pt-2 bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 rounded-t-full shadow-[0px_-10px_20px_rgba(0,0,0,0.05)]"
         id="bottom-nav">
@@ -2209,12 +2265,43 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // ── Background Music Control ──
+        const bgAudio = document.getElementById('bg-music');
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+
+        // Attempt to autoplay (may be blocked by browser)
+        const playAudio = () => {
+            bgAudio.play().catch(() => {
+                // Autoplay blocked – will start on first user interaction
+            });
+        };
+        playAudio();
+
+        // Toggle mute/unmute
+        musicToggle.addEventListener('click', () => {
+            if (bgAudio.muted) {
+                bgAudio.muted = false;
+                musicIcon.textContent = 'music_note';
+            } else {
+                bgAudio.muted = true;
+                musicIcon.textContent = 'music_off';
+            }
+        });
+
+        // Start audio on any user click if it hasn't started yet
+        document.addEventListener('click', () => {
+            if (bgAudio.paused) {
+                bgAudio.play().catch(() => {});
+            }
+        }, { once: true });
+
         // ── Configuration ──
         const TOTAL_CHAPTERS = 11; // 0-10
         const CHAPTER_TITLES = [
             'Home', 'The Invitation', 'The Lost Star', 'Memories',
             'The Heart\'s Question', 'The Love Letter', 'The Moon\'s Whisper',
-            'The Fragmented Heart', 'The Hidden Letter', 'Photo Gallery', 'The Birthday Wish'
+            'Sliding Puzzle', 'The Hidden Letter', 'Photo Gallery', 'The Birthday Wish'
         ];
         const ENVELOPE_MESSAGES = {
             1: '"The first step is the beginning of every great adventure."',
@@ -2223,9 +2310,47 @@
             4: '"The heart knows what the mind cannot always see."',
             5: '"Every word you placed reveals a little more of my heart."',
             6: '"The moon whispers secrets to those who listen."',
-            7: '"Every piece of the heart tells a story of love."',
+            7: '"You arranged the pieces – the heart is whole."',
             8: '"The final chapter begins where all love stories live — in the heart."'
         };
+
+        // ── Random pools ──
+        const RIDDLE_POOL = [
+            { riddle: '"I have no voice, but I speak to you.<br />I have no wings, but I fly to you.<br />I have no hands, but I hold you close.<br />What am I?"', answer: 'LOVE' },
+            { riddle: '"I am not alive, but I grow.<br />I don\'t have lungs, but I need air.<br />I don\'t have a mouth, but water kills me.<br />What am I?"', answer: 'FIRE' },
+            { riddle: '"I have cities, but no houses.<br />I have mountains, but no trees.<br />I have water, but no fish.<br />What am I?"', answer: 'MAP' },
+            { riddle: '"I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person.<br />What am I?"', answer: 'PENCIL' },
+            { riddle: '"I have keys but no locks. I have space but no room. You can enter but can\'t go inside.<br />What am I?"', answer: 'KEYBOARD' },
+            { riddle: '"I have a face and two hands, but no arms or legs. I tell time but don\'t speak.<br />What am I?"', answer: 'CLOCK' }
+        ];
+
+        const LOVE_MESSAGES = [
+            'Every day with you is a beautiful adventure',
+            'You are the light of my life',
+            'With you I am complete',
+            'Your love is my greatest treasure',
+            'Forever and always my love',
+            'Together we are unstoppable',
+            'You make my heart sing',
+            'My heart belongs to you'
+        ];
+
+        const MORSE_WORDS = ['FOREVER', 'LOVING', 'HEART', 'SOULMATE', 'DESTINY', 'TOGETHER', 'ETERNAL', 'BELOVED'];
+
+        const GALLERY_IMAGES = [
+            { src: '/files/1.png', label: 'Our first adventure' },
+            { src: '/files/2.png', label: 'Sunset dreams' },
+            { src: '/files/3.png', label: 'By the sea' },
+            { src: '/files/4.png', label: 'City lights' },
+            { src: '/files/5.png', label: 'Cozy mornings' },
+            { src: '/files/6.png', label: 'Together' },
+            { src: '/files/7.png', label: 'Dancing in the rain' },
+            { src: '/files/8.png', label: 'Picnic days' },
+            { src: '/files/9.png', label: 'Stars above' },
+            { src: '/files/10.jpeg', label: 'Golden hour' },
+            { src: '/files/11.jpeg', label: 'Endless love' },
+            { src: '/files/12.jpeg', label: 'Always & forever' }
+        ];
 
         // ── Random digit pool ──
         const DIGIT_POOL = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -2235,7 +2360,7 @@
         let currentChapter = 0;
         let puzzlePiecesFound = 0;
         const MAX_PUZZLES = 12;
-        let collectedDigits = new Array(7).fill(null);  // index 0‑6 for chapters 1‑7
+        let collectedDigits = new Array(7).fill(null);
         let chapterCompleted = {};
         let codeAttempts = 0;
         const MAX_CODE_ATTEMPTS = 5;
@@ -2279,7 +2404,8 @@
             if (idx === 4) initCipherWheel();
             if (idx === 5) initScrambleGame();
             if (idx === 6) initMorseGame();
-            if (idx === 7) initPuzzle();
+            if (idx === 7) initSlidingPuzzle();
+            if (idx === 9) initGallery();
             if (idx === 0) initCountdown();
 
             document.querySelectorAll('.chapter-lock-overlay').forEach(el => el.classList.remove('show'));
@@ -2376,7 +2502,6 @@
 
         // ── Countdown (Home) ──
         function initCountdown() {
-            // Birthday date: 19 June 2026 (month is 0‑indexed)
             const targetDate = new Date(2026, 5, 19);
             targetDate.setHours(0, 0, 0, 0);
 
@@ -2404,7 +2529,7 @@
         }
 
         // ── Home book interaction ──
-        document.getElementById('home-book')?.addEventListener('click', function () {
+        document.getElementById('home-book')?.addEventListener('click', function() {
             this.classList.remove('animate-float');
             void this.offsetWidth;
             this.classList.add('animate-float');
@@ -2424,7 +2549,7 @@
         // ── COMPLETE CHAPTER ──
         function completeChapter(chapterIdx) {
             if (chapterCompleted[chapterIdx]) return;
-            if (chapterIdx < 1 || chapterIdx > 9) return; // only puzzle chapters give digits
+            if (chapterIdx < 1 || chapterIdx > 9) return;
 
             chapterCompleted[chapterIdx] = true;
             puzzlePiecesFound = Math.min(puzzlePiecesFound + 1, MAX_PUZZLES);
@@ -2441,7 +2566,6 @@
                 updateDrawer();
                 showEnvelope(8, '❤️');
             } else if (chapterIdx === 9) {
-                // Gallery is just a passage, no digit
                 chapterCompleted[9] = true;
                 updateDrawer();
                 updateNavButtons();
@@ -2467,7 +2591,7 @@
                 4: '💖 Heart Revealed!',
                 5: '💌 Love Letter Unscrambled!',
                 6: '🌙 Moon Whispered!',
-                7: '🧩 Heart Assembled!',
+                7: '🧩 Puzzle Solved!',
                 8: '📜 Letter Unlocked!'
             };
 
@@ -2482,14 +2606,16 @@
             content.style.animation = 'envelope-open 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
 
             if (chapterIdx === 8) {
-                btn.innerHTML = '<span class="flex items-center justify-center gap-2">View Gallery <span class="material-symbols-outlined">photo_library</span></span>';
-                btn.onclick = function () {
+                btn.innerHTML =
+                '<span class="flex items-center justify-center gap-2">View Gallery <span class="material-symbols-outlined">photo_library</span></span>';
+                btn.onclick = function() {
                     closeEnvelope();
                     goToChapter(9);
                 };
             } else {
-                btn.innerHTML = '<span class="flex items-center justify-center gap-2">Continue Your Journey <span class="material-symbols-outlined">keyboard_double_arrow_right</span></span>';
-                btn.onclick = function () {
+                btn.innerHTML =
+                    '<span class="flex items-center justify-center gap-2">Continue Your Journey <span class="material-symbols-outlined">keyboard_double_arrow_right</span></span>';
+                btn.onclick = function() {
                     closeEnvelope();
                     if (chapterIdx < 7) goToChapter(chapterIdx + 1);
                     else if (chapterIdx === 7) goToChapter(8);
@@ -2505,9 +2631,11 @@
         function openLetter() {
             document.getElementById('letter-modal').classList.remove('hidden');
         }
+
         function closeLetter() {
             document.getElementById('letter-modal').classList.add('hidden');
         }
+
         function playBirthdayAudio() {
             const audio = document.getElementById('birthday-audio');
             if (audio.paused) {
@@ -2529,6 +2657,7 @@
             gameOver: false,
             cells: []
         };
+
         function initStarMemory() {
             if (chapterCompleted[2]) return;
             const grid = document.getElementById('star-grid');
@@ -2559,6 +2688,7 @@
             document.getElementById('star-start-btn').onclick = startStarGame;
             starGame.cells.forEach(c => c.classList.remove('disabled'));
         }
+
         function startStarGame() {
             if (starGame.gameOver) return;
             const btn = document.getElementById('star-start-btn');
@@ -2569,6 +2699,7 @@
             starGame.playerSequence = [];
             generateNextRound();
         }
+
         function generateNextRound() {
             if (starGame.round > starGame.maxRounds) {
                 starGame.gameOver = true;
@@ -2603,6 +2734,7 @@
                 i++;
             }, 700);
         }
+
         function onStarClick(index) {
             if (starGame.isShowing || !starGame.isPlayerTurn || starGame.gameOver) return;
             const cell = starGame.cells[index];
@@ -2663,16 +2795,20 @@
             { emoji: '🌄', letter: 'O' }, { emoji: '🌙', letter: 'R' }, { emoji: '⭐', letter: 'I' },
             { emoji: '🌸', letter: 'E' }, { emoji: '🌻', letter: 'S' }
         ];
+
         function initMemoryMatch() {
             if (chapterCompleted[3]) {
                 document.getElementById('memory-success').classList.remove('hidden');
-                document.querySelector('#memory-success .font-note-body').innerHTML = '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
+                document.querySelector('#memory-success .font-note-body').innerHTML =
+                    '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
                 return;
             }
             resetMemoryGame();
         }
+
         function resetMemoryGame() {
-            if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval); memoryGame.timerInterval = null; }
+            if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval);
+                memoryGame.timerInterval = null; }
             memoryGame.timer = 0;
             document.getElementById('timer-display').textContent = '0s';
             memoryGame.flipped = [];
@@ -2703,11 +2839,13 @@
                 div.dataset.index = index;
                 div.dataset.pairId = card.pairId;
                 div.dataset.letter = card.letter;
-                div.innerHTML = `<div class="memory-card-inner"><div class="memory-card-back"><span class="card-icon">✦</span></div><div class="memory-card-front">${card.emoji}</div></div>`;
+                div.innerHTML =
+                    `<div class="memory-card-inner"><div class="memory-card-back"><span class="card-icon">✦</span></div><div class="memory-card-front">${card.emoji}</div></div>`;
                 div.addEventListener('click', () => flipCard(index));
                 grid.appendChild(div);
             });
         }
+
         function flipCard(index) {
             if (memoryGame.locked || memoryGame.isComplete) return;
             const cardEl = document.querySelectorAll('.memory-card')[index];
@@ -2740,9 +2878,11 @@
                     memoryGame.locked = false;
                     if (memoryGame.matched === 8) {
                         memoryGame.isComplete = true;
-                        if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval); memoryGame.timerInterval = null; }
+                        if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval);
+                            memoryGame.timerInterval = null; }
                         document.getElementById('memory-success').classList.remove('hidden');
-                        document.querySelector('#memory-success .font-note-body').innerHTML = '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
+                        document.querySelector('#memory-success .font-note-body').innerHTML =
+                            '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
                     }
                 } else {
                     setTimeout(() => {
@@ -2755,23 +2895,62 @@
             }
         }
 
-        // ── Cipher Wheel (Ch4) ──
+        // ── Chapter 4: Randomized Cipher ──
         let cipherState = {
             selectedLetter: null,
-            answer: ['', '', '', ''],
-            correct: ['L', 'O', 'V', 'E'],
-            completed: false
+            answer: [],
+            correct: [],
+            completed: false,
+            currentRiddle: null
         };
+
         function initCipherWheel() {
-            if (cipherState.completed || chapterCompleted[4]) return;
+            if (cipherState.completed || chapterCompleted[4]) {
+                document.getElementById('cipher-success').classList.remove('hidden');
+                return;
+            }
             const wheel = document.getElementById('cipher-wheel');
             if (!wheel) return;
             wheel.innerHTML = '';
-            cipherState.answer = ['', '', '', ''];
-            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => { slot.textContent = ''; slot.className = 'crypto-letter'; });
+
+            // Pick random riddle
+            const riddleData = RIDDLE_POOL[Math.floor(Math.random() * RIDDLE_POOL.length)];
+            cipherState.currentRiddle = riddleData;
+            cipherState.correct = riddleData.answer.split('');
+            cipherState.answer = new Array(cipherState.correct.length).fill('');
+            cipherState.completed = false;
+
+            document.getElementById('riddle-text').innerHTML = riddleData.riddle;
+            document.getElementById('cipher-answer-word').textContent = riddleData.answer;
+
+            const slotsContainer = document.getElementById('cipher-answer-slots');
+            slotsContainer.innerHTML = '';
+            for (let i = 0; i < cipherState.correct.length; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'crypto-letter';
+                slot.dataset.index = i;
+                slot.textContent = '';
+                slot.addEventListener('click', () => {
+                    if (cipherState.completed || chapterCompleted[4]) return;
+                    if (cipherState.selectedLetter && cipherState.answer[i] === '') {
+                        cipherState.answer[i] = cipherState.selectedLetter;
+                        slot.textContent = cipherState.selectedLetter;
+                        slot.classList.add('filled');
+                        document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove(
+                        'active-char'));
+                        cipherState.selectedLetter = null;
+                        if (cipherState.answer.every(l => l !== '')) checkCipherAnswer();
+                    }
+                });
+                slotsContainer.appendChild(slot);
+            }
+
             document.getElementById('cipher-success').classList.add('hidden');
+            document.getElementById('cipher-hint').textContent = 'Hint: Click a letter then a slot.';
+
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-            const radius = 100, center = 120;
+            const radius = 100,
+                center = 120;
             letters.forEach((char, i) => {
                 const angle = (i / letters.length) * 2 * Math.PI - Math.PI / 2;
                 const x = center + radius * Math.cos(angle) - 16;
@@ -2784,70 +2963,83 @@
                 span.dataset.letter = char;
                 span.addEventListener('click', () => {
                     if (cipherState.completed || chapterCompleted[4]) return;
-                    document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove('active-char'));
+                    document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove(
+                    'active-char'));
                     span.classList.add('active-char');
                     cipherState.selectedLetter = char;
                 });
                 wheel.appendChild(span);
             });
-            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach((slot, i) => {
-                slot.addEventListener('click', () => {
-                    if (cipherState.completed || chapterCompleted[4]) return;
-                    if (cipherState.selectedLetter && cipherState.answer[i] === '') {
-                        cipherState.answer[i] = cipherState.selectedLetter;
-                        slot.textContent = cipherState.selectedLetter;
-                        slot.classList.add('filled');
-                        document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove('active-char'));
-                        cipherState.selectedLetter = null;
-                        if (cipherState.answer.every(l => l !== '')) checkCipherAnswer();
-                    }
-                });
-            });
         }
+
         function clearCipherAnswer() {
             if (cipherState.completed || chapterCompleted[4]) return;
-            cipherState.answer = ['', '', '', ''];
-            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => { slot.textContent = ''; slot.className = 'crypto-letter'; });
-            document.getElementById('cipher-hint').textContent = 'Hint: The answer is 4 letters long. Click a letter then a slot.';
+            cipherState.answer.fill('');
+            document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => {
+                slot.textContent = '';
+                slot.className = 'crypto-letter';
+            });
+            document.getElementById('cipher-hint').textContent = 'Hint: Click a letter then a slot.';
         }
+
         function checkCipherAnswer() {
             if (cipherState.completed || chapterCompleted[4]) return;
             const answer = cipherState.answer.join('');
-            if (answer === 'LOVE') {
+            const correct = cipherState.correct.join('');
+            if (answer === correct) {
                 cipherState.completed = true;
                 document.getElementById('cipher-success').classList.remove('hidden');
-                document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => slot.classList.add('correct'));
-                document.getElementById('cipher-hint').textContent = '✅ Correct! The answer is LOVE.';
+                document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => slot.classList.add(
+                'correct'));
+                document.getElementById('cipher-hint').textContent = '✅ Correct!';
             } else {
-                document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => { if (slot.textContent) slot.classList.add('wrong'); setTimeout(() => slot.classList.remove('wrong'), 400); });
+                document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => {
+                    if (slot.textContent) slot.classList.add('wrong');
+                    setTimeout(() => slot.classList.remove('wrong'), 400);
+                });
                 document.getElementById('cipher-hint').textContent = '❌ Not quite. Try again!';
-                setTimeout(() => document.getElementById('cipher-hint').textContent = 'Hint: The answer is 4 letters long. Click a letter then a slot.', 2000);
+                setTimeout(() => document.getElementById('cipher-hint').textContent = 'Hint: Click a letter then a slot.',
+                    2000);
             }
         }
 
-        // ── Scramble (Ch5) ──
+        // ── Chapter 5: Randomized Scramble ──
         let scrambleState = {
-            words: ['Every', 'day', 'with', 'you', 'is', 'a', 'beautiful', 'adventure'],
+            words: [],
             placed: [],
             slots: [],
             completed: false,
             draggingEl: null,
             dragOffsetX: 0,
             dragOffsetY: 0,
-            initialPosition: null
+            initialPosition: null,
+            currentMessage: ''
         };
+
         function initScrambleGame() {
-            if (scrambleState.completed || chapterCompleted[5]) { document.getElementById('scramble-success').classList.remove('hidden'); return; }
+            if (scrambleState.completed || chapterCompleted[5]) {
+                document.getElementById('scramble-success').classList.remove('hidden');
+                return;
+            }
             const container = document.getElementById('scramble-words-container');
             const slotsContainer = document.getElementById('scramble-slots-container');
             if (!container || !slotsContainer) return;
+
+            // Pick random message
+            const msg = LOVE_MESSAGES[Math.floor(Math.random() * LOVE_MESSAGES.length)];
+            scrambleState.currentMessage = msg;
+            scrambleState.words = msg.split(' ');
             scrambleState.placed = [];
             scrambleState.completed = false;
+
             container.innerHTML = '';
             slotsContainer.innerHTML = '';
             document.getElementById('scramble-success').classList.add('hidden');
-            document.getElementById('scramble-progress').textContent = '0 / 8';
-            scrambleState.draggingEl = null;
+            document.getElementById('scramble-hint').textContent = 'Place all words in the correct order.';
+            document.getElementById('scramble-progress').textContent = `0 / ${scrambleState.words.length}`;
+            document.getElementById('scramble-total').textContent = scrambleState.words.length;
+            document.getElementById('scramble-revealed-message').textContent = `"${msg}"`;
+
             const shuffled = [...scrambleState.words].sort(() => Math.random() - 0.5);
             shuffled.forEach(word => {
                 const el = document.createElement('span');
@@ -2860,6 +3052,7 @@
                 el.addEventListener('mousedown', (e) => handleScrambleDragStart(e, el));
                 container.appendChild(el);
             });
+
             scrambleState.slots = [];
             scrambleState.words.forEach((word, idx) => {
                 const slot = document.createElement('div');
@@ -2871,6 +3064,7 @@
                 scrambleState.slots.push(slot);
             });
         }
+
         function handleScrambleDragStart(e, el) {
             if (el.classList.contains('placed') || scrambleState.completed || chapterCompleted[5]) return;
             e.preventDefault();
@@ -2890,6 +3084,7 @@
             document.addEventListener('mousemove', handleScrambleDragMove);
             document.addEventListener('mouseup', handleScrambleDragEnd);
         }
+
         function handleScrambleDragMove(e) {
             if (!scrambleState.draggingEl) return;
             e.preventDefault();
@@ -2899,6 +3094,7 @@
             el.style.left = (clientX - scrambleState.dragOffsetX) + 'px';
             el.style.top = (clientY - scrambleState.dragOffsetY) + 'px';
         }
+
         function handleScrambleDragEnd(e) {
             if (!scrambleState.draggingEl) return;
             e.preventDefault();
@@ -2910,11 +3106,12 @@
             const slots = document.querySelectorAll('.scramble-slot');
             slots.forEach(slot => {
                 const rect = slot.getBoundingClientRect();
-                if (clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom) {
+                if (clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect
+                    .bottom) {
                     const slotIdx = parseInt(slot.dataset.index);
                     if (!scrambleState.placed.includes(slotIdx) && !slot.classList.contains('filled')) {
                         if (word === slot.dataset.expected) {
-                            placeWordInSlot(slotIdx, word, el);
+                            placeScrambleWord(slotIdx, word, el);
                             dropped = true;
                         } else {
                             el.classList.add('wrong');
@@ -2934,7 +3131,8 @@
             scrambleState.draggingEl = null;
             scrambleState.initialPosition = null;
         }
-        function placeWordInSlot(slotIdx, word, wordEl) {
+
+        function placeScrambleWord(slotIdx, word, wordEl) {
             if (scrambleState.placed.includes(slotIdx)) return;
             scrambleState.placed.push(slotIdx);
             wordEl.classList.add('placed');
@@ -2942,7 +3140,7 @@
             scrambleState.slots[slotIdx].classList.add('filled');
             scrambleState.slots[slotIdx].innerHTML = `<span class="slot-word">${word}</span>`;
             scrambleState.slots[slotIdx].style.color = '#4caf50';
-            document.getElementById('scramble-progress').textContent = `${scrambleState.placed.length} / 8`;
+            document.getElementById('scramble-progress').textContent = `${scrambleState.placed.length} / ${scrambleState.words.length}`;
             if (scrambleState.placed.length === scrambleState.words.length) {
                 scrambleState.completed = true;
                 document.getElementById('scramble-success').classList.remove('hidden');
@@ -2950,30 +3148,62 @@
             }
         }
 
-        // ── Morse Game (Ch6) ──
+        // ── Chapter 6: Randomized Morse ──
         const morseCode = {
-            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
-            'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
-            'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
-            'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
-            'Y': '-.--', 'Z': '--..'
+            'A': '.-',
+            'B': '-...',
+            'C': '-.-.',
+            'D': '-..',
+            'E': '.',
+            'F': '..-.',
+            'G': '--.',
+            'H': '....',
+            'I': '..',
+            'J': '.---',
+            'K': '-.-',
+            'L': '.-..',
+            'M': '--',
+            'N': '-.',
+            'O': '---',
+            'P': '.--.',
+            'Q': '--.-',
+            'R': '.-.',
+            'S': '...',
+            'T': '-',
+            'U': '..-',
+            'V': '...-',
+            'W': '.--',
+            'X': '-..-',
+            'Y': '-.--',
+            'Z': '--..'
         };
-        const morseTarget = 'FOREVER';
-        let morseGame = { letters: [], slots: [], currentSlot: 0, completed: false };
+
+        let morseGame = { letters: [], slots: [], currentSlot: 0, completed: false, targetWord: '' };
+
         function initMorseGame() {
-            if (morseGame.completed || chapterCompleted[6]) return;
+            if (morseGame.completed || chapterCompleted[6]) {
+                document.getElementById('morse-success').classList.remove('hidden');
+                return;
+            }
             const display = document.getElementById('morse-display');
             const slotsContainer = document.getElementById('morse-letter-slots');
             const keypad = document.getElementById('morse-keypad');
             if (!display || !slotsContainer || !keypad) return;
-            display.innerHTML = '';
-            slotsContainer.innerHTML = '';
-            keypad.innerHTML = '';
-            morseGame.letters = morseTarget.split('');
+
+            // Pick random word
+            const word = MORSE_WORDS[Math.floor(Math.random() * MORSE_WORDS.length)];
+            morseGame.targetWord = word;
+            morseGame.letters = word.split('');
             morseGame.slots = [];
             morseGame.currentSlot = 0;
             morseGame.completed = false;
             document.getElementById('morse-success').classList.add('hidden');
+            document.getElementById('morse-revealed-word').textContent = word;
+
+            display.innerHTML = '';
+            slotsContainer.innerHTML = '';
+            keypad.innerHTML = '';
+
             morseGame.letters.forEach((letter, i) => {
                 const code = morseCode[letter];
                 const group = document.createElement('div');
@@ -2986,15 +3216,18 @@
                 });
                 display.appendChild(group);
             });
+
             morseGame.letters.forEach((_, i) => {
                 const slot = document.createElement('span');
                 slot.className = 'morse-letter-slot';
                 slot.dataset.index = i;
                 slot.textContent = '';
-                slot.addEventListener('click', () => { if (!morseGame.completed && !chapterCompleted[6]) setMorseActiveSlot(i); });
+                slot.addEventListener('click', () => { if (!morseGame.completed && !chapterCompleted[6])
+                    setMorseActiveSlot(i); });
                 slotsContainer.appendChild(slot);
                 morseGame.slots.push(slot);
             });
+
             'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(letter => {
                 const btn = document.createElement('button');
                 btn.className = 'morse-key-btn';
@@ -3002,9 +3235,11 @@
                 btn.addEventListener('click', () => fillMorseLetter(letter));
                 keypad.appendChild(btn);
             });
+
             setMorseActiveSlot(0);
             document.addEventListener('keydown', morseKeyHandler);
         }
+
         function morseKeyHandler(e) {
             if (!document.querySelector('.chapter[data-chapter="6"].active')) return;
             if (morseGame.completed || chapterCompleted[6]) return;
@@ -3017,6 +3252,7 @@
                 clearMorseSlot(morseGame.currentSlot);
             }
         }
+
         function setMorseActiveSlot(index) {
             morseGame.slots.forEach(s => s.classList.remove('active'));
             if (index >= 0 && index < morseGame.slots.length) {
@@ -3024,6 +3260,7 @@
                 morseGame.currentSlot = index;
             }
         }
+
         function fillMorseLetter(letter) {
             if (morseGame.completed || chapterCompleted[6]) return;
             const slot = morseGame.slots[morseGame.currentSlot];
@@ -3033,21 +3270,25 @@
             if (nextEmpty !== -1) setMorseActiveSlot(nextEmpty);
             else checkMorseAnswer();
         }
+
         function clearMorseSlot(index) {
             if (morseGame.completed || chapterCompleted[6]) return;
             morseGame.slots[index].textContent = '';
             morseGame.slots[index].classList.remove('filled');
             setMorseActiveSlot(index);
         }
+
         function clearMorseAnswer() {
             if (morseGame.completed || chapterCompleted[6]) return;
-            morseGame.slots.forEach((slot, i) => { slot.textContent = ''; slot.classList.remove('filled'); });
+            morseGame.slots.forEach((slot, i) => { slot.textContent = '';
+                slot.classList.remove('filled'); });
             setMorseActiveSlot(0);
         }
+
         function checkMorseAnswer() {
             if (morseGame.completed || chapterCompleted[6]) return;
             const answer = morseGame.slots.map(s => s.textContent).join('');
-            if (answer === morseTarget) {
+            if (answer === morseGame.targetWord) {
                 morseGame.completed = true;
                 document.getElementById('morse-success').classList.remove('hidden');
                 document.removeEventListener('keydown', morseKeyHandler);
@@ -3057,105 +3298,181 @@
             }
         }
 
-        // ── Puzzle (Ch7) ──
-        let puzzleSolved = false;
-        let puzzleBoardRect = null;
-        function initPuzzle() {
-            if (puzzleSolved || chapterCompleted[7]) return;
-            const container = document.getElementById('puzzle-pieces-container');
-            if (!container || container.hasChildNodes()) return;
-            const board = document.getElementById('puzzle-board-main');
-            puzzleBoardRect = board.getBoundingClientRect();
-            const piecesData = [
-                { id: 0, xPercent: 10, yPercent: 10, correctXPercent: 36, correctYPercent: 24, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDcrs8ac0yQjBPpWxmazna7VOYYCevUkcVLpYJFzHAjXS8n6qvIE0UlU2HgCAPxqFRaKiq7t8UF-SYV2teyQsH602nZYuHqnXJjYKIIRliOGabFAz3ouONE0bfvrtuB22TQ3XkJQeGVR5q2oMahAEmLp0YzpsnIukGKAoCiXUAOMGDWBt6ZKb8LULxQPb9sDIFb9X-ujmMktob6pxdWE6wj_1WcjnJXqQYGDGpd6Sprp0S2IAawg7J5beKUVJ2FvsrszFcVJ3Z_B8E' },
-                { id: 1, xPercent: 60, yPercent: 20, correctXPercent: 52, correctYPercent: 36, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBhXzKte41AH_PYTwA41CQJSJQbADeQWdVY_ju5uCtuszfoJxOI5uxewTQUKrv0ol7mOs0jCYpKwaxBVm8UcdBvgJ-hrx_VetDVvVuIAIco2pUmXtOqLT0HXR89tV69zzyfd9ZC3KlzYBdPh95pPiAAMXzUpc_xvjFUMrjTYjEputq96GMrwji6qV3T8ONcbaETLX120pxhfYbs4sbBxpCZ89nupZpXmptcMWpqlao9QcqLA9hCxG9VANBtA3FgsDOq1wzV9Pl68jE' },
-                { id: 2, xPercent: 10, yPercent: 70, correctXPercent: 36, correctYPercent: 56, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDiznbYncNWhu0aTKzXjU_xIP7QcRw6cM-8G1o0Ia8U3HEbXV849Hyps9hCiuXG_XGRucSrN1_IWVAdjM42EhEY0VW8aaRy2BbDdt4yEQoSv_G06rfixOfs40T6QrrxXOdyhV2YFl_anhlrW1tpyNmLHMoTN3RF2lRPJlUC7kaP7Z-Hvpk7MdiauVzquus9UfQzqRyOWnLkjrjgxvnwGIkHzxYkhA7bPsi4UFL0VhstUTVvrrifvCdt07gcEWgADW0Jv5cv8HhIPw' },
-                { id: 3, xPercent: 60, yPercent: 70, correctXPercent: 52, correctYPercent: 56, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-2c07fxFkoNLQvV6upz5uoPIPBae4u1sMf_gcuSaqFJDK3dS2n6bsNol8WS9vWQlg9_WJcUki2R5DZaDvEPhJqOQj0TUf8SDJBlVLIynjAyenmXYpR4_z_LFgmlV1bV6g3vhY_9j3dWL3tVBmRmXLwgcYhXS9UepZmhD1PUJqLNnxq_v_5r6fnysxf2e5q9kvPYYXx9wIKEgUmdMe1863grRyfBhe6ikqpyuf1bD9YeYKf8elhs3rdCPo_RqN8C_Apfg68PfzPlc' }
+        // ── Chapter 7: Sliding Puzzle (15-Puzzle) ──
+        let puzzle = {
+            tiles: [], // 16 elements, 0 = empty
+            moves: 0,
+            timer: 0,
+            timerInterval: null,
+            completed: false,
+            size: 4
+        };
+
+        function initSlidingPuzzle() {
+            if (puzzle.completed || chapterCompleted[7]) {
+                document.getElementById('puzzle-success').classList.remove('hidden');
+                return;
+            }
+            // Reset state
+            puzzle.moves = 0;
+            puzzle.timer = 0;
+            puzzle.completed = false;
+            if (puzzle.timerInterval) clearInterval(puzzle.timerInterval);
+            document.getElementById('puzzle-moves').textContent = '0';
+            document.getElementById('puzzle-timer').textContent = '0s';
+            document.getElementById('puzzle-status').textContent = 'Slide the tiles into order (1-15, empty at bottom-right).';
+            document.getElementById('puzzle-success').classList.add('hidden');
+
+            // Generate a solvable puzzle
+            // Start with solved state: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0
+            const solved = [];
+            for (let i = 1; i < 16; i++) solved.push(i);
+            solved.push(0);
+            // Shuffle by performing random moves (100 moves) to ensure solvability
+            let state = [...solved];
+            let emptyIdx = 15;
+            const moves = [
+                [-1, 0],
+                [1, 0],
+                [0, -1],
+                [0, 1]
             ];
-            const boardWidth = puzzleBoardRect.width;
-            const boardHeight = puzzleBoardRect.height;
-            let piecesCorrect = 0;
-            const totalPieces = piecesData.length;
-            piecesData.forEach((data) => {
-                const piece = document.createElement('div');
-                piece.className = 'puzzle-piece w-32 h-32 overflow-hidden rounded-xl border-2 border-primary/30 shadow-md';
-                piece.style.left = (data.xPercent / 100 * boardWidth) + 'px';
-                piece.style.top = (data.yPercent / 100 * boardHeight) + 'px';
-                piece.style.transform = 'rotate(' + (Math.random() * 30 - 15) + 'deg)';
-                piece.dataset.correctXPercent = data.correctXPercent;
-                piece.dataset.correctYPercent = data.correctYPercent;
-                piece.dataset.id = data.id;
-                piece.innerHTML = `<div class="w-full h-full bg-cover bg-center" style="background-image:url('${data.img}')"></div>`;
-                container.appendChild(piece);
-                let isDragging = false, startX, startY, currentX, currentY;
-                const startDrag = (e) => {
-                    if (piece.classList.contains('locked') || puzzleSolved || chapterCompleted[7]) return;
-                    isDragging = true;
-                    piece.style.zIndex = '100';
-                    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-                    const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-                    startX = clientX - piece.offsetLeft;
-                    startY = clientY - piece.offsetTop;
-                    document.addEventListener('mousemove', drag);
-                    document.addEventListener('touchmove', drag, { passive: false });
-                    document.addEventListener('mouseup', stopDrag);
-                    document.addEventListener('touchend', stopDrag);
-                };
-                const drag = (e) => {
-                    if (!isDragging) return;
-                    e.preventDefault();
-                    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-                    const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
-                    currentX = clientX - startX;
-                    currentY = clientY - startY;
-                    piece.style.left = currentX + 'px';
-                    piece.style.top = currentY + 'px';
-                };
-                const stopDrag = () => {
-                    isDragging = false;
-                    document.removeEventListener('mousemove', drag);
-                    document.removeEventListener('touchmove', drag);
-                    const boardRect = board.getBoundingClientRect();
-                    const boardW = boardRect.width, boardH = boardRect.height;
-                    const correctX = (parseFloat(piece.dataset.correctXPercent) / 100) * boardW;
-                    const correctY = (parseFloat(piece.dataset.correctYPercent) / 100) * boardH;
-                    const pieceLeft = parseFloat(piece.style.left);
-                    const pieceTop = parseFloat(piece.style.top);
-                    const distance = Math.sqrt(Math.pow(pieceLeft - correctX, 2) + Math.pow(pieceTop - correctY, 2));
-                    if (distance < 40) {
-                        piece.style.left = correctX + 'px';
-                        piece.style.top = correctY + 'px';
-                        piece.style.transform = 'rotate(0deg)';
-                        piece.style.boxShadow = '0 0 15px rgba(212,175,55,0.5)';
-                        piece.classList.add('locked');
-                        piece.style.zIndex = '10';
-                        piecesCorrect++;
-                        piece.style.scale = '1.1';
-                        setTimeout(() => piece.style.scale = '1', 200);
-                        if (piecesCorrect === totalPieces) {
-                            puzzleSolved = true;
-                            const reward = document.getElementById('reward-container-puzzle');
-                            setTimeout(() => {
-                                if (reward) { reward.classList.remove('hidden'); reward.style.opacity = '1'; reward.style.transform = 'translateY(0)'; }
-                                for (let i = 0; i < 20; i++) {
-                                    const s = document.createElement('div');
-                                    s.innerHTML = '<span class="material-symbols-outlined text-secondary-fixed">sparkles</span>';
-                                    s.className = 'fixed pointer-events-none z-[60]';
-                                    s.style.left = Math.random() * 100 + 'vw';
-                                    s.style.top = Math.random() * 100 + 'vh';
-                                    s.style.opacity = '0';
-                                    s.style.transition = 'all 1s ease-out';
-                                    document.body.appendChild(s);
-                                    setTimeout(() => { s.style.opacity = '1'; s.style.transform = `translate(${Math.random() * 40 - 20}px,-100px)`; }, 10);
-                                    setTimeout(() => s.remove(), 1100);
-                                }
-                            }, 500);
+            for (let step = 0; step < 200; step++) {
+                const r = Math.floor(emptyIdx / 4);
+                const c = emptyIdx % 4;
+                const possible = [];
+                for (const [dr, dc] of moves) {
+                    const nr = r + dr,
+                        nc = c + dc;
+                    if (nr >= 0 && nr < 4 && nc >= 0 && nc < 4) {
+                        possible.push(nr * 4 + nc);
+                    }
+                }
+                const pick = possible[Math.floor(Math.random() * possible.length)];
+                // Swap
+                [state[emptyIdx], state[pick]] = [state[pick], state[emptyIdx]];
+                emptyIdx = pick;
+            }
+            puzzle.tiles = state;
+            renderPuzzle();
+            // Start timer
+            puzzle.timerInterval = setInterval(() => {
+                puzzle.timer++;
+                document.getElementById('puzzle-timer').textContent = puzzle.timer + 's';
+            }, 1000);
+        }
+
+        function renderPuzzle() {
+            const grid = document.getElementById('puzzle-grid');
+            grid.innerHTML = '';
+            puzzle.tiles.forEach((val, idx) => {
+                const tile = document.createElement('div');
+                tile.className = 'puzzle-tile';
+                if (val === 0) {
+                    tile.classList.add('empty');
+                    tile.textContent = '';
+                } else {
+                    tile.textContent = val;
+                    // Check if tile is in correct position
+                    const correctPos = val - 1; // since val 1-15, correct index is val-1
+                    if (idx === correctPos) {
+                        tile.classList.add('correct');
+                    }
+                }
+                // Click handler
+                tile.addEventListener('click', () => {
+                    if (puzzle.completed || chapterCompleted[7]) return;
+                    const emptyIdx = puzzle.tiles.indexOf(0);
+                    const r = Math.floor(idx / 4);
+                    const c = idx % 4;
+                    const er = Math.floor(emptyIdx / 4);
+                    const ec = emptyIdx % 4;
+                    // Check if adjacent
+                    if ((Math.abs(r - er) === 1 && c === ec) || (Math.abs(c - ec) === 1 && r === er)) {
+                        // Swap
+                        puzzle.tiles[emptyIdx] = val;
+                        puzzle.tiles[idx] = 0;
+                        puzzle.moves++;
+                        document.getElementById('puzzle-moves').textContent = puzzle.moves;
+                        renderPuzzle();
+                        // Check win
+                        if (checkWin()) {
+                            puzzle.completed = true;
+                            if (puzzle.timerInterval) clearInterval(puzzle.timerInterval);
+                            document.getElementById('puzzle-status').textContent = '🎉 Solved!';
+                            document.getElementById('puzzle-success').classList.remove('hidden');
                         }
                     }
-                };
-                piece.addEventListener('mousedown', startDrag);
-                piece.addEventListener('touchstart', startDrag, { passive: false });
+                });
+                grid.appendChild(tile);
             });
+        }
+
+        function checkWin() {
+            for (let i = 0; i < 15; i++) {
+                if (puzzle.tiles[i] !== i + 1) return false;
+            }
+            return puzzle.tiles[15] === 0;
+        }
+
+        // Reset button
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('puzzle-reset').addEventListener('click', function() {
+                if (puzzle.timerInterval) clearInterval(puzzle.timerInterval);
+                puzzle.completed = false;
+                chapterCompleted[7] = false; // Allow redo if not completed
+                initSlidingPuzzle();
+            });
+        });
+
+        // ── Chapter 9: Gallery ──
+        function initGallery() {
+            const container = document.getElementById('gallery-grid-modern');
+            if (!container) return;
+            if (container.children.length > 0) return;
+
+            GALLERY_IMAGES.forEach((img, idx) => {
+                const card = document.createElement('div');
+                card.className = 'gallery-card';
+                card.innerHTML = `
+                    <img src="${img.src}" alt="${img.label}" loading="lazy" />
+                    <div class="polaroid-tape"></div>
+                    <div class="overlay"><p>${img.label}</p></div>
+                `;
+                card.addEventListener('click', function() {
+                    openGalleryModal(img.src, img.label);
+                });
+                container.appendChild(card);
+            });
+        }
+
+        // ── Gallery Modal ──
+        function openGalleryModal(src, label) {
+            const modal = document.getElementById('gallery-modal');
+            const img = document.getElementById('gallery-modal-img');
+            img.src = src;
+            img.alt = label || 'Full view';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('gallery-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('gallery-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeGalleryModal();
+        });
+
+        function playGalleryAudio() {
+            const icon = document.getElementById('gallery-audio-icon');
+            if (icon.textContent === 'play_arrow') {
+                icon.textContent = 'pause';
+                setTimeout(() => { icon.textContent = 'play_arrow'; }, 3000);
+            } else {
+                icon.textContent = 'play_arrow';
+            }
         }
 
         // ── Code Lock (Ch8) ──
@@ -3165,21 +3482,25 @@
             maxAttempts: 5,
             locked: false
         };
+
         function pressCodeKey(val) {
             if (codeState.locked || chapterCompleted[8]) return;
-            if (val === 'clear') { codeState.digits = ['', '', '', '', '', '', '']; updateCodeLockDisplay(); return; }
+            if (val === 'clear') { codeState.digits = ['', '', '', '', '', '', ''];
+                updateCodeLockDisplay(); return; }
             const idx = codeState.digits.findIndex(d => d === '');
             if (idx === -1) return;
             codeState.digits[idx] = val;
             updateCodeLockDisplay();
             if (codeState.digits.every(d => d !== '')) setTimeout(checkCodeLock, 300);
         }
+
         function updateCodeLockDisplay() {
             document.querySelectorAll('#code-lock .code-digit').forEach((el, i) => {
                 el.textContent = codeState.digits[i] || '_';
                 el.className = 'code-digit' + (codeState.digits[i] ? ' filled' : '');
             });
         }
+
         function checkCodeLock() {
             if (codeState.locked || chapterCompleted[8]) return;
             const entered = codeState.digits.join('');
@@ -3192,35 +3513,21 @@
             } else {
                 codeState.attempts++;
                 document.getElementById('code-attempts').textContent = `Attempts: ${codeState.attempts} / ${codeState.maxAttempts}`;
-                document.querySelectorAll('#code-lock .code-digit').forEach(el => { el.classList.add('wrong'); setTimeout(() => el.classList.remove('wrong'), 400); });
+                document.querySelectorAll('#code-lock .code-digit').forEach(el => { el.classList.add('wrong');
+                    setTimeout(() => el.classList.remove('wrong'), 400); });
                 if (codeState.attempts >= codeState.maxAttempts) {
                     codeState.locked = true;
-                    document.getElementById('code-hint').textContent = `🔒 Too many attempts. The code is: ${expected || 'collect all 7 digits first'}`;
+                    document.getElementById('code-hint').textContent =
+                        `🔒 Too many attempts. The code is: ${expected || 'collect all 7 digits first'}`;
                     document.querySelectorAll('#code-lock .code-digit').forEach(el => el.textContent = '?');
                 } else {
-                    document.getElementById('code-hint').textContent = `❌ Wrong. ${codeState.maxAttempts - codeState.attempts} attempts remaining.`;
-                    setTimeout(() => document.getElementById('code-hint').textContent = 'Enter the 7-digit code from your collected digits.', 2000);
+                    document.getElementById('code-hint').textContent =
+                        `❌ Wrong. ${codeState.maxAttempts - codeState.attempts} attempts remaining.`;
+                    setTimeout(() => document.getElementById('code-hint').textContent =
+                        'Enter the 7-digit code from your collected digits.', 2000);
                 }
                 codeState.digits = ['', '', '', '', '', '', ''];
                 updateCodeLockDisplay();
-            }
-        }
-
-        // ── Gallery Audio (Ch9) ──
-        function playGalleryAudio() {
-            const btn = document.querySelector('#gallery-grid + .mt-8 .w-12');
-            if (btn) {
-                btn.classList.toggle('bg-secondary-container');
-                btn.classList.toggle('bg-primary');
-                const icon = btn.querySelector('.material-symbols-outlined');
-                if (icon) {
-                    icon.textContent = icon.textContent === 'play_arrow' ? 'pause' : 'play_arrow';
-                }
-                setTimeout(() => {
-                    if (icon) icon.textContent = 'play_arrow';
-                    btn.classList.remove('bg-primary');
-                    btn.classList.add('bg-secondary-container');
-                }, 3000);
             }
         }
 
@@ -3243,7 +3550,9 @@
                 const ch6 = document.querySelector('.chapter[data-chapter="6"]');
                 if (ch6 && ch6.classList.contains('active')) initMorseGame();
                 const ch7 = document.querySelector('.chapter[data-chapter="7"]');
-                if (ch7 && ch7.classList.contains('active')) initPuzzle();
+                if (ch7 && ch7.classList.contains('active')) initSlidingPuzzle();
+                const ch9 = document.querySelector('.chapter[data-chapter="9"]');
+                if (ch9 && ch9.classList.contains('active')) initGallery();
             });
             document.querySelectorAll('.chapter').forEach(ch => {
                 observer.observe(ch, { attributes: true, attributeFilter: ['class'] });
@@ -3265,7 +3574,6 @@
         window.initMorseGame = initMorseGame;
         window.clearMorseAnswer = clearMorseAnswer;
         window.checkMorseAnswer = checkMorseAnswer;
-        window.initPuzzle = initPuzzle;
         window.pressCodeKey = pressCodeKey;
         window.checkCodeLock = checkCodeLock;
         window.playGalleryAudio = playGalleryAudio;
@@ -3276,6 +3584,10 @@
         window.openLetter = openLetter;
         window.closeLetter = closeLetter;
         window.playBirthdayAudio = playBirthdayAudio;
+        window.initSlidingPuzzle = initSlidingPuzzle;
+        window.initGallery = initGallery;
+        window.openGalleryModal = openGalleryModal;
+        window.closeGalleryModal = closeGalleryModal;
     </script>
 
 </body>
