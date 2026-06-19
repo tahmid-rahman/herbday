@@ -1242,6 +1242,23 @@
             display: inline-block;
             animation: word-drop 0.4s ease forwards;
         }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(156, 39, 176, 0.3);
+            border-radius: 9999px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(156, 39, 176, 0.5);
+        }
     </style>
 </head>
 
@@ -1263,7 +1280,8 @@
             <span class="text-on-surface-variant text-sm font-note-body hidden md:block" id="code-display-small">🔑 _ _
                 _ _ _ _ _</span>
             <!-- Music toggle button -->
-            <button id="music-toggle" class="text-primary scale-95 active:scale-90 transition-transform duration-300" title="Toggle music">
+            <button id="music-toggle" class="text-primary scale-95 active:scale-90 transition-transform duration-300"
+                title="Toggle music">
                 <span class="material-symbols-outlined" id="music-icon">music_note</span>
             </button>
             <button class="text-primary scale-95 active:scale-90 transition-transform duration-300">
@@ -1659,7 +1677,8 @@
                     </div>
 
                     <div class="glass-panel rounded-xl p-6 mb-8 border-2 border-dashed border-outline-variant">
-                        <p class="font-note-body text-tertiary text-xl italic text-center leading-relaxed" id="riddle-text">
+                        <p class="font-note-body text-tertiary text-xl italic text-center leading-relaxed"
+                            id="riddle-text">
                             "I have no voice, but I speak to you.<br />
                             I have no wings, but I fly to you.<br />
                             I have no hands, but I hold you close.<br />
@@ -1687,12 +1706,13 @@
                                 class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-button-label hover:bg-primary/80 transition"
                                 onclick="checkCipherAnswer()">Check Answer</button>
                         </div>
-                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: Click a letter then a slot.</p>
+                        <p class="text-sm text-on-surface-variant/60 italic" id="cipher-hint">Hint: Click a letter then
+                            a slot.</p>
                     </div>
 
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="cipher-success">
-                        <p class="font-note-body text-tertiary text-xl italic">"<span
-                                class="text-primary font-bold" id="cipher-answer-word">LOVE</span> — the heart's true answer."</p>
+                        <p class="font-note-body text-tertiary text-xl italic">"<span class="text-primary font-bold"
+                                id="cipher-answer-word">LOVE</span> — the heart's true answer."</p>
                         <div
                             class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
@@ -1703,7 +1723,8 @@
                             Next Chapter →
                         </button>
                     </div>
-                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is a 4-letter word. Use the wheel to spell it out.</div>
+                    <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The answer is a 4-letter word.
+                        Use the wheel to spell it out.</div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-4">
                     <span class="lock-icon material-symbols-outlined">lock</span>
@@ -1761,7 +1782,8 @@
 
                     <div class="mt-6 text-center opacity-0 transition-all duration-1000 hidden" id="scramble-success">
                         <p class="font-note-body text-tertiary text-xl italic">"💌 The love letter reads: <span
-                                class="text-primary font-bold" id="scramble-revealed-message">"Every day with you is a beautiful adventure"</span>"</p>
+                                class="text-primary font-bold" id="scramble-revealed-message">"Every day with you is a
+                                beautiful adventure"</span>"</p>
                         <div
                             class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
                             <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
@@ -1895,7 +1917,8 @@
                     <div class="text-center mb-6 relative z-10">
                         <span class="font-button-label text-secondary tracking-[0.2em] uppercase">Chapter VII</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">The Sliding Heart</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Arrange the tiles in order. Click a tile adjacent to the empty space to slide it."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"Arrange the tiles in
+                            order. Click a tile adjacent to the empty space to slide it."</p>
                     </div>
 
                     <div class="relative z-10 flex flex-col items-center gap-4" id="puzzle-container">
@@ -1915,21 +1938,27 @@
                             <button class="btn-reset-puzzle" id="puzzle-reset">New Puzzle</button>
                         </div>
 
-                        <div class="text-sm text-on-surface-variant/60 italic" id="puzzle-status">Slide the tiles into order (1-15, empty at bottom-right).</div>
+                        <div class="text-sm text-on-surface-variant/60 italic" id="puzzle-status">Slide the tiles into
+                            order (1-15, empty at bottom-right).</div>
 
                         <!-- Success -->
                         <div class="mt-4 text-center opacity-0 transition-all duration-1000 hidden" id="puzzle-success">
-                            <p class="font-note-body text-tertiary text-xl italic">"🧩 Perfect! The heart finds its order."</p>
-                            <div class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
-                                <span class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
-                                <span class="font-button-label text-secondary uppercase tracking-widest">Puzzle solved!</span>
+                            <p class="font-note-body text-tertiary text-xl italic">"🧩 Perfect! The heart finds its
+                                order."</p>
+                            <div
+                                class="flex justify-center items-center gap-4 py-4 px-6 bg-secondary-container/20 rounded-full w-fit mx-auto border border-secondary-container/50 animate-bounce mt-3">
+                                <span
+                                    class="material-symbols-outlined text-secondary fill-icon text-3xl">extension</span>
+                                <span class="font-button-label text-secondary uppercase tracking-widest">Puzzle
+                                    solved!</span>
                             </div>
                             <button class="btn-next-chapter mx-auto mt-4" onclick="completeChapter(7)">
                                 Next Chapter →
                             </button>
                         </div>
 
-                        <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The empty space must end up at the bottom‑right. Keep sliding!</div>
+                        <div class="text-xs text-on-surface-variant/50 mt-4 italic">💡 Hint: The empty space must end up
+                            at the bottom‑right. Keep sliding!</div>
                     </div>
                 </div>
                 <div class="chapter-lock-overlay" id="lock-7">
@@ -2051,15 +2080,26 @@
             <div class="max-w-5xl mx-auto px-page-margin py-8">
                 <div
                     class="parchment-texture rounded-2xl shadow-[0px_1px_0px_0px_rgba(212,175,55,0.2),0px_10px_20px_rgba(0,0,0,0.1)] p-6 md:p-10 relative border border-outline-variant/30">
-                    <div class="absolute top-3 left-3 w-16 h-16 border-t-2 border-l-2 border-secondary-container/30 rounded-tl-2xl"></div>
-                    <div class="absolute top-3 right-3 w-16 h-16 border-t-2 border-r-2 border-secondary-container/30 rounded-tr-2xl"></div>
-                    <div class="absolute bottom-3 left-3 w-16 h-16 border-b-2 border-l-2 border-secondary-container/30 rounded-bl-2xl"></div>
-                    <div class="absolute bottom-3 right-3 w-16 h-16 border-b-2 border-r-2 border-secondary-container/30 rounded-br-2xl"></div>
+                    <div
+                        class="absolute top-3 left-3 w-16 h-16 border-t-2 border-l-2 border-secondary-container/30 rounded-tl-2xl">
+                    </div>
+                    <div
+                        class="absolute top-3 right-3 w-16 h-16 border-t-2 border-r-2 border-secondary-container/30 rounded-tr-2xl">
+                    </div>
+                    <div
+                        class="absolute bottom-3 left-3 w-16 h-16 border-b-2 border-l-2 border-secondary-container/30 rounded-bl-2xl">
+                    </div>
+                    <div
+                        class="absolute bottom-3 right-3 w-16 h-16 border-b-2 border-r-2 border-secondary-container/30 rounded-br-2xl">
+                    </div>
 
                     <div class="text-center mb-8">
-                        <span class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter IX</span>
+                        <span
+                            class="text-secondary font-button-label text-button-label tracking-[0.2em] uppercase">Chapter
+                            IX</span>
                         <h2 class="font-headline-lg text-headline-lg text-primary mt-2">Our Gallery</h2>
-                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments we've shared."</p>
+                        <p class="font-note-body text-on-surface-variant mt-2 italic text-sm">"A collection of moments
+                            we've shared."</p>
                         <div class="w-16 h-0.5 bg-secondary-container mx-auto mt-4"></div>
                     </div>
 
@@ -2067,9 +2107,11 @@
                         <!-- Cards generated by JS -->
                     </div>
 
-                    <div class="mt-10 p-6 bg-surface-container/60 rounded-2xl border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div
+                        class="mt-10 p-6 bg-surface-container/60 rounded-2xl border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                            <div
+                                class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
                                 <span class="material-symbols-outlined fill-icon text-2xl">music_note</span>
                             </div>
                             <div>
@@ -2078,7 +2120,9 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <button class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors" onclick="playGalleryAudio()">
+                            <button
+                                class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 transition-colors"
+                                onclick="playGalleryAudio()">
                                 <span class="material-symbols-outlined" id="gallery-audio-icon">play_arrow</span>
                             </button>
                             <span class="text-sm text-on-surface-variant/50">3:24</span>
@@ -2091,7 +2135,8 @@
                     <div class="mt-8 text-center">
                         <button
                             class="px-10 py-3 bg-primary text-on-primary font-button-label rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all"
-                            onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final Chapter →</button>
+                            onclick="if(!chapterCompleted[9]) completeChapter(9); goToChapter(10);">Continue to Final
+                            Chapter →</button>
                     </div>
                 </div>
             </div>
@@ -2173,25 +2218,40 @@
     <div class="fixed inset-0 z-[300] bg-black/70 backdrop-blur-md flex items-center justify-center p-6 hidden"
         id="letter-modal">
         <div
-            class="max-w-xl w-full bg-surface parchment-texture rounded-2xl shadow-2xl p-8 md:p-12 relative border-2 border-secondary-container/30 animate-[fadeIn_0.5s_ease-out]">
-            <button class="absolute top-4 right-4 text-primary hover:scale-110 transition" onclick="closeLetter()">
-                <span class="material-symbols-outlined text-3xl">close</span>
-            </button>
-            <h3 class="font-headline-lg text-primary text-2xl mb-6 text-center">My Dearest Affin,</h3>
-            <div class="space-y-4 font-body-main text-on-surface-variant leading-relaxed">
-                <p>On your birthday, I want you to know how deeply you are loved. Every moment with you is a treasured
-                    page in the book of my life.</p>
-                <p>Your smile lights up my darkest days, your laughter is the sweetest melody, and your love is the
-                    greatest gift I've ever received.</p>
-                <p>May this year is our final chapter. In my final act of love, I want to give you everything you deserve and desire except me. So, one last time I truly want to say ILOVEYOU Affin.
-                </p>
-                <p>
-                    You know, fun fact: I'm still crying while writing this letter, and you will always be the reason for my tears and my dreams. Even when this ends, you will stay in every quiet moment of my heart, like a memory I can never erase and never replace.
-                </p>
-                <p>If love had a face, it would still look like you in my eyes—soft, painful, unforgettable. And if goodbye is the price of loving you, I'll pay it with a broken smile.</p>
-                <p>ILOVEYOU, always… even when you're no longer mine.</p>
-                <p class="text-right font-bold text-primary mt-4">Happy Birthday, with all my heart.</p>
-                <p class="text-right handwritten text-2xl mt-2">Forever yours, LF</p>
+            class="max-w-xl w-full bg-surface parchment-texture rounded-2xl shadow-2xl border-2 border-secondary-container/30 animate-[fadeIn_0.5s_ease-out] flex flex-col max-h-[90vh]">
+            <!-- Fixed Header -->
+            <div class="relative flex-shrink-0 p-8 md:p-12 pb-4">
+                <button class="absolute top-4 right-4 text-primary hover:scale-110 transition z-10"
+                    onclick="closeLetter()">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+                <h3 class="font-headline-lg text-primary text-2xl text-center pr-8">My Dearest Affin,</h3>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="px-8 md:px-12 pb-8 md:pb-12 overflow-y-auto flex-1 custom-scrollbar">
+                <div class="space-y-4 font-body-main text-on-surface-variant leading-relaxed">
+                    <p>On your birthday, I want you to know how deeply you are loved. Every moment with you is a
+                        treasured
+                        page in the book of my life.</p>
+                    <p>Your smile lights up my darkest days, your laughter is the sweetest melody, and your love is the
+                        greatest gift I've ever received.</p>
+                    <p>May this year is our final chapter. In my final act of love, I want to give you everything you
+                        deserve
+                        and desire except me. So, one last time I truly want to say ILOVEYOU Affin.</p>
+                    <p>
+                        You know, fun fact: I'm still crying while writing this letter, and you will always be the
+                        reason for
+                        my tears and my dreams. Even when this ends, you will stay in every quiet moment of my heart,
+                        like a
+                        memory I can never erase and never replace.
+                    </p>
+                    <p>If love had a face, it would still look like you in my eyes—soft, painful, unforgettable. And if
+                        goodbye is the price of loving you, I'll pay it with a broken smile.</p>
+                    <p>ILOVEYOU, always… even when you're no longer mine.</p>
+                    <p class="text-right font-bold text-primary mt-4">Happy Birthday, with all my heart.</p>
+                    <p class="text-right handwritten text-2xl mt-2">Forever yours, LF</p>
+                </div>
             </div>
         </div>
     </div>
@@ -2292,7 +2352,7 @@
         // Start audio on any user click if it hasn't started yet
         document.addEventListener('click', () => {
             if (bgAudio.paused) {
-                bgAudio.play().catch(() => {});
+                bgAudio.play().catch(() => { });
             }
         }, { once: true });
 
@@ -2529,7 +2589,7 @@
         }
 
         // ── Home book interaction ──
-        document.getElementById('home-book')?.addEventListener('click', function() {
+        document.getElementById('home-book')?.addEventListener('click', function () {
             this.classList.remove('animate-float');
             void this.offsetWidth;
             this.classList.add('animate-float');
@@ -2607,15 +2667,15 @@
 
             if (chapterIdx === 8) {
                 btn.innerHTML =
-                '<span class="flex items-center justify-center gap-2">View Gallery <span class="material-symbols-outlined">photo_library</span></span>';
-                btn.onclick = function() {
+                    '<span class="flex items-center justify-center gap-2">View Gallery <span class="material-symbols-outlined">photo_library</span></span>';
+                btn.onclick = function () {
                     closeEnvelope();
                     goToChapter(9);
                 };
             } else {
                 btn.innerHTML =
                     '<span class="flex items-center justify-center gap-2">Continue Your Journey <span class="material-symbols-outlined">keyboard_double_arrow_right</span></span>';
-                btn.onclick = function() {
+                btn.onclick = function () {
                     closeEnvelope();
                     if (chapterIdx < 7) goToChapter(chapterIdx + 1);
                     else if (chapterIdx === 7) goToChapter(8);
@@ -2807,8 +2867,10 @@
         }
 
         function resetMemoryGame() {
-            if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval);
-                memoryGame.timerInterval = null; }
+            if (memoryGame.timerInterval) {
+                clearInterval(memoryGame.timerInterval);
+                memoryGame.timerInterval = null;
+            }
             memoryGame.timer = 0;
             document.getElementById('timer-display').textContent = '0s';
             memoryGame.flipped = [];
@@ -2878,8 +2940,10 @@
                     memoryGame.locked = false;
                     if (memoryGame.matched === 8) {
                         memoryGame.isComplete = true;
-                        if (memoryGame.timerInterval) { clearInterval(memoryGame.timerInterval);
-                            memoryGame.timerInterval = null; }
+                        if (memoryGame.timerInterval) {
+                            clearInterval(memoryGame.timerInterval);
+                            memoryGame.timerInterval = null;
+                        }
                         document.getElementById('memory-success').classList.remove('hidden');
                         document.querySelector('#memory-success .font-note-body').innerHTML =
                             '"🧠 You\'ve unlocked the memory! The word is: <span class="text-primary font-bold">MEMORIES</span>"';
@@ -2937,7 +3001,7 @@
                         slot.textContent = cipherState.selectedLetter;
                         slot.classList.add('filled');
                         document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove(
-                        'active-char'));
+                            'active-char'));
                         cipherState.selectedLetter = null;
                         if (cipherState.answer.every(l => l !== '')) checkCipherAnswer();
                     }
@@ -2964,7 +3028,7 @@
                 span.addEventListener('click', () => {
                     if (cipherState.completed || chapterCompleted[4]) return;
                     document.querySelectorAll('.cipher-wheel .char').forEach(c => c.classList.remove(
-                    'active-char'));
+                        'active-char'));
                     span.classList.add('active-char');
                     cipherState.selectedLetter = char;
                 });
@@ -2990,7 +3054,7 @@
                 cipherState.completed = true;
                 document.getElementById('cipher-success').classList.remove('hidden');
                 document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => slot.classList.add(
-                'correct'));
+                    'correct'));
                 document.getElementById('cipher-hint').textContent = '✅ Correct!';
             } else {
                 document.querySelectorAll('#cipher-answer-slots .crypto-letter').forEach(slot => {
@@ -3222,8 +3286,10 @@
                 slot.className = 'morse-letter-slot';
                 slot.dataset.index = i;
                 slot.textContent = '';
-                slot.addEventListener('click', () => { if (!morseGame.completed && !chapterCompleted[6])
-                    setMorseActiveSlot(i); });
+                slot.addEventListener('click', () => {
+                    if (!morseGame.completed && !chapterCompleted[6])
+                        setMorseActiveSlot(i);
+                });
                 slotsContainer.appendChild(slot);
                 morseGame.slots.push(slot);
             });
@@ -3280,8 +3346,10 @@
 
         function clearMorseAnswer() {
             if (morseGame.completed || chapterCompleted[6]) return;
-            morseGame.slots.forEach((slot, i) => { slot.textContent = '';
-                slot.classList.remove('filled'); });
+            morseGame.slots.forEach((slot, i) => {
+                slot.textContent = '';
+                slot.classList.remove('filled');
+            });
             setMorseActiveSlot(0);
         }
 
@@ -3416,8 +3484,8 @@
         }
 
         // Reset button
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('puzzle-reset').addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('puzzle-reset').addEventListener('click', function () {
                 if (puzzle.timerInterval) clearInterval(puzzle.timerInterval);
                 puzzle.completed = false;
                 chapterCompleted[7] = false; // Allow redo if not completed
@@ -3439,7 +3507,7 @@
                     <div class="polaroid-tape"></div>
                     <div class="overlay"><p>${img.label}</p></div>
                 `;
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     openGalleryModal(img.src, img.label);
                 });
                 container.appendChild(card);
@@ -3461,7 +3529,7 @@
             document.body.style.overflow = '';
         }
 
-        document.getElementById('gallery-modal').addEventListener('click', function(e) {
+        document.getElementById('gallery-modal').addEventListener('click', function (e) {
             if (e.target === this) closeGalleryModal();
         });
 
@@ -3485,8 +3553,10 @@
 
         function pressCodeKey(val) {
             if (codeState.locked || chapterCompleted[8]) return;
-            if (val === 'clear') { codeState.digits = ['', '', '', '', '', '', ''];
-                updateCodeLockDisplay(); return; }
+            if (val === 'clear') {
+                codeState.digits = ['', '', '', '', '', '', ''];
+                updateCodeLockDisplay(); return;
+            }
             const idx = codeState.digits.findIndex(d => d === '');
             if (idx === -1) return;
             codeState.digits[idx] = val;
@@ -3513,8 +3583,10 @@
             } else {
                 codeState.attempts++;
                 document.getElementById('code-attempts').textContent = `Attempts: ${codeState.attempts} / ${codeState.maxAttempts}`;
-                document.querySelectorAll('#code-lock .code-digit').forEach(el => { el.classList.add('wrong');
-                    setTimeout(() => el.classList.remove('wrong'), 400); });
+                document.querySelectorAll('#code-lock .code-digit').forEach(el => {
+                    el.classList.add('wrong');
+                    setTimeout(() => el.classList.remove('wrong'), 400);
+                });
                 if (codeState.attempts >= codeState.maxAttempts) {
                     codeState.locked = true;
                     document.getElementById('code-hint').textContent =
